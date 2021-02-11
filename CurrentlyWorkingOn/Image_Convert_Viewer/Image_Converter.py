@@ -232,9 +232,12 @@ class Application(tk.Frame):
 
         self.delonframe = LabelFrame(text="After conversion - Delete old files?")
         self.delonframe.pack()
-        self.delonconv = Radiobutton(self.delonframe,variable=self.todelete,text="Yes",value=True,command=self.deleteonconvert).pack()
-        self.notdelonconv = Radiobutton(self.delonframe,variable=self.todelete,text="No",value=False,command=self.deleteonconvert).pack()
-        self.dellabel= Label(self.delonframe,textvariable=self.deltextinfo).pack()
+        self.delonconv = Radiobutton(self.delonframe,variable=self.todelete,text="Yes",value=True,command=self.deleteonconvert)
+        self.delonconv.pack()
+        self.notdelonconv = Radiobutton(self.delonframe,variable=self.todelete,text="No",value=False,command=self.deleteonconvert)
+        self.notdelonconv.pack()
+        self.dellabel= Label(self.delonframe,textvariable=self.deltextinfo)
+        self.dellabel.pack()
 
         
       
