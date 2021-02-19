@@ -204,6 +204,8 @@ class ImgConvert():
     ----------
     convert()
         Converting all images in a directory based on parameters passed in class creation.
+    does_exist()
+        Chck if file path exists to avoid overwriting file issues.
     '''
     
     def __init__(self,from_format,to_format,_directory,to_delete):
@@ -234,12 +236,37 @@ class ImgConvert():
             
             self.img_count += 1
             img = Image.open(file)
-            file = str(file).rstrip(self.from_format)
-            img.save(file + self.to_format)
+            self.nofrmt_file = str(file).rstrip(self.from_format)
+            self.to_file = self.nofrmt_file+self.to_format
             
+            self.does_exist()   
+             
+            img.save(self.to_file)
+
             if self.to_delete:
                 
-                os.remove(file+self.from_format) 
+                try:
+                    os.remove(self.nofrmt_file+self.from_format)
+                except OSError as e:
+                    tk.messagebox.showinfo(title='OSError', message=f"{e}") 
+                except IOError as e:
+                    tk.messagebox.showinfo(title='IOError', message=f"{e}")
+        
+    def does_exist(self):
+        '''
+        Function for avoiding overwriting by checking if file exists.
+        It will index file with _000 format.
+        '''
+        counter = 0 
+        while os.path.exists(self.to_file):
+            if len(str(counter)) == 1:
+                self.to_file = self.nofrmt_file+'_00'+str(counter)+self.to_format
+            elif len(str(counter)) ==2:
+                self.to_file = self.nofrmt_file+'_0'+str(counter)+self.to_format
+            else:
+                self.to_file = self.nofrmt_file+'_'+str(counter)+self.to_format
+            counter += 1
+                                       
 class SimplePage(tk.Frame):
     '''
     Class to create a very simple page with Convert option.
@@ -262,26 +289,38 @@ class SimplePage(tk.Frame):
     
     if_corrct_entry(tk.entry.event)
         Event function mostly used for 1 image conversion.
+        
     get_imgdir(tk.button.command)
         Command function to open WINDOWS GUI directory and store info into entry box provided by user.
+        
+    look_for_extensions()
+        Checking directory for image extensions. 
+        
     what_to_compress(tk.listbox.event)
         Event function for getting information from what type of file to compress.
+        
     into_what(tk.listbox.event)
         Event function for getting information to what type of file to compress.
+        
     change_page(tk.button.command)
          Command function to change layout to Advanced Page.
+         
     deleteonconvert(tk.radiobutton.command)
         Command function for 'todelete' radio buttons.
+        
     convert(tk.button.command)
         Function using ImgConvert class for converting image files.
     '''
     def __init__(self,parent=None, **kwargs):
         
-        self.filetypelist = ['.jpg', '.png', '.tiff'] #Supporting format types
-        self.fromchosenfile = '.jpg'    #Convert From
-        self.tochosenfile = '.png'      #Conver To
+        self.tuplefiletype = ('.jpg','.png','tiff')
+        self.filetypelist = [_type for _type in self.tuplefiletype] #Supporting format type
+        self.avaiabletypes = []
+        self.fromchosenfile = None   #Convert From
+        self.tochosenfile = None     #Conver To
         #self.typedic = {'.jpg':[0,0,0],'.png':[0,0,0],'.tiff':[0,0,0]} - For Advanced Page
         self.imgdir = os.getcwd()       #Current Directory
+        
         
         self.todelete = tk.BooleanVar(parent) #Switch for permanently deleting files.
         self.todelete.set(False)
@@ -304,6 +343,7 @@ class SimplePage(tk.Frame):
         self.f_border2 = tk.Frame(self,bg="#557174")
         self.grid_layout()
         self.pack(fill="both",expand=True)
+        self.look_for_extensions()
         
     #/////////////////////////////////////////////////////////
     #Layout functions
@@ -369,7 +409,7 @@ class SimplePage(tk.Frame):
         #Listbox ConvertFrom
         self.convertfrom = tk.Listbox(self.f_main_panel, selectmode=BROWSE, exportselection = 0)
         self.convertfrom.grid(row=1,column=1,rowspan=1, columnspan=1,sticky="news")
-        for x in self.filetypelist:
+        for x in self.avaiabletypes:
         	self.convertfrom.insert(END, x)
        	self.convertfrom.bind("<<ListboxSelect>>",self.what_to_compress)
        	self.convertfrom.select_set(0)
@@ -377,7 +417,7 @@ class SimplePage(tk.Frame):
         #Listbox Convert_To
        	self.convert_to = tk.Listbox(self.f_main_panel, selectmode=BROWSE, exportselection = 0)
         self.convert_to.grid(row=1,column=3,rowspan=1, columnspan=1,sticky="news")
-        for x in self.filetypelist[:2]:
+        for x in self.filetypelist:
         	self.convert_to.insert(END, x)
        	self.convert_to.bind("<<ListboxSelect>>",self.into_what)
        	self.convert_to.select_set(1)
@@ -457,12 +497,100 @@ class SimplePage(tk.Frame):
         '''
         Command function to open WINDOWS GUI directory and store info into entry box provided by user.
         '''
+        self.filetypelist = [x for x in self.tuplefiletype]
+        self.avaiabletypes = []
         folder_path = StringVar() 
         self.imgdir = fd.askdirectory()
         folder_path.set(self.imgdir)
         self.entry_dir.delete(0,END)
-        self.entry_dir.insert(0, self.imgdir)   
+        self.entry_dir.insert(0, self.imgdir)
+        
+        self.look_for_extensions()
+        self.refresh_listbox()
+        
+    
+    def look_for_extensions(self):
+        '''
+        Checking directory for image extensions. If found adding them to list which will be used for listboxes in mainpanel.
+        '''   
+        print(self.imgdir)
+        for file in glob.glob(self.imgdir+'/*'):
+            if file.lower().endswith(('.jpg','.png','.tiff')):
+                if os.path.isfile(file):
+                    ext = os.path.splitext(file)[-1].lower()
+                    if ext not in self.avaiabletypes:
+                        self.avaiabletypes.append(ext)
+                        if len(self.avaiabletypes)==3:
+                            break
+        self.avaiabletypes.sort()
+
+    def refresh_listbox(self):
+        #For No Img Files - Clear List Boxes
+        if len(self.avaiabletypes) == 0:
+            self.fromchosenfile = None
+            self.tochosenfile = None
+            self.convert_to.delete(0,END)
+            self.convertfrom.delete(0,END)
+            print(self.fromchosenfile)
+            print(self.tochosenfile)
             
+        #For 1 Img Type File - Clear Box/Make 1 option avaiable in ConvertFrom Listbox/Automatic choice   
+        elif len(self.avaiabletypes) <= 1:
+            
+            #Set types and delete file type to avoid conversion to same type.
+            self.fromchosenfile = self.avaiabletypes[0]
+            self.filetypelist.remove(self.fromchosenfile)
+            self.tochosenfile = self.filetypelist[0]
+            
+            #Refresh lists
+            self.convert_to.delete(0,END)
+            for x in self.filetypelist:
+        	    self.convert_to.insert(END, x)
+             
+            self.convertfrom.delete(0,END)
+            for x in self.avaiabletypes:
+        	    self.convertfrom.insert(END, x)
+            
+            #Refresh selection 
+            self.convertfrom.selection_clear(0,END)
+            self.convertfrom.select_set(0)
+            
+            self.convert_to.selection_clear(0,END)
+            self.convert_to.select_set(0)
+            
+            print(self.fromchosenfile)
+            print(self.tochosenfile)
+            
+        else:
+            self.convertfrom.delete(0,END)
+            for x in self.avaiabletypes:
+        	    self.convertfrom.insert(END, x)
+             
+            self.convert_to.delete(0,END)
+            for x in self.filetypelist:
+        	    self.convert_to.insert(END, x)
+            self.fromchosenfile = self.avaiabletypes[0]
+            self.tochosenfile = self.filetypelist[0]
+             
+            self.chck_listbox_imgtypes()
+             
+
+    def chck_listbox_imgtypes(self):
+        
+        if self.fromchosenfile == self.tochosenfile:
+
+            self.convert_to.selection_clear(0,END)
+            
+            if self.filetypelist.index(self.fromchosenfile) == 0:
+                
+                self.convert_to.select_set(1)
+                self.tochosenfile = self.filetypelist[1]
+                
+            else:
+                
+                self.convert_to.select_set(0)
+                self.tochosenfile = self.filetypelist[0]    
+                                  
     #TODO: Improve func for img type list expansion
     def what_to_compress(self,event):
         '''
@@ -470,18 +598,9 @@ class SimplePage(tk.Frame):
         Also changes convert_to listbox selection when choice would the same - Avoiding convsion to same format.
         '''
         
-        self.fromchosenfile = self.convertfrom.get(self.convertfrom.curselection()) 
-    	
-        if self.fromchosenfile == ".jpg":
-
-            self.convert_to.selection_clear(0,END)
-            self.convert_to.select_set(1)
-            self.tochosenfile = '.png'
-        elif self.fromchosenfile == ".png":
-
-            self.convert_to.selection_clear(0,END)
-            self.convert_to.select_set(0)
-            self.tochosenfile = '.jpg'
+        self.fromchosenfile = self.convertfrom.get(self.convertfrom.curselection())
+        self.chck_listbox_imgtypes()
+        
 
     #TODO: Improve func for img type list expansion
     def into_what(self,event):
@@ -491,21 +610,22 @@ class SimplePage(tk.Frame):
         '''
 
         self.tochosenfile = self.convert_to.get(self.convert_to.curselection()) 
-    	
-        if self.fromchosenfile != ".tiff":
 
-            if self.tochosenfile == ".jpg":
+        if self.tochosenfile == self.fromchosenfile:
 
-                self.convertfrom.selection_clear(0, tk.END)
-                self.convertfrom.select_set(1)
-                self.fromchosenfile = '.png'
-
-            elif self.tochosenfile == ".png":
-
-                self.convertfrom.selection_clear(0, tk.END)
-                self.convertfrom.select_set(0)
-                self.fromchosenfile = '.jpg'
+            self.convertfrom.selection_clear(0,END)
+            inx = self.filetypelist.index(self.tochosenfile)
             
+            if inx == 0:
+                
+                self.convertfrom.select_set(1)
+                self.tochosenfile = self.filetypelist[1]
+                
+            else:
+                
+                self.convertfrom.select_set(0)
+                self.tochosenfile = self.filetypelist[0]
+                
     def change_page(self):
         '''
         Command function to change layout to Advanced Page
