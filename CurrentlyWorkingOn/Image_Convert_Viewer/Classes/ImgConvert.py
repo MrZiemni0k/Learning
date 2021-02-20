@@ -1,3 +1,4 @@
+#TODO: Squeeze code into os.path.split instead of str+str+str to avoid duplicates .jpg.svg 
 import tkinter as tk
 import glob
 import os, os.path
@@ -35,16 +36,48 @@ class ImgConvert():
         self.to_delete = to_delete
         self.img_count = 0
         
-    def convert(self):
+    def convert_all(self):
         '''
         Script to convert all images based on parameters passed in class creation. 
         Based on to_delete parameter - Deletes or not used files.
         '''
         for file in glob.glob(self._directory+'/*'+self.from_format):
+            try:
+                img = Image.open(file)
+                
+                self.img_count += 1
+                self.nofrmt_file = str(file).rstrip(self.from_format)
+                self.to_file = self.nofrmt_file+self.to_format
+                self.does_exist()   
+                img.save(self.to_file)
+                
+                if self.to_delete:
+                
+                    try:
+                        os.remove(self.nofrmt_file+self.from_format)
+                    except OSError as e:
+                        tk.messagebox.showinfo(title='OSError', message=f"{e}") 
+                    except IOError as e:
+                        tk.messagebox.showinfo(title='IOError', message=f"{e}")
+                
+            except OSError as e:
+                tk.messagebox.showinfo(title='Error', message=f"{e}\nConversion aborted.")
+                break 
+                
+
+
             
-            self.img_count += 1
-            img = Image.open(file)
-            self.nofrmt_file = str(file).rstrip(self.from_format)
+                    
+    def convert_one(self):
+        '''
+        Script to convert one image based on parameters passed in class creation. 
+        Based on to_delete parameter - Deletes or not used files.
+        '''
+        try:
+            img = Image.open(self._directory)
+            
+            self.img_count += 1        
+            self.nofrmt_file = str(self._directory).rstrip(self.from_format)
             self.to_file = self.nofrmt_file+self.to_format
             
             self.does_exist()   
@@ -59,7 +92,12 @@ class ImgConvert():
                     tk.messagebox.showinfo(title='OSError', message=f"{e}") 
                 except IOError as e:
                     tk.messagebox.showinfo(title='IOError', message=f"{e}")
+                except OSError as e:
+                    tk.messagebox.showinfo(title='Error', message=f"{e}\nConversion aborted.") 
         
+        except OSError as e:
+            tk.messagebox.showinfo(title='Error', message=f"{e}\nConversion aborted.")
+                 
     def does_exist(self):
         '''
         Function for avoiding overwriting by checking if file exists.
