@@ -66,7 +66,7 @@ class SimpleTable(tk.Frame):
         #Set Head Style
         self.tablestyle(0,0,0,3)
         #Set Cells Style
-        self.tablestyle(1,3,0,3,stylelist[1])
+        #self.tablestyle(1,3,0,3,stylelist[1])
         
     def create_table(self,issticky="nsew"):
         '''
@@ -87,6 +87,16 @@ class SimpleTable(tk.Frame):
                                 )
                 current_row.append(tablelabel)
             self.tablecell.append(current_row)
+
+        #Setting weight for head table 
+        self.rowconfigure(0, weight=2)  
+        
+        #Setting weight for the rest
+        for row in range(1,self.rows):
+            self.rowconfigure(row, weight=1)
+        for column in range(0,self.rows):
+            self.columnconfigure(row, weight=1)
+        
 
     def tablestyle(self,min_row,max_row,min_column,max_column,style=stylelist[0]):
         '''

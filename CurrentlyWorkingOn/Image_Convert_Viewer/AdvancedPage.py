@@ -1,3 +1,6 @@
+#TODO:Advanved Image_Converter with Image_Viewing and multiple selection.
+#TODO:Connection with PostgreSQL - tagging pictures and storing location(?) - if possible in database for machine learning.
+
 import tkinter as tk
 import SimplePage as _sp
 

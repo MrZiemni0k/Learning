@@ -1,5 +1,5 @@
-#TODO: Reorganize frames and give up on simple page -> Make it as one of options in programm.
-#TODO: On the left build a listbox with multiple choice with files for image converting. Left top small image viewer
+#TODO: HUGE BUG WITH TABLE. Scripts working fine but connection between scripts is having not logical results.
+# It's like whenever there is extension file it connects with all dicts. Also dict doesnt reset values when needed. 
 #TODO: Put table with statistics and integrate with dictionary depending on tuple parameters.
 #TODO: Prepare some icons for buttons.
 #TODO: Style
@@ -13,6 +13,9 @@ from Classes import ImgConvert
 import os, os.path
 import glob
 import AdvancedPage as _ap
+from Classes import SimpleTable as _st
+from Classes import StoreInfo as _si
+from Classes import AppDictionary as _ad
 import time
                      
                                                            
@@ -63,22 +66,24 @@ class SimplePage(tk.Frame):
     def __init__(self,parent=None):
         
         self.tuplefiletype = ('.jpg','.png','.tiff')
-        self.listfiletype = [_type for _type in self.tuplefiletype] #Supporting format type
+        self.listfiletype = [x for x in self.tuplefiletype]
         self.listfiletype.sort()
-        self.avaiabletypes = []
         self.fromchosenfile = None   #Convert From
         self.tochosenfile = None     #Conver To
-        #self.typedic = {'.jpg':[0,0,0],'.png':[0,0,0],'.tiff':[0,0,0]} - For Advanced Page
-        self.imgdir = os.getcwd()     #Current Directory
         
+        self.imgdir = os.getcwd()     #Current Directory
         
         self.todelete = tk.BooleanVar(parent) #Switch for permanently deleting files.
         self.todelete.set(False)
         
         self.deltextinfo = tk.StringVar(parent) #Caution info for Delete Frame
-        self.deltextinfo.set("") 
+        self.deltextinfo.set("")
         
-        tk.Frame.__init__(self,parent,bg='#d6eaff')
+        self.refresh_data()
+        
+
+        
+        tk.Frame.__init__(self,parent,bg='#c7cfb7')
         
 
 
@@ -87,58 +92,106 @@ class SimplePage(tk.Frame):
         self.top_panel()
         self.sub_panel()
         self.main_panel()
-        #TODO:Organize rest Frames.
+
         self.f_status_panel = tk.Frame(self, bg="#f2f4ff")
         self.f_border1 = tk.Frame(self,bg="#f2f4ff")
         self.f_border2 = tk.Frame(self,bg="#f2f4ff")
         self.grid_layout()
         self.pack(fill="both",expand=True)
-        self.look_for_extensions()
+
         self.refresh_listbox()
+
         
     #/////////////////////////////////////////////////////////
     #Layout functions
+    # 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 
+    # 10 |   BTN   |     ENTRY BOX     | DIR BTN | 19
+    # 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 
+    # 30 |   BG    |                   |   BG    | 39 
+    # 40 |   BG    |                   |   BG    | 49 
+    # 50 |   BG    |     Main Panel    |   BG    | 59 
+    # 60 |   BG    |                   |   BG    | 69 
+    # 70 |   BG    |                   |   BG    | 79 
+    # 80 |   BG    |                   |   BG    | 89 
+    # 90 | 91 | 92 | 93 | 94 | 95 | 96 | 97 | 98 | 99  
     #/////////////////////////////////////////////////////////
-    
-    #TODO: Style nicely. Fill Top Panel with something.    
+       
     def top_panel(self):
         '''
         Creating and layouting top panel with:
-                * Button to change from Simple to Advanced Page       
-        '''  
-              
+      
+        '''       
         self.f_top_panel = tk.Frame(self,bg="#f2f4ff")
-        
-        #Button to change from Simple to Advanced Page     
-        self.simple_adv_btn = tk.Button(self.f_top_panel,command=self.change_page,text="SP/AP")
-        self.simple_adv_btn.grid(row=1,column=1,rowspan=1, columnspan=1,sticky="news")
-        
-    #TODO: Make Windows GUI directory show pictures - not only directories.
+        self.f_space_panel = tk.Frame(self,bg="#c7cfb7")
+            
     def sub_panel(self):
         '''
         Creating and layouting sub panel with:
+                * Button to change from Simple to Advanced Page 
                 * Functional entry box for directory location.
                 (Functional means copy-paste and writing work - No need to use Open Dir button)
-                * Button to open Windows Directory GUI.   
+                * Button to open Windows Directory GUI.                                  
         '''
         
-        self.f_sub_panel = tk.Frame(self,bg="#6c756b")
+        #Divide Panel onto 3. Left // Center  // Right
+        self.f_sub_panel_left = tk.Frame(self,bg='#6c756b',bd=2, relief='groove')
+        self.f_sub_panel_left.grid(row=1, column=1, rowspan=1, columnspan=2, sticky="news")
+        
+        self.f_sub_panel_center = tk.Frame(self,bg='#6c756b',bd=2, relief='groove')
+        self.f_sub_panel_center.grid(row=1, column=3, rowspan=1, columnspan=4, sticky="news")
+        
+        self.f_sub_panel_right = tk.Frame(self,bg='#6c756b',bd=2, relief='groove')
+        self.f_sub_panel_right.grid(row=1, column=7, rowspan=1, columnspan=2, sticky="news")
+        
+        #//////////////////////
+        #Sub Panel - Left
+        #//////////////////////
+        self.f_sub_panel_left.rowconfigure((0,2), weight=1)
+        self.f_sub_panel_left.rowconfigure((1), weight=2)
+        self.f_sub_panel_left.columnconfigure((0,2), weight=1)
+        self.f_sub_panel_left.columnconfigure((1), weight=2)
+        
+        #Button to change from Simple to Advanced Page     
+        self.simple_adv_btn = tk.Button(self.f_sub_panel_left,command=self.change_page,text="Main")
+        self.simple_adv_btn.grid(row=1,column=1,rowspan=1, columnspan=1,sticky="news")
+        
+        #//////////////////////
+        #Sub Panel - Center
+        #//////////////////////
+        
+        self.f_sub_panel_center.rowconfigure((0,2), weight=1)
+        self.f_sub_panel_center.rowconfigure((1), weight=2)
+        self.f_sub_panel_center.columnconfigure((0,5), weight=1)
+        self.f_sub_panel_center.columnconfigure((1,2,3,4), weight=5)
         
         #Entry directory box
-        self.entry_dir = tk.Entry(self.f_sub_panel)
-        self.entry_dir.grid(row=1,column=1,rowspan=1, columnspan=5,sticky="news")
+        self.entry_dir = tk.Entry(self.f_sub_panel_center)
+        self.entry_dir.grid(row=1,column=1,rowspan=1, columnspan=4,sticky="news")
         self.entry_dir.insert(0,self.imgdir)
         self.entry_dir.bind("<Return>",self.chck_entrybox)
         
         #Button with WINDOWS GUI Directory
-        self.open_dir = tk.Button(self.f_sub_panel,text="Open DIR",command=lambda:self.get_imgdir())
-        self.open_dir.grid(row=1,column=7,rowspan=1, columnspan=1,sticky="news")
+        self.open_dir = tk.Button(self.f_sub_panel_right,text="Open DIR",command=lambda:self.get_imgdir())
+        self.open_dir.grid(row=1,column=1,rowspan=1, columnspan=1,sticky="news")
 
-        #Weight configuration for window expanding.
-        self.f_sub_panel.rowconfigure((0,1,2), weight=1)
-        self.f_sub_panel.columnconfigure((1,2,3,4,5), weight=3)
-        self.f_sub_panel.columnconfigure((0,6,7,8), weight=1)
-        
+        self.f_sub_panel_right.rowconfigure((0,2), weight=1)
+        self.f_sub_panel_right.rowconfigure((1), weight=2)
+        self.f_sub_panel_right.columnconfigure((0,2), weight=1)
+        self.f_sub_panel_right.columnconfigure((1), weight=2)
+
+    #/////////////////////////////////////////////////////////
+    #Main Panel
+    # 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 
+    # 10 | 11 | 12 |       Table       | 17 | 18 | 19
+    # 20 | 21 | 22 |                   | 27 | 28 | 29 
+    # 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 
+    # 40 |   DEL   |  LBL    |   LBL   | 47 | 48 | 49 
+    # 50 |   DEL   |  LSTBOX | LSTBOX  | 57 | 58 | 59 
+    # 60 |   DEL   |         |         |  Start  | 69 
+    # 70 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 
+    # 80 |             Progress Bar              | 89 
+    # 90 | 91 | 92 | 93 | 94 | 95 | 96 | 97 | 98 | 99  
+    #/////////////////////////////////////////////////////////    
     def main_panel(self):
         '''
         Creating and layouting main panel with:
@@ -149,27 +202,30 @@ class SimplePage(tk.Frame):
         
         self.f_main_panel = tk.Frame(self,bg="#dbe4ee")
         
+        #Table with info:
+        self.refresh_table()              
+        
         #Label "FROM"
         self.l_from = tk.Label(self.f_main_panel,text="From",bg="#96c5f7")
-        self.l_from.grid(row=0,column=1,rowspan=1, columnspan=1,sticky="news")
+        self.l_from.grid(row=4,column=3,rowspan=1, columnspan=2,sticky="news")
         
         #Label "TO"
         self.l_to = tk.Label(self.f_main_panel,text="To",bg="#f4f9f9")
-        self.l_to.grid(row=0,column=3,rowspan=1, columnspan=1,sticky="news")
+        self.l_to.grid(row=4,column=5,rowspan=1, columnspan=2,sticky="news")
         
         #Listbox Convert_From
         self.convert_from = tk.Listbox(self.f_main_panel, selectmode=tk.BROWSE, exportselection = 0)
-        self.convert_from.grid(row=1,column=1,rowspan=1, columnspan=1,sticky="news")
+        self.convert_from.grid(row=5,column=3,rowspan=2, columnspan=2,sticky="news")
        	self.convert_from.bind("<<ListboxSelect>>",self.from_what)
 
         #Listbox Convert_To
        	self.convert_to = tk.Listbox(self.f_main_panel, selectmode=tk.BROWSE, exportselection = 0)
-        self.convert_to.grid(row=1,column=3,rowspan=1, columnspan=1,sticky="news")
+        self.convert_to.grid(row=5,column=5,rowspan=2, columnspan=2,sticky="news")
         self.convert_to.bind("<<ListboxSelect>>",self.into_what)
         
         #Delonframe for radio buttons
         self.delonframe = tk.LabelFrame(self.f_main_panel,text="Delete old files?")
-        self.delonframe.grid(row=3,column=1,rowspan=1, columnspan=1,sticky="news")
+        self.delonframe.grid(row=6,column=1,rowspan=1, columnspan=2,sticky="news")
         
         #Delete button
         self.delonconv = tk.Radiobutton(self.delonframe,variable=self.todelete,text="Yes",value=True,command=self.deleteonconvert)
@@ -186,12 +242,13 @@ class SimplePage(tk.Frame):
         
         #Start Button
         self.start_btn = tk.Button(self.f_main_panel,text="Start",command=lambda:self.convert(),bg="#557174",fg="#f4f9f9")  
-        self.start_btn.grid(row=3,column=3,rowspan=1, columnspan=1,sticky="news")
+        self.start_btn.grid(row=6,column=7,rowspan=1, columnspan=2,sticky="news")
         
         #Weight configuration for window expanding.
-        self.f_main_panel.rowconfigure((0,1,2,3,4,5), weight=1)
-        self.f_main_panel.columnconfigure((1,2,3), weight=1)
-        self.f_main_panel.columnconfigure((0,5), weight=3)
+        self.f_main_panel.rowconfigure((0,3,7,9), weight=2)
+        self.f_main_panel.rowconfigure((1,2,4,5,6,8), weight=3)
+        self.f_main_panel.columnconfigure((0,9), weight=2)
+        self.f_main_panel.columnconfigure((1,2,3,4,5,6,7,8), weight=3)
         
     #TODO: Style nicely 
     def grid_layout(self):
@@ -199,26 +256,41 @@ class SimplePage(tk.Frame):
         Setting up layout by grid. 
         '''
         self.f_top_panel.grid(row=0, column=0, rowspan=1, columnspan=10, sticky="news")
-        self.f_sub_panel.grid(row=1, column=1, rowspan=1, columnspan=8, sticky="news")
+        self.f_space_panel.grid(row=2, column=0, rowspan=1, columnspan=10, sticky="news")
         
-        self.f_border1.grid(row=1, column=0, rowspan=7, columnspan=1, sticky="news")
-        self.f_border2.grid(row=1, column=9, rowspan=7, columnspan=1, sticky="news")
+        self.f_border1.grid(row=1, column=0, rowspan=8, columnspan=1, sticky="news")
+        self.f_border2.grid(row=1, column=9, rowspan=8, columnspan=1, sticky="news")
         
-        self.f_main_panel.grid(row=2, column=3, rowspan=6, columnspan=4, sticky="news")
-        self.f_status_panel.grid(row=8, column=0, rowspan=2, columnspan=10, sticky="news")
+        self.f_main_panel.grid(row=3, column=3, rowspan=6, columnspan=4, sticky="news")
+        self.f_status_panel.grid(row=9, column=0, rowspan=1, columnspan=10, sticky="news")
 
-        self.rowconfigure((0,1,9), weight=2)
-        self.columnconfigure((0,1,9), weight=2)
-
-        for r in range(2,9):
-            self.rowconfigure(r, weight=5)
-        for c in range(2,9):
+        self.rowconfigure((0,2,9), weight=1)
+        self.rowconfigure((1), weight=2)
+        self.rowconfigure((3,4,5,6,7,8), weight=3)
+        self.columnconfigure((0,1,2,3,7,8,9), weight=3)
+        for c in range(4,7):
             self.columnconfigure(c, weight=4)
         
     #/////////////////////////////////////////////////////////
     #Command/Event Functions
     #/////////////////////////////////////////////////////////
-       
+    def refresh_table(self):
+        HeadList = ["Type","Quantity","Size (MB)", "Avarage (KB)",]
+
+        self.table = _st.SimpleTable(self.f_main_panel,len(self._typedic.typedic.keys())+1,len(HeadList),"#9dc8c9")
+        self.table.filltable(HeadList,self._typedic.typedic)
+        self.table.grid(row=1,column=3,rowspan=2,columnspan=4,sticky="news")
+        
+    def refresh_data(self):
+        
+        self.look_for_extensions()
+        self._typedic = _ad.AppDictionary(self.avaiabletypes,[0,0,0])
+        self._typedic.add_to_dict()
+        print(f'Before storedinfo Class:{self._typedic.typedic}')
+        self.storeddate = _si.StoreInfo(self._typedic.typedic,self.imgdir)
+        self.storeddate.count_imgs() 
+        print(f'After storedinfo Class:{self._typedic.typedic}')
+
     def chck_entrybox(self,event):
         '''
         Event function mostly used to convert only 1 picture instead of many.
@@ -241,12 +313,12 @@ class SimplePage(tk.Frame):
                     title="File not found", 
                     message="Please make sure dir path or file path is provided correctly"
                     )
-            
-    
+         
     def get_imgdir(self):
         '''
         Command function to open WINDOWS GUI directory and store info into entry box provided by user.
         '''
+
         folder_path = tk.StringVar() 
         self.imgdir = fd.askdirectory()
         folder_path.set(self.imgdir)
@@ -254,13 +326,16 @@ class SimplePage(tk.Frame):
         self.entry_dir.insert(0, self.imgdir)
         
         self.look_for_extensions()
-        self.refresh_listbox()  
+        print(f'Self Avaiable is {self.avaiabletypes}')
+        self.refresh_data()
+        self.refresh_listbox()
+        self.refresh_table()  
     
     def look_for_extensions(self):
         '''
         Checking directory for image extensions. If found adding them to list which will be used for listboxes in mainpanel.
         '''
-        self.listfiletype = [x for x in self.tuplefiletype]
+
         self.avaiabletypes = []   
         
         for file in glob.glob(self.imgdir+'/*'):
@@ -269,7 +344,7 @@ class SimplePage(tk.Frame):
                     ext = os.path.splitext(file)[-1].lower()
                     if ext not in self.avaiabletypes:
                         self.avaiabletypes.append(ext)
-                        if len(self.avaiabletypes)==3:
+                        if len(self.avaiabletypes)==len(self.listfiletype):
                             break
         self.avaiabletypes.sort()
     
