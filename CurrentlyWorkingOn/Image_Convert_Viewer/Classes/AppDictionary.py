@@ -5,10 +5,10 @@ class AppDictionary():
 
     Methods
     ----------
-    create_dic()
-        Creates a dictionary based on list and its values.
+    add_to_dict()
+        Add keys and its values to dictionary.
     '''
-    def __init__(self,typelist,values):
+    def __init__(self,typelist,values,typedic={}):
         '''
         Parameters:
         ------------
@@ -16,17 +16,17 @@ class AppDictionary():
             Preferable list of dictionary Key names.
         values(str/list)
             Preferable list of dictionary Keys' values.
+        typedic(dict)
+            Dictionary to work with.
         '''
         self.typelist = typelist
-        self.listvalues = values
+        self.values = values
+        self.typedic = typedic
     
-    def create_dic(self):
+    def add_to_dict(self):
         '''
-        create_dic()
-            Creates a dictionary based on list and its values.
+        Add keys and its values to dictionary.
         '''
-        
-        self.typedic = {}
         
         for _type in self.typelist:
             self.typedic[_type] = self.values
