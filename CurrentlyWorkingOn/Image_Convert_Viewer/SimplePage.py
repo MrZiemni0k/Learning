@@ -1,12 +1,11 @@
-#TODO: HUGE BUG WITH TABLE. Scripts working fine but connection between scripts is having not logical results.
-# It's like whenever there is extension file it connects with all dicts. Also dict doesnt reset values when needed. 
-#TODO: Put table with statistics and integrate with dictionary depending on tuple parameters.
+
 #TODO: Prepare some icons for buttons.
 #TODO: Style
 #TODO: Repair a bug when exiting from WINDOWS DIR GUI -> Entrybox -> it fills listboxes with variables.
 
 
 import tkinter as tk
+from tkinter import ttk
 from tkinter import filedialog as fd
 from tkinter import messagebox
 from Classes import ImgConvert
@@ -15,8 +14,8 @@ import glob
 import AdvancedPage as _ap
 from Classes import SimpleTable as _st
 from Classes import StoreInfo as _si
-from Classes import AppDictionary as _ad
 import time
+from PIL import Image, ImageTk
                      
                                                            
 class SimplePage(tk.Frame):
@@ -66,8 +65,7 @@ class SimplePage(tk.Frame):
     def __init__(self,parent=None):
         
         self.tuplefiletype = ('.jpg','.png','.tiff')
-        self.listfiletype = [x for x in self.tuplefiletype]
-        self.listfiletype.sort()
+        self.create_filetypelist()
         self.fromchosenfile = None   #Convert From
         self.tochosenfile = None     #Conver To
         
@@ -225,7 +223,7 @@ class SimplePage(tk.Frame):
         
         #Delonframe for radio buttons
         self.delonframe = tk.LabelFrame(self.f_main_panel,text="Delete old files?")
-        self.delonframe.grid(row=6,column=1,rowspan=1, columnspan=2,sticky="news")
+        self.delonframe.grid(row=15,column=17,rowspan=1, columnspan=2,sticky="news")
         
         #Delete button
         self.delonconv = tk.Radiobutton(self.delonframe,variable=self.todelete,text="Yes",value=True,command=self.deleteonconvert)
@@ -241,11 +239,12 @@ class SimplePage(tk.Frame):
         self.dellabel.pack()   
         
         #Start Button
-        self.start_btn = tk.Button(self.f_main_panel,text="Start",command=lambda:self.convert(),bg="#557174",fg="#f4f9f9")  
-        self.start_btn.grid(row=6,column=7,rowspan=1, columnspan=2,sticky="news")
-        
+        self.start_pixel_img = Image.open("E:\\Learning\\Learning\\CurrentlyWorkingOn\\Image_Convert_Viewer\\Icons\\Start_Pixel2small.png")
+        self.start_pixel_img = ImageTk.PhotoImage(self.start_pixel_img)
+        self.start_btn = ttk.Button(self.f_main_panel,text="Convert",command=lambda:self.convert())  
+        self.start_btn.grid(row=16,column=17,rowspan=2, columnspan=2,sticky="news")
         #Weight configuration for window expanding.
-        self.f_main_panel.rowconfigure((0,3,7,9), weight=2)
+        self.f_main_panel.rowconfigure((0,3,7,9,10,11,12,13,14,15,16,17,18,19), weight=2)
         self.f_main_panel.rowconfigure((1,2,4,5,6,8), weight=3)
         self.f_main_panel.columnconfigure((0,9), weight=2)
         self.f_main_panel.columnconfigure((1,2,3,4,5,6,7,8), weight=3)
@@ -274,23 +273,25 @@ class SimplePage(tk.Frame):
     #/////////////////////////////////////////////////////////
     #Command/Event Functions
     #/////////////////////////////////////////////////////////
-    def refresh_table(self):
-        HeadList = ["Type","Quantity","Size (MB)", "Avarage (KB)",]
+    def btn_script(self):
+        '''
+        Copy-paste func to not repeat code -> Used to block BTN.
+        '''
+        return(
+            self.tochosenfile in self.tuplefiletype and
+            self.fromchosenfile in self.tuplefiletype and 
+            (
+            self.entry_dir.get().lower().endswith(self.tuplefiletype) or
+            os.path.isdir(self.entry_dir.get())
+            ) 
+           )
 
-        self.table = _st.SimpleTable(self.f_main_panel,len(self._typedic.typedic.keys())+1,len(HeadList),"#9dc8c9")
-        self.table.filltable(HeadList,self._typedic.typedic)
-        self.table.grid(row=1,column=3,rowspan=2,columnspan=4,sticky="news")
-        
-    def refresh_data(self):
-        
-        self.look_for_extensions()
-        self._typedic = _ad.AppDictionary(self.avaiabletypes,[0,0,0])
-        self._typedic.add_to_dict()
-        print(f'Before storedinfo Class:{self._typedic.typedic}')
-        self.storeddate = _si.StoreInfo(self._typedic.typedic,self.imgdir)
-        self.storeddate.count_imgs() 
-        print(f'After storedinfo Class:{self._typedic.typedic}')
-
+    def change_page(self):
+        '''
+        Command function to change layout to AdvancedPage (Module)
+        '''
+        self.master.change(_ap.AdvancedPage)
+      
     def chck_entrybox(self,event):
         '''
         Event function mostly used to convert only 1 picture instead of many.
@@ -300,7 +301,7 @@ class SimplePage(tk.Frame):
         if os.path.isfile(self.imgdir):
             if self.imgdir.lower().endswith(self.tuplefiletype):
                 self.avaiabletypes = [os.path.splitext(self.imgdir)[-1].lower()]
-                self.listfiletype = [x for x in self.tuplefiletype]
+                self.create_filetypelist()
                 self.refresh_listbox()
                 
             else:
@@ -314,96 +315,6 @@ class SimplePage(tk.Frame):
                     message="Please make sure dir path or file path is provided correctly"
                     )
          
-    def get_imgdir(self):
-        '''
-        Command function to open WINDOWS GUI directory and store info into entry box provided by user.
-        '''
-
-        folder_path = tk.StringVar() 
-        self.imgdir = fd.askdirectory()
-        folder_path.set(self.imgdir)
-        self.entry_dir.delete(0,tk.END)
-        self.entry_dir.insert(0, self.imgdir)
-        
-        self.look_for_extensions()
-        print(f'Self Avaiable is {self.avaiabletypes}')
-        self.refresh_data()
-        self.refresh_listbox()
-        self.refresh_table()  
-    
-    def look_for_extensions(self):
-        '''
-        Checking directory for image extensions. If found adding them to list which will be used for listboxes in mainpanel.
-        '''
-
-        self.avaiabletypes = []   
-        
-        for file in glob.glob(self.imgdir+'/*'):
-            if file.lower().endswith(self.tuplefiletype):
-                if os.path.isfile(file):
-                    ext = os.path.splitext(file)[-1].lower()
-                    if ext not in self.avaiabletypes:
-                        self.avaiabletypes.append(ext)
-                        if len(self.avaiabletypes)==len(self.listfiletype):
-                            break
-        self.avaiabletypes.sort()
-    
-    def refresh_listbox(self):
-        '''
-        Refreshes listboxes in mainpanel based on avaiable img types in directory.
-        '''
-        #For No Img Files - Clear List Boxes
-        if len(self.avaiabletypes) == 0:
-            self.fromchosenfile = None
-            self.tochosenfile = None
-            self.convert_to.delete(0,tk.END)
-            self.convert_from.delete(0,tk.END)
-            
-        #For 1 Img Type File - Clear Box/Make 1 option avaiable in Convert_From Listbox/Automatic choice   
-        elif len(self.avaiabletypes) == 1:
-            
-            #Set types and delete file type to avoid conversion to same type.
-            self.fromchosenfile = self.avaiabletypes[0]
-            self.listfiletype.remove(self.fromchosenfile)
-            self.tochosenfile = self.listfiletype[0]
-            
-            #Refresh lists
-            self.convert_to.delete(0,tk.END)
-            for x in self.listfiletype:
-        	    self.convert_to.insert(tk.END, x)
-             
-            self.convert_from.delete(0,tk.END)
-            for x in self.avaiabletypes:
-        	    self.convert_from.insert(tk.END, x)
-            
-            #Refresh selection 
-            self.convert_from.selection_clear(0,tk.END)
-            self.convert_from.select_set(0)
-            
-            self.convert_to.selection_clear(0,tk.END)
-            self.convert_to.select_set(0)
-            
-        #For multiple Img Type File - Clear Box/
-        #Make many options avaiable and automaticaly switch options to avoid conversing same types.
-        else:
-            
-            #Refresh lists
-            self.convert_from.delete(0,tk.END)
-            for x in self.avaiabletypes:
-        	    self.convert_from.insert(tk.END, x)
-             
-            self.convert_to.delete(0,tk.END)
-            for x in self.listfiletype:
-        	    self.convert_to.insert(tk.END, x)
-            
-            #Set types for images.
-            self.fromchosenfile = self.avaiabletypes[0]
-            self.tochosenfile = self.listfiletype[0]
-
-            #Avoid same types.
-            self.chck_listbox_imgtypes()
-        self.state_btn_start()
-    
     def chck_listbox_imgtypes(self):
         '''
         Checks if same file conversion is chosen. 
@@ -425,75 +336,6 @@ class SimplePage(tk.Frame):
                 self.convert_to.select_set(0)
                 self.tochosenfile = self.listfiletype[0]                                               
     
-    def from_what(self,event):
-        '''
-        Event function to change format type from which conversion should be done. Used for convert_from listbox in main panel.
-        Also changes convert_to listbox selection when choice would the same - Avoiding conversion to same format.
-        '''
-        self.fromchosenfile = self.convert_from.get(self.convert_from.curselection())
-        self.chck_listbox_imgtypes()
-            
-    def into_what(self,event):
-        '''
-        Event function to change format type to which conversion should be done. Used for convert_to listbox in main panel.
-        Also changes convert_from listbox selection when choice would the same - Avoiding conversion to same format.
-        '''
-
-        self.tochosenfile = self.convert_to.get(self.convert_to.curselection()) 
-        if self.tochosenfile == self.fromchosenfile:
-
-            self.convert_from.selection_clear(0,tk.END) 
-            
-            if self.avaiabletypes.index(self.tochosenfile) == 0:
-                
-                self.convert_from.select_set(1)
-                self.fromchosenfile = self.avaiabletypes[1]
-                
-            else:
-                
-                self.convert_from.select_set(0)
-                self.fromchosenfile = self.avaiabletypes[0]
-                
-    def change_page(self):
-        '''
-        Command function to change layout to AdvancedPage (Module)
-        '''
-        self.master.change(_ap.AdvancedPage)
-        
-    def deleteonconvert(self):
-        '''
-        Command function for 'todelete' radio buttons.
-        '''
-        
-        if self.todelete.get():
-            self.deltextinfo.set("Files will be permamently deleted!")
-        else:
-            self.deltextinfo.set("")
-    
-    def btn_script(self):
-        '''
-        Copy-paste func to not repeat code -> Used to block BTN.
-        '''
-        return(
-            self.tochosenfile in self.tuplefiletype and
-            self.fromchosenfile in self.tuplefiletype and 
-            (
-            self.entry_dir.get().lower().endswith(self.tuplefiletype) or
-            os.path.isdir(self.entry_dir.get())
-            ) 
-           )
-    def state_btn_start(self):
-        '''
-        Block start button if parameters are missing.
-        '''
-        
-        if self.btn_script():
-            
-            self.start_btn.config(state = "normal", text="Start")
-        else:
-            
-            self.start_btn.config(state = "disabled", text="No",fg="#f4f9f9")
-         
     def convert(self):
         '''
         Function using ImgConvert module class for converting 1 or all image files.
@@ -539,4 +381,192 @@ class SimplePage(tk.Frame):
             
             self.deltextinfo.set("")
             self.todelete.set(False)
- 
+
+    def create_dict(self):
+        
+        self._typedic = {}
+        for _type in self.avaiabletypes:
+            self._typedic[_type] = [0,0,0]
+
+    def create_filetypelist(self):
+        self.listfiletype = [x for x in self.tuplefiletype]
+        self.listfiletype.sort()
+        
+    def deleteonconvert(self):
+        '''
+        Command function for 'todelete' radio buttons.
+        '''
+        
+        if self.todelete.get():
+            self.deltextinfo.set("Files will be permamently deleted!")
+        else:
+            self.deltextinfo.set("")
+    
+    def from_what(self,event):
+        '''
+        Event function to change format type from which conversion should be done. Used for convert_from listbox in main panel.
+        Also changes convert_to listbox selection when choice would the same - Avoiding conversion to same format.
+        '''
+        self.fromchosenfile = self.convert_from.get(self.convert_from.curselection())
+        self.chck_listbox_imgtypes()
+                        
+    def get_imgdir(self):
+        '''
+        Command function to open WINDOWS GUI directory and store info into entry box provided by user.
+        '''
+
+        folder_path = tk.StringVar() 
+        self.imgdir = fd.askdirectory()
+        folder_path.set(self.imgdir)
+        self.entry_dir.delete(0,tk.END)
+        self.entry_dir.insert(0, self.imgdir)
+        
+        
+        self.loadinglabel = tk.Label(self.f_main_panel,text="Loading")
+        self.loadinglabel.grid(row=0,column=0,rowspan=3,columnspan=3,sticky="news")
+        
+        time.sleep(0.2)
+        self.create_filetypelist()
+        self.refresh_data()
+        #del self.loadinglabel
+        self.refresh_listbox()
+        self.refresh_table()  
+        
+        
+        if not self.avaiabletypes:
+            self.loadinglabel.config(text="No pictures")
+
+    def into_what(self,event):
+        '''
+        Event function to change format type to which conversion should be done. Used for convert_to listbox in main panel.
+        Also changes convert_from listbox selection when choice would the same - Avoiding conversion to same format.
+        '''
+
+        self.tochosenfile = self.convert_to.get(self.convert_to.curselection()) 
+        if self.tochosenfile == self.fromchosenfile:
+
+            self.convert_from.selection_clear(0,tk.END) 
+            
+            if self.avaiabletypes.index(self.tochosenfile) == 0:
+                
+                self.convert_from.select_set(1)
+                self.fromchosenfile = self.avaiabletypes[1]
+                
+            else:
+                
+                self.convert_from.select_set(0)
+                self.fromchosenfile = self.avaiabletypes[0]
+
+    def look_for_extensions(self):
+        '''
+        Checking directory for image extensions. If found adding them to list which will be used for listboxes in mainpanel.
+        '''
+
+        self.avaiabletypes = []   
+
+        for file in glob.glob(self.imgdir+'/*'):
+            if file.lower().endswith(self.tuplefiletype):
+                if os.path.isfile(file):
+                    ext = os.path.splitext(file)[-1].lower()
+                    if ext not in self.avaiabletypes:
+                        self.avaiabletypes.append(ext)
+                        if len(self.avaiabletypes)==len(self.listfiletype):
+                            break
+        self.avaiabletypes.sort()
+
+    
+    def state_btn_start(self):
+        '''
+        Block start button if parameters are missing.
+        '''
+        
+        if self.btn_script():
+            
+            self.start_btn.config(state = "normal", text="Convert")
+            self.start_btn.config(image=self.start_pixel_img,compound='left')
+        else:
+            
+            self.start_btn.config(state = "disabled", text="No Images Found")
+            self.start_btn.config(image='')
+                                 
+    def refresh_data(self):
+        
+        self.look_for_extensions()
+        self.create_dict()
+        self.storeddate = _si.StoreInfo(self._typedic,self.imgdir)
+        self.storeddate.count_imgs() 
+   
+    def refresh_listbox(self):
+        '''
+        Refreshes listboxes in mainpanel based on avaiable img types in directory.
+        '''
+
+        #For No Img Files - Clear List Boxes
+        if len(self.avaiabletypes) == 0:
+
+            self.fromchosenfile = None
+            self.tochosenfile = None
+            self.convert_to.delete(0,tk.END)
+            self.convert_from.delete(0,tk.END)
+            
+        #For 1 Img Type File - Clear Box/Make 1 option avaiable in Convert_From Listbox/Automatic choice   
+        elif len(self.avaiabletypes) == 1:
+
+            #Set types and delete file type to avoid conversion to same type.
+            self.fromchosenfile = self.avaiabletypes[0]
+            self.listfiletype.remove(self.fromchosenfile)
+            self.tochosenfile = self.listfiletype[0]
+
+            #Refresh lists
+            self.convert_to.delete(0,tk.END)
+            for x in self.listfiletype:
+        	    self.convert_to.insert(tk.END, x)
+             
+            self.convert_from.delete(0,tk.END)
+            for x in self.avaiabletypes:
+        	    self.convert_from.insert(tk.END, x)
+            
+            #Refresh selection 
+            self.convert_from.selection_clear(0,tk.END)
+            self.convert_from.select_set(0)
+            
+            self.convert_to.selection_clear(0,tk.END)
+            self.convert_to.select_set(0)
+            
+        #For multiple Img Type File - Clear Box/
+        #Make many options avaiable and automaticaly switch options to avoid conversing same types.
+        else:
+            
+            #Refresh lists
+            self.convert_from.delete(0,tk.END)
+            for x in self.avaiabletypes:
+        	    self.convert_from.insert(tk.END, x)
+             
+            self.convert_to.delete(0,tk.END)
+            for x in self.listfiletype:
+        	    self.convert_to.insert(tk.END, x)
+            
+            #Set types for images.
+            self.fromchosenfile = self.avaiabletypes[0]
+            self.tochosenfile = self.listfiletype[0]
+            
+            #Avoid same types.
+            self.chck_listbox_imgtypes()
+        self.state_btn_start()
+        
+    def refresh_table(self):
+        
+        HeadList = ["Type","Quantity","Size (MB)", "Avarage (MB)",]
+
+        self.table = _st.SimpleTable(self.f_main_panel,len(self._typedic.keys())+1,len(HeadList),"#9dc8c9")
+        self.table.filltable(HeadList,self._typedic)
+        self.table.grid(row=1,column=3,rowspan=2,columnspan=4,sticky="news")
+    
+     
+
+
+
+
+          
+  
+
