@@ -1,5 +1,8 @@
 import tkinter as tk
 from tkinter import *
+import random
+
+window_lights = [['#425362','#394956'],['#64a4a3','#629aae','#4170a3','#487181']]
 
 class B_ProgressBar(tk.Frame):
 
@@ -53,10 +56,11 @@ class B_ProgressBar(tk.Frame):
         self.top_left = tk.Frame(self,borderwidth=5,bg='#394956')
         self.top_top = tk.Frame(self,borderwidth=5,bg='#425362')
         
-        cos = tk.Label(self.top_top, text="cos",
+        cos = tk.Button(self.top_top, text="Test",
                                       borderwidth=0, 
                                       width=2,
-                                      height=2
+                                      height=2,
+                                      command=lambda:self.fill_windows()
                                       )
         cos.pack()            
         
@@ -116,12 +120,18 @@ class B_ProgressBar(tk.Frame):
     def fill_windows(self):
         for x in range(0,self.rows):
                 for y in range(0,self.columns):
-                    self.front_windows[x][y].config(bg='yellow')
+                    turnedoff = random.randint(0,1)
+                    if turnedoff:
+                        self.front_windows[x][y].config(bg=window_lights[1][random.randint(0,3)])
+                    else:
+                        self.front_windows[x][y].config(bg=window_lights[0][0])
         for x in range(0,self.rows):
                 for y in range(0,int(self.columns/2)):
-                    self.left_windows[x][y].config(bg='blue')
- 
-              
+                    turnedoff = random.randint(0,1)
+                    if turnedoff:
+                        self.left_windows[x][y].config(bg=window_lights[1][random.randint(0,3)])
+                    else:
+                        self.left_windows[x][y].config(bg=window_lights[0][1])
 class Application(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
