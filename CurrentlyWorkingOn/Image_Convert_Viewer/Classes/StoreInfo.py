@@ -38,17 +38,13 @@ class StoreInfo():
             for imfile in os.listdir(self._path):
                 imfile = imfile.lower()
                 _location, _extension = os.path.splitext(imfile)    #Grab extension
-                print(imfile)
-                print(_extension)
 
                 #Count Amount and Total Size(MB)
                 if _extension in dictkeylist:
-                    print(f'In extension -> Imfile {imfile}')
                     self._dictionary[_extension][0] += 1
                     imgsize = os.path.getsize(self._path+'/'+imfile)/1024/1024
                     self._dictionary[_extension][1] += imgsize
-                    print(f'Dict:{self._dictionary}')
-            
+
             #Count AVG(MB)
             for _extension in dictkeylist:
                 if self._dictionary[_extension][0] != 0:
