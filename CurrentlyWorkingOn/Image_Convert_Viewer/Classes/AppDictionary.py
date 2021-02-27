@@ -30,5 +30,8 @@ class AppDictionary():
         
         for _type in self.typelist:
             self.typedic[_type] = self.values
+    
+    def return_dict(self):
+        return self.typedic
             
         
