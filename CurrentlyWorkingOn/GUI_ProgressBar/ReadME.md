@@ -4,4 +4,4 @@ Loads tkinter window with frames and canvas representing a building with windows
 
 ## GUI Example
 
-![](https://github.com/MrZiemni0k/Learning/tree/main/CurrentlyWorkingOn/GUI_ProgressBar/tallbuildingpresentation.gif)
+![](tallbuildingpresentation.gif)
