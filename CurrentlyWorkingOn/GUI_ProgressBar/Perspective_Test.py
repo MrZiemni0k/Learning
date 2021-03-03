@@ -1,6 +1,10 @@
 import tkinter as tk
+from tkinter import messagebox
 import random
 
+#TODO: Documentation Test_building and Basic_stuff
+#TODO: Add tries and hide fp_text button
+#TODO: Delete fptext when setting new cord or adding new cord to focus
 
 class Test_Building(tk.Frame):
     def __init__(self,parent=None,canv_width=1000,canv_height=700):
@@ -20,8 +24,9 @@ class Test_Building(tk.Frame):
         
         #Lists to store info about canvas objects for editing/deleting
         self.store_horizontal_var = []
-        self.store_point_var = []
+        self.store_fpoints = []
         self.store_perspective_lines = []
+        self.store_line_var = []
         
         #Layout
         self.create_top_panel()
@@ -72,8 +77,8 @@ class Test_Building(tk.Frame):
         '''
         Changes frame depending on button click
         '''
-        subpanel = self.subpanels[stored]
-        subpanel.tkraise()
+        self.showsubpanel = self.subpanels[stored]
+        self.showsubpanel.tkraise()
         
     def create_canvas(self):
         '''
@@ -88,18 +93,19 @@ class Test_Building(tk.Frame):
         Chooses randomly focus point of view
         '''
         #Restart(Clear) Viewer_Point
-        if self.store_point_var:
-            for _ in self.store_point_var:
+        if self.store_fpoints:
+            for _ in self.store_fpoints:
                 self.canvas.delete(_)
+            self.store_fpoints = []
         
         #Cords
-        self.focus_point = tuple([random.randint(self.left_2point[0],self.right_2point[0]),random.randint(int(self.canv_height*7/10),self.canv_height)])
+        self.focus_point = tuple([random.randint(self.left_2point[0],self.right_2point[0]),random.randint(0,self.canv_height)])
 
         #Visualisation
-        cp_text = self.canvas.create_text(self.focus_point,text=f'{self.focus_point}',fill='white')
+        fp_text = self.canvas.create_text(self.focus_point,text=f'{self.focus_point}',fill='white')
         
         #List of Visualisation variables to clear them in canvas if function reused.
-        self.store_point_var = [cp_text]
+        self.store_fpoints = [fp_text]
     
     def horizontal_points(self):
         '''
@@ -111,8 +117,10 @@ class Test_Building(tk.Frame):
                 self.canvas.delete(_)
             for _ in self.store_perspective_lines:
                 self.canvas.delete(_)
+            self.store_horizontal_var = []
+            self.store_perspective_lines = []
         #Cords    
-        cord_horizontal_line = random.randint(0,int(self.canv_height*5/10))
+        cord_horizontal_line = random.randint(0,self.canv_height)
         self.left_2point = tuple([random.randint(0,self.focus_point[0]),cord_horizontal_line])
         self.right_2point = tuple([random.randint(self.focus_point[0],self.canv_width),cord_horizontal_line])
         
@@ -123,24 +131,8 @@ class Test_Building(tk.Frame):
         
         #List of Visualisation variables to clear them in canvas if function reused.
         self.store_horizontal_var = [draw_horizontal_line, l2p_text, r2p_text]
-        
     
-    def basic_perspective_lines(self):
-        '''
-        Paints perspiective lines based on Horizontal and Center Points.
-        '''
-        if self.store_perspective_lines:
-            for _ in self.store_perspective_lines:
-                self.canvas.delete(_)
-        
-
-        left_line = self.canvas.create_line(self.left_2point,self.focus_point,fill="black")
-        right_line = self.canvas.create_line(self.right_2point,self.focus_point,fill="black")
-    
-        self.store_perspective_lines = [left_line,right_line]
-    
-    
-    def perspective_lines(self,todel=False):
+    def perspective_lines(self,pointcross,todel=False):
         '''
         Paints perspiective lines based on Horizontal and Center Points.
         '''
@@ -149,11 +141,12 @@ class Test_Building(tk.Frame):
         if todel and self.store_perspective_lines:
             for _ in self.store_perspective_lines:
                 self.canvas.delete(_)
+            self.store_perspective_lines = []
         
         #First Perspective Line
-        p1_line = StraightLine(self.left_2point,self.focus_point)
+        p1_line = StraightLine(self.left_2point,pointcross)
         
-        #Calculate x coords for canvas borders
+        #Calculate x cords for canvas borders
         x_start = p1_line.math_x_crosspoint(0)
         x_end = p1_line.math_x_crosspoint(self.canv_height)
         
@@ -161,9 +154,9 @@ class Test_Building(tk.Frame):
         left_line = self.canvas.create_line(x_start,0,x_end,self.canv_height,fill="#4a4646")
         
         #Second Perspective Line
-        p2_line = StraightLine(self.right_2point,self.focus_point)
+        p2_line = StraightLine(self.right_2point,pointcross)
         
-        #Calculate x coords for canvas borders
+        #Calculate x cords for canvas borders
         x_start = p2_line.math_x_crosspoint(self.canv_height)
         x_end = p2_line.math_x_crosspoint(0)
         
@@ -182,15 +175,120 @@ class Test_Building(tk.Frame):
             try:
                 self.canvas.delete(self.store_perspective_lines[-1])
                 del self.store_perspective_lines[-1]
-                print(self.store_perspective_lines)
             except:
                 print("No perspective lines to delete. List is empty.")
+                
+    def focus_addcords(self,todel=False):
+        
+        #Delete all focus points.
+        if self.store_fpoints and todel:
+            for _ in self.store_fpoints:
+                self.canvas.delete(_)
+            self.store_fpoints = []
+        try:
+                   
+            #Setting new cords and marking with cord texts    
+            self.focus_point = tuple([self.focus_point[0]+int(self.showsubpanel.focus_setx.get()),self.focus_point[1]+int(self.showsubpanel.focus_sety.get())])
+            fp_text = self.canvas.create_text(self.focus_point,text=f'{self.focus_point}',fill='white')            
             
+            #Storing canvas object for edit/delete.
+            self.store_fpoints.append(fp_text)
+    
+        except:
+            tk.messagebox.showerror(title='Error', message='One or more "Focus" entry boxes\nare empty or wrong input.\nPlease pass an integer.')
+            
+    def focus_setcords(self,todel=False):
+        #Delete all focus points.
+        if self.store_fpoints and todel:
+            for _ in self.store_fpoints:
+                self.canvas.delete(_)
+            self.store_fpoints = []
         
-    # def change_center(self):
+        #Setting new cords and marking with cord texts
+        try:
+            self.focus_point = tuple([int(self.showsubpanel.focus_setx.get()),int(self.showsubpanel.focus_sety.get())])
+            fp_text = self.canvas.create_text(self.focus_point,text=f'{self.focus_point}',fill='white')
+            
+            #Storing canvas object for edit/delete.
+            self.store_fpoints.append(fp_text)
+        except:
+            tk.messagebox.showerror(title='Error', message='One or more "Focus" entry boxes\nare empty or wrong input.\nPlease pass an integer.')
+    def horizontal_setcords(self):
         
-    #     self.focus_point = tuple([self.focus_point[0]+int(self.testinsert1.get()),self.focus_point[1]+int(self.testinsert2.get())])
-    #     sp_text = self.canvas.create_text(self.focus_point,text=f'{self.focus_point}',fill='white')
+        #Restart(Clear) Vanishing_Points
+        if self.store_horizontal_var:
+            for _ in self.store_horizontal_var:
+                self.canvas.delete(_)
+            for _ in self.store_perspective_lines:
+                self.canvas.delete(_)
+            self.store_horizontal_var = []
+            self.store_perspective_lines = []
+        #Cords 
+        try:   
+            self.left_2point = tuple([int(self.showsubpanel.horizontal_setx1.get()),int(self.showsubpanel.horizontal_sety.get())])
+            self.right_2point = tuple([int(self.showsubpanel.horizontal_setx2.get()),int(self.showsubpanel.horizontal_sety.get())])
+            #Visualisation
+            draw_horizontal_line = self.canvas.create_line(0,int(self.left_2point[1]),self.canv_width,self.left_2point[1],fill="black")
+            l2p_text = self.canvas.create_text(self.left_2point,text=f'{self.left_2point}',fill='white')
+            r2p_text = self.canvas.create_text(self.right_2point,text=f'{self.right_2point}',fill='white')
+            
+            #List of Visualisation variables to clear them in canvas if function reused.
+            self.store_horizontal_var = [draw_horizontal_line, l2p_text, r2p_text]
+        except:
+            tk.messagebox.showerror(title='Error', message='One or more "Horizontal" entry boxes\nare empty or wrong input.\nPlease pass an integer.')
+        
+    def draw_line(self,todel=False):
+        
+        if self.store_line_var and todel:
+            for _ in self.store_fpoints:
+                self.canvas.delete(_)
+            self.store_line_var = []
+        try:
+            self.x1y1 = tuple([int(self.showsubpanel.draw_x1.get()),int(self.showsubpanel.draw_y1.get())])
+            self.x2y2 = tuple([int(self.showsubpanel.draw_x2.get()),int(self.showsubpanel.draw_y2.get())])
+            drawline = self.canvas.create_line(self.x1y1,self.x2y2,fill='black')
+            
+            fp_text = self.canvas.create_text(self.x1y1,text=f'{self.x1y1}',fill='white')
+            self.store_fpoints.append(fp_text)
+            fp_text = self.canvas.create_text(self.x2y2,text=f'{self.x2y2}',fill='white')
+            self.store_fpoints.append(fp_text)
+            
+        except:
+            tk.messagebox.showerror(title='Error', message='One or more "Line" entry boxes\nare empty or wrong input.\nPlease pass an integer.')  
+        
+        self.store_line_var.append(drawline)
+        
+    def dellast_drawline(self):
+        '''
+        Deletes last drawn line
+        '''       
+        try:
+            self.canvas.delete(self.store_line_var[-1])
+            del self.store_line_var[-1]
+        except:
+            print("There is nothing to delete from. List is empty.")
+    
+    def draw_line_basedonpersp(self,vanishpoint,crosspoint1,crosspoint2,singlecord):
+        
+        p_line1 = StraightLine(vanishpoint,crosspoint1)
+        
+        y1 = p_line1.math_y_crosspoint(singlecord)
+        
+        p_line2 = StraightLine(vanishpoint,crosspoint2)
+        
+        y2 = p_line2.math_y_crosspoint(singlecord)
+        
+        drawline = self.canvas.create_line(singlecord,y1,singlecord,y2,fill='black')
+        
+        self.store_line_var.append(drawline)
+        
+        #Visualisation
+        fp_text = self.canvas.create_text(singlecord,y1,text=f'{singlecord,y1}',fill='white')
+        self.store_fpoints.append(fp_text)
+        
+        fp_text = self.canvas.create_text(singlecord,y2,text=f'{singlecord,y2}',fill='white')
+        self.store_fpoints.append(fp_text)
+        
 class Basic_Stuff(tk.Frame):
     '''
     Subpanel with basic functions called by buttons.
@@ -199,17 +297,21 @@ class Basic_Stuff(tk.Frame):
         tk.Frame.__init__(self,parent)
         
         #Random Focus
-        self.focus_button = tk.Button(self,text='Rand Focus Point',command=lambda: app.frame.viewer_point())
+        self.focus_button = tk.Button(self,text='Rand Focus Point',
+                                      command=lambda: app.frame.viewer_point())
         self.focus_button.grid(row=0,column=0,sticky='news')
         
         #Random Horizontal
-        self.horizontal_button = tk.Button(self,text='Rand Horizontal Points',command=lambda: app.frame.horizontal_points())
+        self.horizontal_button = tk.Button(self,text='Rand Horizontal Points',
+                                           command=lambda: app.frame.horizontal_points())
         self.horizontal_button.grid(row=1,column=0,sticky='news')
         
         #Draw and delete perspective lines
-        self.plines_button = tk.Button(self,text='Draw Persp Lines',command=lambda: app.frame.perspective_lines())
+        self.plines_button = tk.Button(self,text='Draw Persp Lines',
+                                       command=lambda: app.frame.perspective_lines(app.frame.focus_point))
         self.plines_button.grid(row=0,column=1,sticky='news')
-        self.delplines_button = tk.Button(self,text='Del Last P Lines',command=lambda: app.frame.dellast_persplines())
+        self.delplines_button = tk.Button(self,text='Del Last P Lines',
+                                          command=lambda: app.frame.dellast_persplines())
         self.delplines_button.grid(row=1,column=1,sticky='news')    
         
         #X and Y info labels
@@ -222,14 +324,15 @@ class Basic_Stuff(tk.Frame):
         self.addfocus_frame = tk.Frame(self,relief=tk.SUNKEN,bd=2)
         self.addfocus_frame.grid(row=0,column=3,rowspan=2,columnspan=2,sticky='news')
         
-        #Options for adding/substracting x,y coords to focus point.
+        #Options for adding/substracting x,y cords to focus point.
         self.focus_addx = tk.Entry(self.addfocus_frame,width=4)
         self.focus_addx.grid(row=0,column=0,sticky='news')
         self.focus_addx.insert(0,0)
         self.focus_addy = tk.Entry(self.addfocus_frame,width=4)
         self.focus_addy.grid(row=1,column=0,sticky='news')
         self.focus_addy.insert(0,0)
-        self.focus_addbutton = tk.Button(self.addfocus_frame,text='F_Add',command=lambda: '')
+        self.focus_addbutton = tk.Button(self.addfocus_frame,text='F_Add',
+                                         command=lambda: app.frame.focus_addcords())
         self.focus_addbutton.grid(row=0,column=1,rowspan=2,sticky='news')
         
         self.addfocus_frame.rowconfigure((0,1),weight=1)
@@ -238,23 +341,24 @@ class Basic_Stuff(tk.Frame):
         self.setfocus_frame = tk.Frame(self,relief=tk.SUNKEN,bd=3)
         self.setfocus_frame.grid(row=0,column=5,rowspan=2,columnspan=2,sticky='news')
         
-        #Options for setting x,y coords to focus point.
+        #Options for setting x,y cords to focus point.
         self.focus_setx = tk.Entry(self.setfocus_frame,width=4)
         self.focus_setx.grid(row=0,column=0,sticky='news')
         self.focus_setx.insert(0,0)
         self.focus_sety = tk.Entry(self.setfocus_frame,width=4)
         self.focus_sety.grid(row=1,column=0,sticky='news')
         self.focus_sety.insert(0,0)
-        self.focus_setbutton = tk.Button(self.setfocus_frame,text='F_Set',command=lambda: '')
+        self.focus_setbutton = tk.Button(self.setfocus_frame,text='F_Set',
+                                         command=lambda: app.frame.focus_setcords())
         self.focus_setbutton.grid(row=0,column=1,rowspan=2,sticky='news')
         
         self.setfocus_frame.rowconfigure((0,1),weight=1)
         
-        #Frame for setting x,y coords to horizontal points.
+        #Frame for setting x,y cords to horizontal points.
         self.sethorizontal_frame = tk.Frame(self,relief=tk.SUNKEN,bd=3)
         self.sethorizontal_frame.grid(row=0,column=7,rowspan=2,columnspan=3,sticky='news')
         
-        #Options for setting x,y coords to horizontal points
+        #Options for setting x,y cords to horizontal points
         self.horizontaly_label = tk.Label(self.sethorizontal_frame,text='Y')
         self.horizontaly_label.grid(row=0,column=0,sticky='news')
         self.horizontalx_label = tk.Label(self.sethorizontal_frame,text='X1,X2')
@@ -269,11 +373,84 @@ class Basic_Stuff(tk.Frame):
         self.horizontal_setx2 = tk.Entry(self.sethorizontal_frame,width=5)
         self.horizontal_setx2.grid(row=1,column=2,sticky='news')
         self.horizontal_setx2.insert(0,0)
-        self.horizontal_setbutton = tk.Button(self.sethorizontal_frame,text='H_Set',command=lambda: '')
+        self.horizontal_setbutton = tk.Button(self.sethorizontal_frame,text='H_Set',
+                                              command=lambda: app.frame.horizontal_setcords())
         self.horizontal_setbutton.grid(row=0,column=2,sticky='news')
         
         self.sethorizontal_frame.rowconfigure((0,1),weight=1)
         
+        #Info Labels for drawing line
+        self.drawx_label = tk.Label(self,text='X1/Y1')
+        self.drawx_label.grid(row=0,column=10,sticky='news')
+        self.drawy_label = tk.Label(self,text='X2/Y2')
+        self.drawy_label.grid(row=1,column=10,sticky='news')
+        
+        #Frame for draw normal and perspective lines
+        self.draw_frame = tk.Frame(self,relief=tk.SUNKEN,bd=2)
+        self.draw_frame.grid(row=0,column=11,rowspan=2,columnspan=7,sticky='news')
+        
+        #Options as above
+        self.draw_x1 = tk.Entry(self.draw_frame,width=4)
+        self.draw_x1.grid(row=0,column=0,sticky='news')
+        self.draw_x1.insert(0,0)
+        self.draw_y1 = tk.Entry(self.draw_frame,width=4)
+        self.draw_y1.grid(row=0,column=1,sticky='news')
+        self.draw_y1.insert(0,0)
+        
+        self.draw_x2 = tk.Entry(self.draw_frame,width=4)
+        self.draw_x2.grid(row=1,column=0,sticky='news')
+        self.draw_x2.insert(0,0)
+        self.draw_y2 = tk.Entry(self.draw_frame,width=4)
+        self.draw_y2.grid(row=1,column=1,sticky='news')
+        self.draw_y2.insert(0,0)
+        
+        #Draw Line
+        self.draw_button = tk.Button(self.draw_frame,text='Draw',
+                                     command=lambda: app.frame.draw_line())
+        self.draw_button.grid(row=0,column=2,rowspan=2,sticky='news')
+        
+        #Delete last line
+        self.deldraw_button = tk.Button(self.draw_frame,text='Del Line',
+                                        command=lambda: app.frame.dellast_drawline())
+        self.deldraw_button.grid(row=0,column=3,rowspan=2,sticky='news')
+        
+        #Draw Perspective based on X1Y1 point
+        self.draw_perspline1 = tk.Button(self.draw_frame,text='Draw Persp',
+                                         command=lambda: app.frame.perspective_lines(tuple([int(self.draw_x1.get()),int(self.draw_y1.get())])))
+        self.draw_perspline1.grid(row=0,column=4,sticky='news')
+        
+        #Draw Perspective based on X2Y2 point
+        self.draw_perspline2 = tk.Button(self.draw_frame,text='Draw Persp',
+                                         command=lambda: app.frame.perspective_lines(tuple([int(self.draw_x2.get()),int(self.draw_y2.get())])))
+        self.draw_perspline2.grid(row=1,column=4,sticky='news')
+        
+        self.count_left = tk.Label(self.draw_frame,text='Cro-X')
+        self.count_left.grid(row=0,column=5,sticky='news')
+        
+        self.count_x = tk.Entry(self.draw_frame,width=4)
+        self.count_x.grid(row=1,column=5,sticky='news')
+        self.count_x.insert(0,0)
+        
+        self.draw_onperspleft = tk.Button(self.draw_frame,text='Draw on left pers',
+                                         command=lambda: app.frame.draw_line_basedonpersp(
+                                             app.frame.left_2point,
+                                             tuple([int(self.draw_x1.get()),int(self.draw_y1.get())]),
+                                             tuple([int(self.draw_x2.get()),int(self.draw_y2.get())]),
+                                             int(self.count_x.get())
+                                             ))
+        self.draw_onperspleft.grid(row=0,column=6,sticky='news')
+        
+        self.draw_onperspright = tk.Button(self.draw_frame,text='Draw on right pers',
+                                         command=lambda: app.frame.draw_line_basedonpersp(
+                                             app.frame.right_2point,
+                                             tuple([int(self.draw_x1.get()),int(self.draw_y1.get())]),
+                                             tuple([int(self.draw_x2.get()),int(self.draw_y2.get())]),
+                                             int(self.count_x.get())
+                                             ))
+        self.draw_onperspright.grid(row=1,column=6,sticky='news')
+        
+        
+        self.draw_frame.rowconfigure((0,1),weight=1)
         
 
 class Other_Stuff(tk.Frame):
