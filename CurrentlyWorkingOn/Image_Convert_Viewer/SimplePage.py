@@ -205,25 +205,25 @@ class SimplePage(tk.Frame):
         
         #Label "FROM"
         self.l_from = tk.Label(self.f_main_panel,text="From",bg="#96c5f7")
-        self.l_from.grid(row=4,column=3,rowspan=1, columnspan=2,sticky="news")
+        self.l_from.grid(row=15,column=12,rowspan=1, columnspan=1,sticky="news")
         
         #Label "TO"
         self.l_to = tk.Label(self.f_main_panel,text="To",bg="#f4f9f9")
-        self.l_to.grid(row=4,column=5,rowspan=1, columnspan=2,sticky="news")
+        self.l_to.grid(row=15,column=14,rowspan=1, columnspan=1,sticky="news")
         
         #Listbox Convert_From
-        self.convert_from = tk.Listbox(self.f_main_panel, selectmode=tk.BROWSE, exportselection = 0)
-        self.convert_from.grid(row=5,column=3,rowspan=2, columnspan=2,sticky="news")
+        self.convert_from = tk.Listbox(self.f_main_panel, selectmode=tk.BROWSE, exportselection = 0,height=3, width=12)
+        self.convert_from.grid(row=16,column=12,rowspan=2, columnspan=1,sticky="news")
        	self.convert_from.bind("<<ListboxSelect>>",self.from_what)
 
         #Listbox Convert_To
-       	self.convert_to = tk.Listbox(self.f_main_panel, selectmode=tk.BROWSE, exportselection = 0)
-        self.convert_to.grid(row=5,column=5,rowspan=2, columnspan=2,sticky="news")
+       	self.convert_to = tk.Listbox(self.f_main_panel, selectmode=tk.BROWSE, exportselection = 0,height=3, width=12)
+        self.convert_to.grid(row=16,column=14,rowspan=2, columnspan=1,sticky="news")
         self.convert_to.bind("<<ListboxSelect>>",self.into_what)
         
         #Delonframe for radio buttons
         self.delonframe = tk.LabelFrame(self.f_main_panel,text="Delete old files?")
-        self.delonframe.grid(row=15,column=17,rowspan=1, columnspan=2,sticky="news")
+        self.delonframe.grid(row=14,column=16,rowspan=1, columnspan=2,sticky="news")
         
         #Delete button
         self.delonconv = tk.Radiobutton(self.delonframe,variable=self.todelete,text="Yes",value=True,command=self.deleteonconvert)
@@ -242,12 +242,12 @@ class SimplePage(tk.Frame):
         self.start_pixel_img = Image.open("E:\\Learning\\Learning\\CurrentlyWorkingOn\\Image_Convert_Viewer\\Icons\\Start_Pixel2small.png")
         self.start_pixel_img = ImageTk.PhotoImage(self.start_pixel_img)
         self.start_btn = ttk.Button(self.f_main_panel,text="Convert",command=lambda:self.convert())  
-        self.start_btn.grid(row=16,column=17,rowspan=2, columnspan=2,sticky="news")
+        self.start_btn.grid(row=16,column=16,rowspan=2, columnspan=2,sticky="news")
         #Weight configuration for window expanding.
         self.f_main_panel.rowconfigure((0,3,7,9,10,11,12,13,14,15,16,17,18,19), weight=2)
         self.f_main_panel.rowconfigure((1,2,4,5,6,8), weight=3)
-        self.f_main_panel.columnconfigure((0,9), weight=2)
-        self.f_main_panel.columnconfigure((1,2,3,4,5,6,7,8), weight=3)
+        self.f_main_panel.columnconfigure((0,19), weight=2)
+        self.f_main_panel.columnconfigure((1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18), weight=3)
         
     #TODO: Style nicely 
     def grid_layout(self):
@@ -421,20 +421,14 @@ class SimplePage(tk.Frame):
         self.entry_dir.delete(0,tk.END)
         self.entry_dir.insert(0, self.imgdir)
         
+        self.table.config(text="Loading...") 
+        self.table.update()
         
-        self.loadinglabel = tk.Label(self.f_main_panel,text="Loading")
-        self.loadinglabel.grid(row=0,column=0,rowspan=3,columnspan=3,sticky="news")
-        
-        time.sleep(0.2)
         self.create_filetypelist()
         self.refresh_data()
         #del self.loadinglabel
         self.refresh_listbox()
         self.refresh_table()  
-        
-        
-        if not self.avaiabletypes:
-            self.loadinglabel.config(text="No pictures")
 
     def into_what(self,event):
         '''
@@ -558,11 +552,17 @@ class SimplePage(tk.Frame):
         
         HeadList = ["Type","Quantity","Size (MB)", "Avarage (MB)",]
 
-        self.table = _st.SimpleTable(self.f_main_panel,len(self._typedic.keys())+1,len(HeadList),"#9dc8c9")
-        self.table.filltable(HeadList,self._typedic)
-        self.table.grid(row=1,column=3,rowspan=2,columnspan=4,sticky="news")
+        if len(self._typedic.keys()):
+            self.table = _st.SimpleTable(self.f_main_panel,len(self._typedic.keys())+1,len(HeadList),"#9dc8c9")
+            self.table.filltable(HeadList,self._typedic)
+            self.table.grid(row=1,column=1,rowspan=2,columnspan=18,sticky="news")
+        else:
+            self.table = tk.Label(self.f_main_panel,text="Images not found.")
+            
+        self.table.grid(row=1,column=1,rowspan=2,columnspan=18,sticky="news")
     
-     
+
+             
 
 
 
