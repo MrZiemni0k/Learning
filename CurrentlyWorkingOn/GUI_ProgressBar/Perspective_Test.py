@@ -2,9 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
-#TODO: Documentation Test_building and Basic_stuff
-#TODO: Add tries and hide fp_text button
-#TODO: Delete fptext when setting new cord or adding new cord to focus
+#TODO: Documentation Test_building.
+#TODO: Add tries.
 
 class Test_Building(tk.Frame):
     def __init__(self,parent=None,canv_width=1000,canv_height=700):
@@ -27,6 +26,7 @@ class Test_Building(tk.Frame):
         self.store_fpoints = []
         self.store_perspective_lines = []
         self.store_line_var = []
+        self.cuboidtextlist = []
         
         #Layout
         self.create_top_panel()
@@ -46,7 +46,7 @@ class Test_Building(tk.Frame):
         self.basic_button = tk.Button(self.top_panel,text='Basic',command=lambda: self.show_subpanel(Basic_Stuff))
         self.basic_button.pack(side='left')
         #Button to geometry building subpanel
-        self.geometry_button = tk.Button(self.top_panel,text='Geometry',command=lambda: self.show_subpanel(Other_Stuff))
+        self.geometry_button = tk.Button(self.top_panel,text='Geometry',command=lambda: self.show_subpanel(Geometry))
         self.geometry_button.pack(side='left')
         
         #Clear Canvas button
@@ -65,7 +65,7 @@ class Test_Building(tk.Frame):
         self.subpanels = {}
         
         #Store all sub panels and lay them on top of eachother.
-        for F in (Basic_Stuff, Other_Stuff):
+        for F in (Basic_Stuff, Geometry):
             subpanel = F(self.sub_panel, self)
             self.subpanels[F] = subpanel
             subpanel.grid(row = 0, column = 0, sticky = "nsew")
@@ -178,7 +178,7 @@ class Test_Building(tk.Frame):
             except:
                 print("No perspective lines to delete. List is empty.")
                 
-    def focus_addcords(self,todel=False):
+    def focus_addcords(self,todel=True):
         
         #Delete all focus points.
         if self.store_fpoints and todel:
@@ -188,7 +188,7 @@ class Test_Building(tk.Frame):
         try:
                    
             #Setting new cords and marking with cord texts    
-            self.focus_point = tuple([self.focus_point[0]+int(self.showsubpanel.focus_setx.get()),self.focus_point[1]+int(self.showsubpanel.focus_sety.get())])
+            self.focus_point = tuple([self.focus_point[0]+int(self.showsubpanel.focus_addx.get()),self.focus_point[1]+int(self.showsubpanel.focus_addy.get())])
             fp_text = self.canvas.create_text(self.focus_point,text=f'{self.focus_point}',fill='white')            
             
             #Storing canvas object for edit/delete.
@@ -197,7 +197,7 @@ class Test_Building(tk.Frame):
         except:
             tk.messagebox.showerror(title='Error', message='One or more "Focus" entry boxes\nare empty or wrong input.\nPlease pass an integer.')
             
-    def focus_setcords(self,todel=False):
+    def focus_setcords(self,todel=True):
         #Delete all focus points.
         if self.store_fpoints and todel:
             for _ in self.store_fpoints:
@@ -288,7 +288,78 @@ class Test_Building(tk.Frame):
         
         fp_text = self.canvas.create_text(singlecord,y2,text=f'{singlecord,y2}',fill='white')
         self.store_fpoints.append(fp_text)
+
+    def draw_cuboid(self):
+        '''
+        Draws cuboid based on parameters given in Geometry->Cuboid Frame
+        Starting from Focus Point on Canvas
+        '''
+        if self.cuboidtextlist:
+            for _ in self.cuboidtextlist:
+                self.canvas.delete(_)
         
+
+        height = int(self.showsubpanel.cuboidheight_insert.get())
+        x1 = int(self.showsubpanel.cuboidxleft_insert.get())
+        x2 = int(self.showsubpanel.cuboidxright_insert.get())
+        _ = self.canvas.create_line(self.focus_point,(self.focus_point[0],self.focus_point[1]+height),fill='black')
+        self.cuboidtextlist.append(_)
+        
+        #Calculate left perspective lines
+        lp_line1 = StraightLine(self.left_2point,self.focus_point)
+        
+        y_left1 = lp_line1.math_y_crosspoint(x1)
+        
+        lp_line2 = StraightLine(self.left_2point,(self.focus_point[0],self.focus_point[1]+height))
+        
+        y_left2 = lp_line2.math_y_crosspoint(x1)
+        
+        #Calculate right perspective lines
+        rp_line1 = StraightLine(self.right_2point,self.focus_point)
+        
+        y_right1 = rp_line1.math_y_crosspoint(x2)
+        
+        rp_line2 = StraightLine(self.right_2point,(self.focus_point[0],self.focus_point[1]+height))
+        
+        y_right2 = rp_line2.math_y_crosspoint(x2)
+        
+        #Calculate behind perspective line
+        blp_line = StraightLine(self.left_2point,(x2,y_right1))
+        
+        x_start = blp_line.math_x_crosspoint(0)
+        x_end = blp_line.math_x_crosspoint(self.canv_height)
+        left_line = self.canvas.create_line(x_start,0,x_end,self.canv_height,fill="#4a4646")
+    
+        brp_line = StraightLine(self.right_2point,(x1,y_left1))
+        
+        x_start = brp_line.math_x_crosspoint(0)
+        x_end = brp_line.math_x_crosspoint(self.canv_height)
+        right_line = self.canvas.create_line(x_start,0,x_end,self.canv_height,fill="#4a4646")
+        
+        behind_point = blp_line.math_line_crosspoint(brp_line.slope,brp_line.y_intercept)       
+        
+        #Draw left wall
+        _ = self.canvas.create_line(self.focus_point,(x1,y_left1),fill='black')
+        self.cuboidtextlist.append(_)
+        _ = self.canvas.create_line((self.focus_point[0],self.focus_point[1]+height),(x1,y_left2),fill='black')
+        self.cuboidtextlist.append(_)
+        _ = self.canvas.create_line((x1,y_left1),(x1,y_left2),fill='black')
+        self.cuboidtextlist.append(_)
+        
+        #Draw right wall
+        _ = self.canvas.create_line(self.focus_point,(x2,y_right1),fill='black')
+        self.cuboidtextlist.append(_)
+        _ = self.canvas.create_line((self.focus_point[0],self.focus_point[1]+height),(x2,y_right2),fill='black')
+        self.cuboidtextlist.append(_)
+        _ = self.canvas.create_line((x2,y_right1),(x2,y_right2),fill='black')
+        self.cuboidtextlist.append(_)
+        
+        #Draw top wall
+        _ = self.canvas.create_line((x1,y_left1),behind_point,fill='black')
+        self.cuboidtextlist.append(_)
+        _ = self.canvas.create_line(behind_point,(x2,y_right1),fill='black')
+        self.cuboidtextlist.append(_)
+                    
 class Basic_Stuff(tk.Frame):
     '''
     Subpanel with basic functions called by buttons.
@@ -424,13 +495,15 @@ class Basic_Stuff(tk.Frame):
                                          command=lambda: app.frame.perspective_lines(tuple([int(self.draw_x2.get()),int(self.draw_y2.get())])))
         self.draw_perspline2.grid(row=1,column=4,sticky='news')
         
-        self.count_left = tk.Label(self.draw_frame,text='Cro-X')
-        self.count_left.grid(row=0,column=5,sticky='news')
+        #Counts perspective point cross for perspective line and given X.
+        self.count_xcross = tk.Label(self.draw_frame,text='Cro-X')
+        self.count_xcross.grid(row=0,column=5,sticky='news')
         
         self.count_x = tk.Entry(self.draw_frame,width=4)
         self.count_x.grid(row=1,column=5,sticky='news')
         self.count_x.insert(0,0)
         
+        #Draws on left perspective
         self.draw_onperspleft = tk.Button(self.draw_frame,text='Draw on left pers',
                                          command=lambda: app.frame.draw_line_basedonpersp(
                                              app.frame.left_2point,
@@ -440,6 +513,7 @@ class Basic_Stuff(tk.Frame):
                                              ))
         self.draw_onperspleft.grid(row=0,column=6,sticky='news')
         
+        #Draws on right perspective
         self.draw_onperspright = tk.Button(self.draw_frame,text='Draw on right pers',
                                          command=lambda: app.frame.draw_line_basedonpersp(
                                              app.frame.right_2point,
@@ -453,13 +527,38 @@ class Basic_Stuff(tk.Frame):
         self.draw_frame.rowconfigure((0,1),weight=1)
         
 
-class Other_Stuff(tk.Frame):
+class Geometry(tk.Frame):
 
     def __init__(self, parent,controller):
         tk.Frame.__init__(self,parent)
         
-        cos = tk.Button(self,text='Cube')
-        cos.pack()
+        #Frame for Cuboid Parameters
+        self.cuboidframe = tk.Frame(self,relief=tk.SUNKEN,bd=3)
+        self.cuboidframe.grid(row=0,column=0,rowspan=2,columnspan=3,sticky='news')
+        
+        #Options for Cuboid Drawing via perspective
+        self.cuboidheight_label = tk.Label(self.cuboidframe,text='Height')
+        self.cuboidheight_label.grid(row=0,column=0,sticky='news')
+        self.cuboidxleft_label = tk.Label(self.cuboidframe,text='X1/X2')
+        self.cuboidxleft_label.grid(row=1,column=0,sticky='news')
+        
+        self.cuboidheight_insert = tk.Entry(self.cuboidframe,width=7)
+        self.cuboidheight_insert.grid(row=0,column=1,sticky='news')
+        self.cuboidxleft_insert = tk.Entry(self.cuboidframe,width=7)
+        self.cuboidxleft_insert.grid(row=1,column=1,sticky='news')
+        
+        self.cuboid_button = tk.Button(self.cuboidframe,text='Cuboid',command=lambda: app.frame.draw_cuboid())
+        self.cuboid_button.grid(row=0,column=2)
+        self.cuboidxright_insert = tk.Entry(self.cuboidframe,width=7)
+        self.cuboidxright_insert.grid(row=1,column=2,sticky='news')
+        
+        self.cuboidframe.rowconfigure((0,1),weight=1)
+        
+ 
+
+
+
+
     
            
 class Application(tk.Tk):
@@ -503,12 +602,18 @@ class StraightLine():
         '''
         Calculating y point for given y cord.
         '''
-        return self.slope * x + self.y_intercept
-                
-
-
-       
+        return self.slope * x + self.y_intercept      
+    def math_line_crosspoint(self,foreign_slope,foreign_yintercept):
+        '''
+        Calculating cross point for given line that is not parallel
+        '''
         
+        #Calculate X-Cross Point
+        x = int((-self.y_intercept+foreign_yintercept)/(self.slope-foreign_slope))
+        y = -int((self.slope*(-foreign_yintercept)-foreign_slope*(-self.y_intercept))/(self.slope-foreign_slope))
+        print(f'1Slope: {self.slope}, 2Slope: {foreign_slope}, 1Y: {self.y_intercept}, 2Y: {foreign_yintercept}')
+        print(x,y)
+        return(tuple([x,y]))
 
 if __name__ == "__main__": 
     app = Application()
