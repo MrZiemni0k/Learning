@@ -20,15 +20,27 @@ class Cuboid():
             x-coordinate for "right" corner of cuboid.
         _y : int
             y-cordinate for "middle" edge ending of cuboid.
+        stopdrawing : bool
+                Switch option to avoid programm crashing 
+                when wrong parameters are passed
+        cuboid_reversed: bool
+                Switch for calculations in case _y > startcord[1]
     
     ¤ METHODS
     ¯¯¯¯¯¯¯¯¯¯¯¯¯ 
-        draw_cuboid_2persp()
+        math_cubcorners_2persp()
+            Calculates cuboid's corners using line equations.
+        draw_2persp_cuboid()
             Draws cuboid based on 2 vanishing points.
-        perspective_lines()
+        draw_2persp_lines()
             Draws perspective lines for cuboid.
-        not_visible_lines()
+        draw_2persp_walls()
+            Colours cuboid's walls.
+        not_vis_lines()
             Changes color and visibility configuration of backlines.
+        not_vis_lines_persp()
+            Changes color and visibility configuration of
+            perspective lines going through not visible corners.
         change_lines()
             Changes style and visibility of lines passed in a list.
         del_lines()
@@ -164,7 +176,7 @@ class Cuboid():
                                                     self.brp_line2.y_intercept
                                                     )
             
-    def draw_cuboid_2persp(self,lcolor='black',lwidth=1,ldash=()):
+    def draw_2persp_cuboid(self,lcolor='black',lwidth=1,ldash=()):
         """
         Draws cuboid in 2 perspective.
               
@@ -182,7 +194,7 @@ class Cuboid():
             ldash : tuple(int,int) ¤ OPTIONAL ¤
                 Creates dash for line. (Fill/Space). Defaults to ()
                 
-         ¤ RETURNS
+        ¤ RETURNS
         ¯¯¯¯¯¯¯¯¯¯¯¯¯
             
             None:
@@ -277,9 +289,7 @@ class Cuboid():
                                                fill=lcolor,
                                                width=lwidth,
                                                dash=ldash
-                                               )
-
-        
+                                               ) 
         #Store lines for future configurations.
         self.line_list = [self.mid_edge,
                           self.ldn_edge,
@@ -295,7 +305,7 @@ class Cuboid():
                           self.bbr_edge
                           ]
  
-    def perspective_lines(self,canv_height,lcolor="orange",ldash=(10,50)):
+    def draw_2persp_lines(self,canv_height,lcolor="orange",ldash=(10,50)):
         """
         Draws perspective lines for cuboid.
         
@@ -398,9 +408,348 @@ class Cuboid():
                                self.p7,
                                self.p8
                                ]
+
+    def draw_2persp_walls(self,
+                        vanishing_height,
+                        wlsidecolor='#75756c',
+                        wrsidecolor='#9d9d91',
+                        wtopcolor='#81817e',
+                        wbotcolor='#2a2a27',
+                        wbacklsidecolor ='#3d3d37',
+                        wbackrsidecolor = '#4e4e48',
+                        outline=''
+                        ):
+        """
+        Colours cuboid's walls.
+        
+        Colours all cuboid's walls.
+        Store walls in a walls_list : list for future configurations.  
+        
+  
+        ¤ PARAMETERS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+        
+            vanishing_height : int
+                Y-Coordinate of any vanishing point.
+            wlsidecolor : str/hex code ¤ OPTIONAL ¤
+                Wall left side color. Defaults to '#75756c'.
+            wrsidecolor : str/hex code ¤ OPTIONAL ¤
+                Wall right side color. Defaults to '#9d9d91'.
+            wtopcolor : str/hex code ¤ OPTIONAL ¤
+                Wall top color. Defaults to '#81817e'.
+            wbotcolor : str/hex code ¤ OPTIONAL ¤
+                Wall bottom color. Defaults to '#2a2a27'.
+            wbacklsidecolor : str/hex code ¤ OPTIONAL ¤
+                Wall back left side color. Defaults to '#3d3d37'.
+            wbackrsidecolor : str/hex code ¤ OPTIONAL ¤
+                Wall back right side color. Defaults to '#4e4e48'.
+            outline : str/hex code ¤ OPTIONAL ¤
+                Cuboid's outline color. Defaults to ''.
+        
+        
+        ¤ RETURNS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+        
+            None:
+                * If switch "stopdrawing" is turned on. 
+                  Wrong parameters passed.
+                  
+        """
+        
+        if self.stopdrawing:
+            return None
+        
+        #Restarts list
+        self.walls_list = []
+        
+        #Drawing from back of cuboid
+        #Drawing from top/bottom depending on vanishing point y-coord
+        if self.cuboid_reversed:
+            
+            #Going down (_y > startcord[1] -> BTM is TOP and TOP is BTM)
+            if self.startcoord[1] > vanishing_height:               
+                #Bottom/Top (Not Visible) - Drawing from top  
+                self.top_wall = self.canvas.create_polygon(
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    fill=wtopcolor
+                                                    )
+                self.backlside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wbacklsidecolor
+                                                    )
+                self.backrside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wbackrsidecolor
+                                                    )
+                self.bottom_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.left_corner1,
+                                                    self.startcoord,
+                                                    self.right_corner1,
+                                                    fill=wbotcolor
+                                                    )
+                self.lside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wlsidecolor
+                                                    )
+                self.rside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wrsidecolor
+                                                    )          
+            else:
+                #Top or Bottom Wall is Visible
+                if self.midtop_corner[1] < vanishing_height: 
+                #Bottom (Cuboid's Top) is visible. Drawing from Top
+                    self.backlside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wbacklsidecolor
+                                                    )
+                    self.backrside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wbackrsidecolor
+                                                    )
+                    self.bottom_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.left_corner1,
+                                                    self.startcoord,
+                                                    self.right_corner1,
+                                                    fill=wbotcolor
+                                                    )
+                    self.lside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wlsidecolor
+                                                    )
+                    self.rside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wrsidecolor
+                                                    )                        
+                    self.top_wall = self.canvas.create_polygon(
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    fill=wtopcolor
+                                                    )
+                else:
+                    #Top (Cuboid's BTM) is visible. Drawing from buttom
+                    self.top_wall = self.canvas.create_polygon(
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    fill=wtopcolor
+                                                    )
+                    self.backlside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wbacklsidecolor
+                                                    )
+                    self.backrside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wbackrsidecolor
+                                                    )
+                    self.bottom_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.left_corner1,
+                                                    self.startcoord,
+                                                    self.right_corner1,
+                                                    fill=wbotcolor
+                                                    )
+                    self.lside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wlsidecolor
+                                                    )
+                    self.rside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wrsidecolor
+                                                    )                        
+        else:           
+            #Going up (_y < startcord[1] -> BTM is BTM and TOP is TOP)
+            if self.startcoord[1] < vanishing_height:
+                #Bottom Visible - Drawing from top  
+                self.top_wall = self.canvas.create_polygon(
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    fill=wtopcolor
+                                                    )
+                self.backlside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wbacklsidecolor
+                                                    )
+                self.backrside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wbackrsidecolor
+                                                    )
+                self.bottom_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.left_corner1,
+                                                    self.startcoord,
+                                                    self.right_corner1,
+                                                    fill=wbotcolor
+                                                    )
+                self.lside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wlsidecolor
+                                                    )
+                self.rside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wrsidecolor
+                                                    )
+            else:
+                #Top is visible or Top and Bottom are not visible.
+                if self.midtop_corner[1] > vanishing_height:
+                #Top is visible. Drawing from bottom
+                    self.bottom_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.left_corner1,
+                                                    self.startcoord,
+                                                    self.right_corner1,
+                                                    fill=wbotcolor
+                                                    )                                     
+                    self.backlside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wbacklsidecolor
+                                                    )
+                    self.backrside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wbackrsidecolor
+                                                    )
+                    self.lside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wlsidecolor
+                                                    )
+                    self.rside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wrsidecolor
+                                                    )
+                    self.top_wall = self.canvas.create_polygon(
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    fill=wtopcolor
+                                                    )
+                else: 
+                #Top and bottom not visible. Drawing from top
+                    self.top_wall = self.canvas.create_polygon(
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    fill=wtopcolor
+                                                    )                  
+                    self.backlside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wbacklsidecolor
+                                                    )
+                    self.backrside_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.back_topcorner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wbackrsidecolor
+                                                    )  
+                    self.bottom_wall = self.canvas.create_polygon(
+                                                    self.back_btmcorner,
+                                                    self.left_corner1,
+                                                    self.startcoord,
+                                                    self.right_corner1,
+                                                    fill=wbotcolor
+                                                    )
+                    self.lside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.left_corner2,
+                                                    self.left_corner1,
+                                                    fill=wlsidecolor
+                                                    )
+                    self.rside_wall = self.canvas.create_polygon(
+                                                    self.startcoord,
+                                                    self.midtop_corner,
+                                                    self.right_corner2,
+                                                    self.right_corner1,
+                                                    fill=wrsidecolor
+                                                    )
+        
+        self.walls_line = [self.top_wall,
+                           self.backlside_wall,
+                           self.backrside_wall,
+                           self.bottom_wall,
+                           self.lside_wall,
+                           self.rside_wall
+                           ]                     
            
-    def not_visible_lines(self,vanishing_height,lcolor='black',
-                          notvlcolor='grey',state='normal'):
+    def not_vis_lines(self,
+                    vanishing_height,
+                    notvlcolor='grey',
+                    state='normal'):
         """
         Changes color and visibility configuration of backlines.
         
@@ -408,22 +757,20 @@ class Cuboid():
             * Corner-Corner Y-Coordinates.
             * Corner-Vanishing Y-Coordinates.  
         Stores backlines in not_vislines_list : list
-        
+        Other lines stores in vislines_list : list
         
         ¤ PARAMETERS
         ¯¯¯¯¯¯¯¯¯¯¯¯¯
         
             vanishing_height : int
                 Y-Coordinate of any vanishing point.
-            lcolor : str/hex code, ¤ OPTIONAL ¤
-                Visible (FRONT) line color. Defaults to 'black'.
             notvlcolor : str, ¤ OPTIONAL ¤
                 Not visible (BACK) lines color. Defaults to 'grey'.
             state : str, ¤ OPTIONAL ¤
                 Toggles visibility of lines. Defaults to 'normal'.
                 Avaiable options: 'hidden'/'normal' 
         
-         ¤ RETURNS
+        ¤ RETURNS
         ¯¯¯¯¯¯¯¯¯¯¯¯¯
             
             None:
@@ -435,7 +782,7 @@ class Cuboid():
         if self.stopdrawing:
             return None
         
-        #Restarts list
+        #Restart lists
         self.not_vislines_list = []
         
         #Check if corners are visible -> Corner Points/Vanishing Points
@@ -555,8 +902,152 @@ class Cuboid():
                 self.not_vislines_list = [self.btl_edge,
                                           self.btr_edge,
                                           self.bmd_edge
-                                         ]   
+                                         ]
+        #Store visible lines for future configurations.
+        self.vis_lines_list = [line for line in self.line_list 
+                            if line not in self.not_vislines_list]
+
+    def not_vis_lines_persp(self,
+                            vanishing_height,
+                            notvlcolor='#9dad7f',
+                            state='normal'):
+        """
+        Changes color and visibility configuration of
+        perspective lines going through not visible corners.
         
+        These perspective lines are decided by relation of:
+            * Corner-Corner Y-Coordinates.
+            * Corner-Vanishing Y-Coordinates.  
+        Stores these lines in not_vis_plines_list : list
+        Other lines stores in vis_plines_list : list
+        
+        
+        ¤ PARAMETERS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+        
+            vanishing_height : int
+                Y-Coordinate of any vanishing point.
+            notvlcolor : str, ¤ OPTIONAL ¤
+                "Not visible" lines color. Defaults to 'grey'.
+            state : str, ¤ OPTIONAL ¤
+                Toggles visibility of lines. Defaults to 'normal'.
+                Avaiable options: 'hidden'/'normal' 
+        
+        ¤ RETURNS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+            
+            None:
+                * If switch "stopdrawing" is turned on. 
+                  Wrong parameters passed. 
+                          
+        """
+        if self.stopdrawing:
+            return None
+        
+        #Restart lists
+        self.not_visplines_list = []
+        
+        #Check if corners are visible -> Corner Points/Vanishing Points
+        
+        if self.cuboid_reversed:
+            
+            #Start over vanishing point - Going down (_y > startcoord[1])
+            if self.startcoord[1] < vanishing_height:
+                #Top not visible (Reversed so TOP -> BTM)
+                self.canvas.itemconfig(self.p5,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                self.canvas.itemconfig(self.p6,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                #Store not visible plines for future configurations.
+                self.not_visplines_list = [self.p5,
+                                          self.p6,
+                                         ]
+                #Check if bottom is visible 
+                if self.back_topcorner[1] > vanishing_height:
+                    #Bottom not visible (Reversed so BTM -> TOP)
+                    self.canvas.itemconfig(self.p7,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    self.canvas.itemconfig(self.p8,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    
+                    self.not_visplines_list.extend([self.p7,
+                                                   self.p8
+                                                   ]
+                                                  )
+            #Below Vanishing Point and going down so top visible, bottom not
+            else:
+                #Bottom not visible (Reversed so BTM -> TOP)
+                self.canvas.itemconfig(self.p7,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                self.canvas.itemconfig(self.p8,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                #Store not visible plines for future configurations.
+                self.not_visplines_list = [self.p7,
+                                          self.p8
+                                         ]   
+        #Not Reversed Cuboid
+        else:                           
+            #Start below vanishing point - Going up (_y < startcoord[1])
+            if self.startcoord[1] > vanishing_height:
+                #Bottom not visible 
+                self.canvas.itemconfig(self.p7,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                self.canvas.itemconfig(self.p8,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                #Store not visible plines for future configurations.
+                self.not_visplines_list = [self.p7,
+                                          self.p8
+                                         ]
+                #Check if top is visible 
+                if self.back_topcorner[1] < vanishing_height:
+                    #Top not visible 
+                    self.canvas.itemconfig(self.p5,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    self.canvas.itemconfig(self.p6,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    
+                    self.not_visplines_list.extend([self.p5,
+                                                   self.p6
+                                                   ]
+                                                  )
+            #Over Vanishing Point and going up so bottom visible, top not
+            else:             
+                #Top not visible 
+                self.canvas.itemconfig(self.p5,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                self.canvas.itemconfig(self.p6,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                #Store not visible lines for future configurations.
+                self.not_visplines_list = [self.p5,
+                                          self.p6
+                                         ]
+        #Store visible lines for future configurations.
+        self.vis_plines_list = [line for line in self.perspline_list
+                            if line not in self.not_visplines_list]       
     def change_lines(self,
                      line_list,
                      lcolor='black',
@@ -602,7 +1093,7 @@ class Cuboid():
         """
         for _ in line_list:
             self.canvas.delete(_)
-       
 
-#TODO: Add fill wall with a color function based on visibility. 
-#TODO: Finish documentation.                  
+
+#TODO: Configurate walls 
+#TODO: Add 1-perspective cuboid option               
