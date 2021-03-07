@@ -1,8 +1,9 @@
 import StraightLine as sl
 import tkinter as tk
+from tkinter import messagebox
 
 class Cuboid():
-    '''
+    """
     A class used to draw cuboid on tk.Canvas
     
     
@@ -24,8 +25,16 @@ class Cuboid():
     ¯¯¯¯¯¯¯¯¯¯¯¯¯ 
         draw_cuboid_2persp()
             Draws cuboid based on 2 vanishing points.
-            
-    '''
+        perspective_lines()
+            Draws perspective lines for cuboid.
+        not_visible_lines()
+            Changes color and visibility configuration of backlines.
+        change_lines()
+            Changes style and visibility of lines passed in a list.
+        del_lines()
+            Deletes lines that are in a list. 
+    
+    """
     def __init__(self,canvas,startcoord,_x1,_x2,_y):
         '''
         ¤ Parameters
@@ -41,24 +50,24 @@ class Cuboid():
                 x-coordinate for "right" corner of cuboid.
             _y : int
                 y-cordinate for "middle" edge ending of cuboid.
+            stopdrawing : bool
+                Switch option to avoid programm crashing 
+                when wrong parameters are passed
+            cuboid_reversed: bool
+                Switch for calculations in case _y > startcord[1]
+                
         '''
         self.canvas = canvas
         self.startcoord = startcoord
         self._x1 = _x1
         self._x2 = _x2 
         self._y = _y
+        self.stopdrawing = False
+        self.cuboid_reversed = False
     
-    def draw_cuboid_2persp(self,
-                           left_vp,
-                           right_vp,
-                           lcolor='black'
-                           ):
+    def math_cubcorners_2persp(self,left_vp,right_vp,):
         """
-        Draws cuboid based on 2 vanishing points.
-        
         Calculates cuboid's corners using line equations.
-        Then based on corners, draws all cuboid lines and stores them in 
-        line_list : list - for future configurations.
         
         
         ¤ PARAMETERS
@@ -68,10 +77,18 @@ class Cuboid():
                 Left vanishing point coordinates.
             right_vp : tuple(int,int)
                 Right vanishing point coordinatates.
-            lcolor : str/hex code, ¤ OPTIONAL ¤ 
-                Lines' color. Defaults to 'black'.
-               
+        
+        ¤ RETURNS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+            
+            None:
+                * If vanishing points have same X-Coordinate       
         """
+        if left_vp[0] == right_vp[0]:
+            tk.messagebox.showinfo(title='Wrong coordinates',
+                                   message='Only 1 vanishing point was found')
+            self.stopdrawing = True
+            return None
 
         #Finding equations of all needed lines:
 
@@ -124,7 +141,11 @@ class Cuboid():
                                                     self.brp_line2.slope,
                                                     self.brp_line2.y_intercept
                                                     )
+        #Reversed Cuboid
+        #TopCorner becomes BtmCorner and Btm become Top
         else:
+            
+            self.cuboid_reversed = True
             #Bottom
             self.blp_line1 = sl.StraightLine(left_vp,self.right_corner2)      
             self.brp_line1 = sl.StraightLine(right_vp,self.left_corner2)
@@ -132,77 +153,132 @@ class Cuboid():
             self.blp_line2 = sl.StraightLine(left_vp,self.right_corner1)
             self.brp_line2 = sl.StraightLine(right_vp,self.left_corner1)
             
-            #Back Top Cuboid Corner - Intersection of two persp lines.
+            #Back Btm Cuboid Corner - Intersection of two persp lines.
             self.back_topcorner = self.blp_line1.math_line_intersection(
                                                     self.brp_line1.slope,
                                                     self.brp_line1.y_intercept
                                                     )
-            #Back Bottom Cuboid Corner - Intersection of two persp lines.
+            #Back Top Cuboid Corner - Intersection of two persp lines.
             self.back_btmcorner = self.blp_line2.math_line_intersection(
                                                     self.brp_line2.slope,
                                                     self.brp_line2.y_intercept
                                                     )
-        #Drawing Lines
-        #Mid Edge 
-        self.mid_edge = self.canvas.create_line(self.startcoord,
-                                               (self.startcoord[0],self._y),
-                                               fill=lcolor
-                                               )
-        #Left Down Edge
-        self.ldn_edge = self.canvas.create_line(self.startcoord,
-                                               (self.left_corner1),
-                                               fill=lcolor
-                                               )
-        #Left-Left Edge
-        self.lft_edge = self.canvas.create_line(self.left_corner1,
-                                               (self.left_corner2),
-                                               fill=lcolor
-                                               )
-        #Left Top Edge   
-        self.ltp_edge = self.canvas.create_line(self.left_corner2,
-                                               (self.startcoord[0],self._y),
-                                               fill=lcolor
-                                               )
-        #Right Down Edge
-        self.rdn_edge = self.canvas.create_line(self.startcoord,
-                                               (self.right_corner1),
-                                               fill=lcolor
-                                               )
-        #Right-Right Edge
-        self.rrt_edge = self.canvas.create_line(self.right_corner1,
-                                               (self.right_corner2),
-                                               fill=lcolor
-                                               )
-        #Right-Top Edge   
-        self.rtp_edge = self.canvas.create_line(self.right_corner2,
-                                               (self.startcoord[0],self._y),
-                                               fill=lcolor
-                                               )
+            
+    def draw_cuboid_2persp(self,lcolor='black',lwidth=1,ldash=()):
+        """
+        Draws cuboid in 2 perspective.
+              
+        Based on corners calculated at math_cubcorners_2persp(), 
+        draws all cuboid lines and stores them in 
+        line_list : list - for future configurations.
+        
+        ¤ PARAMETERS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+        
+            lcolor : str/hex code, ¤ OPTIONAL ¤
+                Color of lines. Defaults to 'black'.
+            lwidth : int, ¤ OPTIONAL ¤
+                Width of line. Defaults to 1.
+            ldash : tuple(int,int) ¤ OPTIONAL ¤
+                Creates dash for line. (Fill/Space). Defaults to ()
+                
+         ¤ RETURNS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+            
+            None:
+                * If switch "stopdrawing" is turned on. 
+                  Wrong parameters passed.     
+        
+        """
+        if self.stopdrawing:
+            return None
+        #Drawing from back to avoid overwriting.
+        
         #Back Top Right Edge
         self.btr_edge = self.canvas.create_line(self.right_corner2,
                                                self.back_topcorner,
-                                               fill=lcolor
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
                                                )
         #Back Top Left Edge                  
         self.btl_edge = self.canvas.create_line(self.left_corner2,
                                                self.back_topcorner,
-                                               fill=lcolor
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
                                                )
         #Back Mid Edge  
         self.bmd_edge = self.canvas.create_line(self.back_topcorner,
                                                self.back_btmcorner,
-                                               fill=lcolor
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
                                                )
         #Back Bottom Left Edge
         self.bbl_edge = self.canvas.create_line(self.back_btmcorner,
                                                self.left_corner1,
-                                               fill=lcolor
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
                                                )        
         #Back Bottom Right Edge
         self.bbr_edge = self.canvas.create_line(self.back_btmcorner,
                                                self.right_corner1,
-                                               fill=lcolor
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
                                                )
+        #Mid Edge 
+        self.mid_edge = self.canvas.create_line(self.startcoord,
+                                               (self.startcoord[0],self._y),
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
+                                               )
+        #Left Down Edge
+        self.ldn_edge = self.canvas.create_line(self.startcoord,
+                                               (self.left_corner1),
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
+                                               )
+        #Left-Left Edge
+        self.lft_edge = self.canvas.create_line(self.left_corner1,
+                                               (self.left_corner2),
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
+                                               )
+        #Left Top Edge   
+        self.ltp_edge = self.canvas.create_line(self.left_corner2,
+                                               (self.startcoord[0],self._y),
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
+                                               )
+        #Right Down Edge
+        self.rdn_edge = self.canvas.create_line(self.startcoord,
+                                               (self.right_corner1),
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
+                                               )
+        #Right-Right Edge
+        self.rrt_edge = self.canvas.create_line(self.right_corner1,
+                                               (self.right_corner2),
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
+                                               )
+        #Right-Top Edge   
+        self.rtp_edge = self.canvas.create_line(self.right_corner2,
+                                               (self.startcoord[0],self._y),
+                                               fill=lcolor,
+                                               width=lwidth,
+                                               dash=ldash
+                                               )
+
         
         #Store lines for future configurations.
         self.line_list = [self.mid_edge,
@@ -218,7 +294,7 @@ class Cuboid():
                           self.bbl_edge,
                           self.bbr_edge
                           ]
-    
+ 
     def perspective_lines(self,canv_height,lcolor="orange",ldash=(10,50)):
         """
         Draws perspective lines for cuboid.
@@ -235,15 +311,20 @@ class Cuboid():
             lcolor : str/hex, ¤ OPTIONAL ¤
                 Color of line. Defaults to "orange".
             ldash : tuple(int,int), ¤ OPTIONAL ¤
-                [description]. Defaults to (10,50).
-            dash : tuple(int,int) ¤ OPTIONAL ¤
-                Creates dash for line. (Fill/Space)
+                Creates dash for line. (Fill/Space). Defaults to (10,50).
         
-        """
-        
+        ¤ RETURNS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+            
+            None:
+                * If switch "stopdrawing" is turned on. 
+                  Wrong parameters passed. 
+                  
+        """ 
+        if self.stopdrawing:
+            return None
         #Calculate x cords for TOP/BOTTOM canvas borders by given line equation
-        #Drawing perspective lines based on equations at draw_cuboid_2persp()
-        
+    
         #Left Vanish Point - Startcoord
         x_start = int(self.lp_line1.math_x_crosspoint(0))
         x_end = int(self.lp_line1.math_x_crosspoint(canv_height))
@@ -323,6 +404,9 @@ class Cuboid():
         """
         Changes color and visibility configuration of backlines.
         
+        Backlines are decided by relation of:
+            * Corner-Corner Y-Coordinates.
+            * Corner-Vanishing Y-Coordinates.  
         Stores backlines in not_vislines_list : list
         
         
@@ -339,67 +423,146 @@ class Cuboid():
                 Toggles visibility of lines. Defaults to 'normal'.
                 Avaiable options: 'hidden'/'normal' 
         
+         ¤ RETURNS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+            
+            None:
+                * If switch "stopdrawing" is turned on. 
+                  Wrong parameters passed. 
+                          
         """
         
+        if self.stopdrawing:
+            return None
+        
+        #Restarts list
         self.not_vislines_list = []
+        
         #Check if corners are visible -> Corner Points/Vanishing Points
         
-        #Start over horizontal line
-        if self.startcoord[1] < vanishing_height:
-            #Bottom visible
-            self.canvas.itemconfig(self.btl_edge,fill=lcolor)
-            self.canvas.itemconfig(self.btr_edge,fill=lcolor)
-            #Top not visible
-            self.canvas.itemconfig(self.bbl_edge,fill=notvlcolor,state=state)
-            self.canvas.itemconfig(self.bbr_edge,fill=notvlcolor,state=state)
-            self.canvas.itemconfig(self.bmd_edge,fill=notvlcolor,state=state)
+        if self.cuboid_reversed:
             
-            #Store not visible lines for future configurations.
-            self.not_vislines_list = [self.bbl_edge,
-                                      self.bbr_edge,
-                                      self.bmd_edge
-                                     ]
-            
-            if self.back_btmcorner[1] < vanishing_height:
-                #Bottom not visible - Under horizontal line /Reversed Cuboid
-                self.canvas.itemconfig(self.btl_edge,
-                                        fill=notvlcolor,state=state)
-                self.canvas.itemconfig(self.btr_edge,
-                                        fill=notvlcolor,state=state)
-                
-                self.not_vislines_list.extend([self.btl_edge,self.btr_edge]) 
-                            
-        #Start under horizontal line 
-        if self.startcoord[1] > vanishing_height:
-            #Top visible
-            self.canvas.itemconfig(self.bbl_edge,fill=lcolor)
-            self.canvas.itemconfig(self.bbr_edge,fill=lcolor)
-            #Bottom not visible
-            self.canvas.itemconfig(self.btl_edge,fill=notvlcolor,state=state)
-            self.canvas.itemconfig(self.btr_edge,fill=notvlcolor,state=state)
-            self.canvas.itemconfig(self.bmd_edge,fill=notvlcolor,state=state)
-            
-            #Store not visible lines for future configurations.
-            self.not_vislines_list = [self.btl_edge,
-                                      self.btr_edge,
-                                      self.bmd_edge
-                                     ]
-            
-            if self.back_btmcorner[1] > vanishing_height:
-                #Top not visible - Over horizontal line /Reversed Cuboid
+            #Start over vanishing point - Going down (_y > startcoord[1])
+            if self.startcoord[1] < vanishing_height:
+                #Top not visible (Reversed so TOP -> BTM)
                 self.canvas.itemconfig(self.bbl_edge,
-                                        fill=notvlcolor,state=state)
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
                 self.canvas.itemconfig(self.bbr_edge,
-                                        fill=notvlcolor,state=state)
-                
-                self.not_vislines_list.extend([self.bbl_edge,self.bbr_edge])
-    
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                self.canvas.itemconfig(self.bmd_edge,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                #Store not visible lines for future configurations.
+                self.not_vislines_list = [self.bbl_edge,
+                                          self.bbr_edge,
+                                          self.bmd_edge
+                                         ]
+                #Check if bottom is visible 
+                if self.back_topcorner[1] > vanishing_height:
+                    #Bottom not visible (Reversed so BTM -> TOP)
+                    self.canvas.itemconfig(self.btl_edge,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    self.canvas.itemconfig(self.btr_edge,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    
+                    self.not_vislines_list.extend([self.btl_edge,
+                                                   self.btr_edge
+                                                   ]
+                                                  )
+            #Below Vanishing Point and going down so top visible, bottom not
+            else:
+                #Bottom not visible (Reversed so BTM -> TOP)
+                self.canvas.itemconfig(self.btl_edge,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                self.canvas.itemconfig(self.btr_edge,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                self.canvas.itemconfig(self.bmd_edge,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                #Store not visible lines for future configurations.
+                self.not_vislines_list = [self.btl_edge,
+                                          self.btr_edge,
+                                          self.bmd_edge
+                                         ]   
+        #Not Reversed Cuboid
+        else:                           
+            #Start below vanishing point - Going up (_y < startcoord[1])
+            if self.startcoord[1] > vanishing_height:
+                #Bottom not visible 
+                self.canvas.itemconfig(self.bbl_edge,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                self.canvas.itemconfig(self.bbr_edge,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                self.canvas.itemconfig(self.bmd_edge,
+                                       fill=notvlcolor,
+                                       state=state
+                                       )
+                #Store not visible lines for future configurations.
+                self.not_vislines_list = [self.bbl_edge,
+                                          self.bbr_edge,
+                                          self.bmd_edge
+                                         ]
+                #Check if top is visible 
+                if self.back_topcorner[1] < vanishing_height:
+                    #Top not visible 
+                    self.canvas.itemconfig(self.btl_edge,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    self.canvas.itemconfig(self.btr_edge,
+                                            fill=notvlcolor,
+                                            state=state
+                                            )
+                    
+                    self.not_vislines_list.extend([self.btl_edge,
+                                                   self.btr_edge
+                                                   ]
+                                                  )
+            #Over Vanishing Point and going up so bottom visible, top not
+            else:             
+                #Top not visible 
+                self.canvas.itemconfig(self.btl_edge,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                self.canvas.itemconfig(self.btr_edge,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                self.canvas.itemconfig(self.bmd_edge,
+                                        fill=notvlcolor,
+                                        state=state
+                                        )
+                #Store not visible lines for future configurations.
+                self.not_vislines_list = [self.btl_edge,
+                                          self.btr_edge,
+                                          self.bmd_edge
+                                         ]   
+        
     def change_lines(self,
                      line_list,
                      lcolor='black',
-                     state='normal',
-                     width=1,
-                     dash=()):
+                     lstate='normal',
+                     lwidth=1,
+                     ldash=()):
         """
         Changes style and visibility of lines passed in a list.
         
@@ -411,21 +574,24 @@ class Cuboid():
                 List of lines that needs to be configurated.
             lcolor : str/hex code, ¤ OPTIONAL ¤
                 Color of lines. Defaults to 'black'.
-            state : str, ¤ OPTIONAL ¤
+            lstate : str, ¤ OPTIONAL ¤
                 Toggles visibility of lines. Defaults to 'normal'.
                 Avaiable options: 'hidden'/'normal'
-            width : int, ¤ OPTIONAL ¤
+            lwidth : int, ¤ OPTIONAL ¤
                 Width of line. Defaults to 1.
-            dash : tuple(int,int) ¤ OPTIONAL ¤
-                Creates dash for line. (Fill/Space)
+            ldash : tuple(int,int) ¤ OPTIONAL ¤
+                Creates dash for line. (Fill/Space) Defaults to ().
         
         """
         for _ in line_list:
-            self.canvas.itemconfig(_,fill=lcolor,state=state,width=width)
+            self.canvas.itemconfig(_,fill=lcolor,
+                                   state=lstate,
+                                   width=lwidth,
+                                   dash=ldash)
         
     def del_lines(self,line_list):
         """
-        Deletes lines that are in a list
+        Deletes lines that are in a list.
         
         ¤ PARAMETERS
         ¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -436,44 +602,7 @@ class Cuboid():
         """
         for _ in line_list:
             self.canvas.delete(_)
+       
 
-        
-                
-                
-                 
-        #Coords Texts On Cuboid Corners
-        self.startcoord_text = self.canvas.create_text(self.startcoord,
-                                          text=f'{self.startcoord}',
-                                          fill='white'
-                                          )
-        self.midtopcorner_text = self.canvas.create_text(self.midtop_corner,
-                                          text=f'{self.midtop_corner}',
-                                          fill='white'
-                                          )
-        self.leftcorner1_text = self.canvas.create_text(self.left_corner1,
-                                          text=f'{self.left_corner1}',
-                                          fill='white'
-                                          )
-        self.leftcorner2_text = self.canvas.create_text(self.left_corner2,
-                                          text=f'{self.left_corner2}',
-                                          fill='white'
-                                          )
-        self.rightcorner1_text = self.canvas.create_text(self.right_corner1,
-                                          text=f'{self.right_corner1}',
-                                          fill='white'
-                                          )  
-        self.rightcorner2_text = self.canvas.create_text(self.right_corner2,
-                                          text=f'{self.right_corner2}',
-                                          fill='white'
-                                          )
-        self.bhdtopcorner_text = self.canvas.create_text(self.back_topcorner,
-                                          text=f'BT{self.back_topcorner}',
-                                          fill='white'
-                                          )   
-        self.bhdbtmcorner_text = self.canvas.create_text(self.back_btmcorner,
-                                          text=f'BM{self.back_btmcorner}',
-                                          fill='white'
-                                          )                               
-        
-        
-              
+#TODO: Add fill wall with a color function based on visibility. 
+#TODO: Finish documentation.                  
