@@ -36,14 +36,14 @@ class Cuboid():
             Draws perspective lines for cuboid.
         draw_2persp_walls()
             Colours cuboid's walls.
-        not_vis_lines()
+        lines_not_vis()
             Changes color and visibility configuration of backlines.
-        not_vis_lines_persp()
+        lines_persp_not_vis()
             Changes color and visibility configuration of
             perspective lines going through not visible corners.
-        change_lines()
+        lines_change()
             Changes style and visibility of lines passed in a list.
-        del_lines()
+        lines_del()
             Deletes lines that are in a list. 
     
     """
@@ -738,7 +738,7 @@ class Cuboid():
                                                     fill=wrsidecolor
                                                     )
         
-        self.walls_line = [self.top_wall,
+        self.walls_lists = [self.top_wall,
                            self.backlside_wall,
                            self.backrside_wall,
                            self.bottom_wall,
@@ -746,7 +746,7 @@ class Cuboid():
                            self.rside_wall
                            ]                     
            
-    def not_vis_lines(self,
+    def lines_not_vis(self,
                     vanishing_height,
                     notvlcolor='grey',
                     state='normal'):
@@ -907,7 +907,7 @@ class Cuboid():
         self.vis_lines_list = [line for line in self.line_list 
                             if line not in self.not_vislines_list]
 
-    def not_vis_lines_persp(self,
+    def lines_persp_not_vis(self,
                             vanishing_height,
                             notvlcolor='#9dad7f',
                             state='normal'):
@@ -1048,12 +1048,14 @@ class Cuboid():
         #Store visible lines for future configurations.
         self.vis_plines_list = [line for line in self.perspline_list
                             if line not in self.not_visplines_list]       
-    def change_lines(self,
+    
+    def lines_change(self,
                      line_list,
                      lcolor='black',
                      lstate='normal',
                      lwidth=1,
-                     ldash=()):
+                     ldash=(),
+                     loutline=''):
         """
         Changes style and visibility of lines passed in a list.
         
@@ -1072,15 +1074,20 @@ class Cuboid():
                 Width of line. Defaults to 1.
             ldash : tuple(int,int) ¤ OPTIONAL ¤
                 Creates dash for line. (Fill/Space) Defaults to ().
+            loutline : str/hex code ¤ OPTIONAL ¤
+                Line's outline color. Defaults to ''.
         
         """
         for _ in line_list:
-            self.canvas.itemconfig(_,fill=lcolor,
+            self.canvas.itemconfig(_,
+                                   fill=lcolor,
                                    state=lstate,
                                    width=lwidth,
-                                   dash=ldash)
-        
-    def del_lines(self,line_list):
+                                   dash=ldash,
+                                   outline=loutline
+                                   )
+    
+    def lines_del(self,line_list):
         """
         Deletes lines that are in a list.
         
@@ -1094,6 +1101,43 @@ class Cuboid():
         for _ in line_list:
             self.canvas.delete(_)
 
+    def walls_change(self,
+                     walls_list,
+                     wcolor='black',
+                     wstate='normal',
+                     wwidth=1,
+                     wdash=(),
+                     woutline=''):
+        """
+        Changes style and visibility of lines passed in a list.
+        
+        
+        ¤ PARAMETERS
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯
+        
+            line_list : list
+                List of lines that needs to be configurated.
+            lcolor : str/hex code, ¤ OPTIONAL ¤
+                Color of lines. Defaults to 'black'.
+            lstate : str, ¤ OPTIONAL ¤
+                Toggles visibility of lines. Defaults to 'normal'.
+                Avaiable options: 'hidden'/'normal'
+            lwidth : int, ¤ OPTIONAL ¤
+                Width of line. Defaults to 1.
+            ldash : tuple(int,int) ¤ OPTIONAL ¤
+                Creates dash for line. (Fill/Space) Defaults to ().
+            loutline : str/hex code ¤ OPTIONAL ¤
+                Line's outline color. Defaults to ''.
+        
+        """
+        for _ in walls_list:
+            self.canvas.itemconfig(_,
+                                   fill=wcolor,
+                                   state=wstate,
+                                   width=wwidth,
+                                   dash=wdash,
+                                   outline=woutline
+                                   )  
 
-#TODO: Configurate walls 
-#TODO: Add 1-perspective cuboid option               
+
+#TODO: Add 1-perspective cuboid options               
