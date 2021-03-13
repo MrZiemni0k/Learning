@@ -13,4 +13,4 @@ Generating band name by connecting city and pet's name provided by an user.
 
 ### Visualisation
 
-![](Done/100DaysChallenge/#1/#1.gif)
+![](#1.gif)
