@@ -1,6 +1,6 @@
 # Band_Name_Generator
 
-Generating band name by connecting city and pet's name provided by an user.
+Generating band name by connecting city and pet's names provided by an user.
 
 ## Level:
     Beginner
