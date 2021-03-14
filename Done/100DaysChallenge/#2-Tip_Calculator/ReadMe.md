@@ -17,6 +17,8 @@ Calculating what amount of tip should each person pay based on:
         - [int](https://docs.python.org/3/library/functions.html#int)
         - [float](https://docs.python.org/3/library/functions.html#float)
         - [f-string](https://docs.python.org/3/reference/lexical_analysis.html#f-strings)
+        - [float-formatting](https://stackoverflow.com/questions/455612/limiting-floats-to-two-decimal-points)
+        - [round](https://docs.python.org/3/library/functions.html#round)
 
 ### Visualisation
 
