@@ -1,4 +1,4 @@
-# Treasure_Island
+# Rock_Paper_Scissors_Game
 
 Rock, paper, scissors game against a computer.
 
