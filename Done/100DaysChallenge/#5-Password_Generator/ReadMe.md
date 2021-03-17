@@ -1,6 +1,10 @@
-# Treasure_Island
+# Password Generator
 
-Rock, paper, scissors game against a computer.
+Generating random password based by user input:
+
+- Number of letters
+- Number of symbols
+- Number of numbers
 
 ## Level:
     Beginner
@@ -9,8 +13,9 @@ Rock, paper, scissors game against a computer.
 * Python
     - Built-in Functions:
         - [random](https://docs.python.org/3/library/random.html)
-        - [if-statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements)
-
+        - [for-statements](https://docs.python.org/3/tutorial/controlflow.html#for-statements)
+        - [lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+        
 ### Visualisation
 
 ![](visualisation.gif)
