@@ -1,4 +1,4 @@
-# Hangman
+# Caear Cipher
 
 Programm to encode and decode messages with Caesar_Cipher method.
 
