@@ -60,8 +60,6 @@ def check_resources(coffee_type):
         if coffee_info[x] >= resources[x]:
             print(f"Sorry there is not enough {x}. Money refunded.")
             return False
-    print(f"Test {resources}")
-    print(f"Test2 {trigger_stock}")
     resources = trigger_stock
     return True
     
@@ -90,6 +88,7 @@ while order:
                 print("Here's your change: ${:.2f}".format(change))
             if check_resources(order):
                 resources["money"] += income
+                print(f"Enjoy your ☕{order}")
         else:
             print("Sorry that's not enough money. Money refunded.")
             
