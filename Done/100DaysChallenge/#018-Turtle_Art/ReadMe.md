@@ -1,4 +1,4 @@
-# Quiz Game
+# Turtle Art
 
 Create some kind of dot art using Turtle module.
 
