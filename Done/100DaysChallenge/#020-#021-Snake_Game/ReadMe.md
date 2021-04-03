@@ -2,6 +2,13 @@
 
 Popular snake game without any tweaks.
 
+## Rules:
+
+* Movement
+    - "⬆️" - Up
+    - "⬅️" - Left
+    - "⬇️" - Down
+    - "➡️" - Right
 ## Level:
     Intermediate
 
