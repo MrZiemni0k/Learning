@@ -1,7 +1,20 @@
 # PONG
 
-Popular PONG game. 
-GIF is with 12frames/sec. 
+Popular PONG game.  
+GIF is with 12frames/sec.  
+
+## Rules:
+
+* Player 1 movement: 
+    - "W" - Up
+    - "S" - Down
+
+* Player 2 movement:
+    - "⬆️" - Up
+    - "⬇️" - Down
+
+Game is played until one of the players scores 3 points.
+Ball gets faster every 5 bounces. Ball's speed restart on scored point.
 
 ## Level:
     Intermediate
