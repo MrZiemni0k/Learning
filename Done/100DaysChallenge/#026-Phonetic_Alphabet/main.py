@@ -10,5 +10,5 @@ _alpha = {row.letter:row.code for (index, row) in alphabet.iterrows()}
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 user_input = input("Provide a word: ")
-output = [_alpha.get(letter) for letter in [x.upper() for x in user_input]]
+output = [_alpha[letter] for letter in user_input.upper()]
 print(output)
