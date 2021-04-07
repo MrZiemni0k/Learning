@@ -1,15 +1,10 @@
-# USA States Game
+# NATO/IATA phonetic alphabet 
 
-Can you guess 50 states of USA?
+Generates phonetic alphabet by provided input from user.
 
-## How it works:
+## Details:
 
-For each correct guess +1 point.  
-Insentive to big/small letters.  
-If answer repeated Game Over.  
-Wrong answer Game Over.  
-Exit - Makes programm stop.  
-Will generate csv file for not guessed states.  
+Challenge was to practice Python List Comprehensions.
 ## Level:
     Intermediate
 
@@ -17,7 +12,7 @@ Will generate csv file for not guessed states.
 * Python
     - Module
         - [Pandas](https://pandas.pydata.org/docs/)
-        - [Turtle](https://docs.python.org/3/library/turtle.html)
+        - [List Comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
 
 ### Visualisation
 
