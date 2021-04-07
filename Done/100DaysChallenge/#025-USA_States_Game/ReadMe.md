@@ -1,18 +1,24 @@
-# Mail_Merger
+# USA States Game
 
-Small challenge/exercise to practice Relative Paths.
+Can you guess 50 states of USA?
 
-## Challenge Task:
+## How it works:
 
-Create  a letter using starting_letter.txt  
-for each name in invited_names.txt  
-Replace the [name] placeholder with the actual name.  
-Save the letters in the folder "ReadyToSend".  
-    
+For each correct guess +1 point.
+Insentive to big/small letters.
+If answer repeated Game Over.
+Wrong answer Game Over.
+Exit - Makes programm stop.
+Will generate csv file for not guessed states.  
 ## Level:
     Intermediate
 
 ## Built with
 * Python
-    - Generator
-        - [Written_by_AkiRoss](https://stackoverflow.com/questions/4664850/how-to-find-all-occurrences-of-a-substring/#34445090)
+    - Module
+        - [Pandas](https://pandas.pydata.org/docs/)
+        - [Turtle](https://docs.python.org/3/library/turtle.html)
+
+### Visualisation
+
+![](visualisation.gif)
