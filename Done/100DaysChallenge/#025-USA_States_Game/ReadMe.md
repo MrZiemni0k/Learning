@@ -4,11 +4,11 @@ Can you guess 50 states of USA?
 
 ## How it works:
 
-For each correct guess +1 point.
-Insentive to big/small letters.
-If answer repeated Game Over.
-Wrong answer Game Over.
-Exit - Makes programm stop.
+For each correct guess +1 point.  
+Insentive to big/small letters.  
+If answer repeated Game Over.  
+Wrong answer Game Over.  
+Exit - Makes programm stop.  
 Will generate csv file for not guessed states.  
 ## Level:
     Intermediate
