@@ -1,0 +1,3958 @@
+{
+    "0": {
+        "Japanese": "\u4f55",
+        "English": "What "
+    },
+    "1": {
+        "Japanese": "\u3042",
+        "English": "Ah "
+    },
+    "2": {
+        "Japanese": "\u3042\u306a\u305f",
+        "English": "You "
+    },
+    "3": {
+        "Japanese": "\u8a00",
+        "English": "Word "
+    },
+    "4": {
+        "Japanese": "\u884c",
+        "English": "Line "
+    },
+    "5": {
+        "Japanese": "\u4eba",
+        "English": "Man "
+    },
+    "6": {
+        "Japanese": "\u77e5",
+        "English": "Knowledge "
+    },
+    "7": {
+        "Japanese": "\u4e8b",
+        "English": "Thing "
+    },
+    "8": {
+        "Japanese": "\u5f7c\u5973",
+        "English": "She "
+    },
+    "9": {
+        "Japanese": "\u304a\u524d",
+        "English": "You "
+    },
+    "10": {
+        "Japanese": "\u8a71",
+        "English": "Story "
+    },
+    "11": {
+        "Japanese": "\u6765",
+        "English": "Coming "
+    },
+    "12": {
+        "Japanese": "\u5206\u304b",
+        "English": "Division "
+    },
+    "13": {
+        "Japanese": "\u8005",
+        "English": "Person "
+    },
+    "14": {
+        "Japanese": "\u805e",
+        "English": "Hearing "
+    },
+    "15": {
+        "Japanese": "\u6b7b",
+        "English": "Death "
+    },
+    "16": {
+        "Japanese": "\u6642",
+        "English": "Time "
+    },
+    "17": {
+        "Japanese": "\u3042\u3042",
+        "English": "Oh "
+    },
+    "18": {
+        "Japanese": "\u6bba",
+        "English": "Killing "
+    },
+    "19": {
+        "Japanese": "\u524d",
+        "English": "Before "
+    },
+    "20": {
+        "Japanese": "\u4e2d",
+        "English": "During ~ "
+    },
+    "21": {
+        "Japanese": "\u9054",
+        "English": "Reaches "
+    },
+    "22": {
+        "Japanese": "\u5fc5\u8981",
+        "English": "Necessary "
+    },
+    "23": {
+        "Japanese": "\u3042\u306e",
+        "English": "That "
+    },
+    "24": {
+        "Japanese": "\u6c17",
+        "English": "Spirit "
+    },
+    "25": {
+        "Japanese": "\u5927\u4e08\u592b",
+        "English": "All right "
+    },
+    "26": {
+        "Japanese": "\u81ea\u5206",
+        "English": "Myself "
+    },
+    "27": {
+        "Japanese": "\u6301",
+        "English": "Possession "
+    },
+    "28": {
+        "Japanese": "\u672c\u5f53",
+        "English": "For real "
+    },
+    "29": {
+        "Japanese": "\u6642\u9593",
+        "English": "Time "
+    },
+    "30": {
+        "Japanese": "\u6211\u3005",
+        "English": "We "
+    },
+    "31": {
+        "Japanese": "\u4e00",
+        "English": "One "
+    },
+    "32": {
+        "Japanese": "\u7684",
+        "English": "Target "
+    },
+    "33": {
+        "Japanese": "\u7121",
+        "English": "Nothing "
+    },
+    "34": {
+        "Japanese": "\u3042\u308a\u304c\u3068\u3046",
+        "English": "Thank you "
+    },
+    "35": {
+        "Japanese": "\u5bb6",
+        "English": "House "
+    },
+    "36": {
+        "Japanese": "\u4f1a",
+        "English": "Meeting "
+    },
+    "37": {
+        "Japanese": "\u65e5",
+        "English": "Day "
+    },
+    "38": {
+        "Japanese": "\u5e74",
+        "English": "Year "
+    },
+    "39": {
+        "Japanese": "\u4ed5\u4e8b",
+        "English": "Jobs "
+    },
+    "40": {
+        "Japanese": "\u624b",
+        "English": "Hand "
+    },
+    "41": {
+        "Japanese": "\u4e00\u7dd2",
+        "English": "Together "
+    },
+    "42": {
+        "Japanese": "\u5f8c",
+        "English": "Rear "
+    },
+    "43": {
+        "Japanese": "\u51fa\u6765",
+        "English": "Confidentiality "
+    },
+    "44": {
+        "Japanese": "\u4ed6",
+        "English": "Other "
+    },
+    "45": {
+        "Japanese": "\u5165",
+        "English": "On "
+    },
+    "46": {
+        "Japanese": "\u96fb\u8a71",
+        "English": "Phone "
+    },
+    "47": {
+        "Japanese": "\u76ee",
+        "English": "Eye "
+    },
+    "48": {
+        "Japanese": "\u69d8",
+        "English": "Mr "
+    },
+    "49": {
+        "Japanese": "\u5206",
+        "English": "Minute "
+    },
+    "50": {
+        "Japanese": "\u8eca",
+        "English": "Car "
+    },
+    "51": {
+        "Japanese": "\u6240",
+        "English": "Place "
+    },
+    "52": {
+        "Japanese": "\u3042\u3093\u305f",
+        "English": "Anta "
+    },
+    "53": {
+        "Japanese": "\u5ea6",
+        "English": "Every time "
+    },
+    "54": {
+        "Japanese": "\u540c\u3058",
+        "English": "The same "
+    },
+    "55": {
+        "Japanese": "\u5834\u6240",
+        "English": "Place "
+    },
+    "56": {
+        "Japanese": "\u554f\u984c",
+        "English": "Problem "
+    },
+    "57": {
+        "Japanese": "\u5b50\u4f9b",
+        "English": "Children "
+    },
+    "58": {
+        "Japanese": "\u611b",
+        "English": "Love "
+    },
+    "59": {
+        "Japanese": "\u91d1",
+        "English": "Money "
+    },
+    "60": {
+        "Japanese": "\u540d\u524d",
+        "English": "Given names "
+    },
+    "61": {
+        "Japanese": "\u5b50",
+        "English": "Child "
+    },
+    "62": {
+        "Japanese": "\u4fe1",
+        "English": "Belief "
+    },
+    "63": {
+        "Japanese": "\u3055\u3042",
+        "English": "Here we go "
+    },
+    "64": {
+        "Japanese": "\u5c11\u3057",
+        "English": "A little "
+    },
+    "65": {
+        "Japanese": "\u4f7f",
+        "English": "Use "
+    },
+    "66": {
+        "Japanese": "\u5168\u3066",
+        "English": "All "
+    },
+    "67": {
+        "Japanese": "\u4e16\u754c",
+        "English": "World "
+    },
+    "68": {
+        "Japanese": "\u6559\u3048",
+        "English": "Teaching "
+    },
+    "69": {
+        "Japanese": "\u901a\u308a",
+        "English": "Street "
+    },
+    "70": {
+        "Japanese": "\u6765\u308b",
+        "English": "Come "
+    },
+    "71": {
+        "Japanese": "\u4e0a",
+        "English": "Up "
+    },
+    "72": {
+        "Japanese": "\u5165\u308c",
+        "English": "Get in "
+    },
+    "73": {
+        "Japanese": "\u4eba\u9593",
+        "English": "Human "
+    },
+    "74": {
+        "Japanese": "\u884c\u3051",
+        "English": "Go "
+    },
+    "75": {
+        "Japanese": "\u4eca\u65e5",
+        "English": "Today "
+    },
+    "76": {
+        "Japanese": "\u7269",
+        "English": "Stuff "
+    },
+    "77": {
+        "Japanese": "\u5973",
+        "English": "Woman "
+    },
+    "78": {
+        "Japanese": "\u547c",
+        "English": "Call "
+    },
+    "79": {
+        "Japanese": "\u751f\u304d",
+        "English": "Life "
+    },
+    "81": {
+        "Japanese": "\u3058\u3083\u3042",
+        "English": "Surely "
+    },
+    "82": {
+        "Japanese": "\u6b62\u3081",
+        "English": "Stop "
+    },
+    "83": {
+        "Japanese": "\u5fc3\u914d",
+        "English": "Worry "
+    },
+    "84": {
+        "Japanese": "\u6bcd",
+        "English": "Mother "
+    },
+    "85": {
+        "Japanese": "\u9023\u308c",
+        "English": "Take advantage of "
+    },
+    "86": {
+        "Japanese": "\u95a2\u4fc2",
+        "English": "Relation "
+    },
+    "87": {
+        "Japanese": "\u5916",
+        "English": "Outside "
+    },
+    "88": {
+        "Japanese": "\u5bb6\u65cf",
+        "English": "Family "
+    },
+    "89": {
+        "Japanese": "\u8d77\u304d",
+        "English": "Wake up "
+    },
+    "90": {
+        "Japanese": "\u610f\u5473",
+        "English": "Meaning "
+    },
+    "91": {
+        "Japanese": "\u795e",
+        "English": "God "
+    },
+    "92": {
+        "Japanese": "\u8b66\u5bdf",
+        "English": "Police "
+    },
+    "93": {
+        "Japanese": "\u529b",
+        "English": "Power "
+    },
+    "94": {
+        "Japanese": "\u6700\u5f8c",
+        "English": "Last "
+    },
+    "95": {
+        "Japanese": "\u4f5c",
+        "English": "Work "
+    },
+    "96": {
+        "Japanese": "\u6b21",
+        "English": "Next "
+    },
+    "97": {
+        "Japanese": "\u606f\u5b50",
+        "English": "Son "
+    },
+    "98": {
+        "Japanese": "\u53d6",
+        "English": "Taking "
+    },
+    "99": {
+        "Japanese": "\u5168\u90e8",
+        "English": "Whole "
+    },
+    "100": {
+        "Japanese": "\u9593",
+        "English": "While "
+    },
+    "101": {
+        "Japanese": "\u66f8",
+        "English": "Book "
+    },
+    "102": {
+        "Japanese": "\u635c\u67fb",
+        "English": "Investigation "
+    },
+    "103": {
+        "Japanese": "\u8d77\u3053",
+        "English": "Happening "
+    },
+    "104": {
+        "Japanese": "\u56de",
+        "English": "Time "
+    },
+    "105": {
+        "Japanese": "\u5225",
+        "English": "Another "
+    },
+    "106": {
+        "Japanese": "\u60c5\u5831",
+        "English": "Information "
+    },
+    "107": {
+        "Japanese": "\u7406\u7531",
+        "English": "Reason "
+    },
+    "108": {
+        "Japanese": "\u6570",
+        "English": "Number "
+    },
+    "109": {
+        "Japanese": "\u4e00\u4eba",
+        "English": "One person "
+    },
+    "110": {
+        "Japanese": "\u90e8\u5c4b",
+        "English": "Room "
+    },
+    "111": {
+        "Japanese": "\u4ee5\u4e0a",
+        "English": "That's all "
+    },
+    "112": {
+        "Japanese": "\u4eba\u751f",
+        "English": "Life "
+    },
+    "113": {
+        "Japanese": "\u6025",
+        "English": "Sudden "
+    },
+    "114": {
+        "Japanese": "\u98df\u3079",
+        "English": "Eat "
+    },
+    "115": {
+        "Japanese": "\u5973\u6027",
+        "English": "Woman "
+    },
+    "116": {
+        "Japanese": "\u7d9a\u3051",
+        "English": "Continue "
+    },
+    "117": {
+        "Japanese": "\u4e8b\u4ef6",
+        "English": "Incident "
+    },
+    "118": {
+        "Japanese": "\u59cb\u3081",
+        "English": "Start "
+    },
+    "119": {
+        "Japanese": "\u6700\u521d",
+        "English": "The first "
+    },
+    "120": {
+        "Japanese": "\u9023\u7d61",
+        "English": "Contact "
+    },
+    "121": {
+        "Japanese": "\u307e\u3042",
+        "English": "Oh dear "
+    },
+    "122": {
+        "Japanese": "\u8abf\u3079",
+        "English": "Investigation "
+    },
+    "123": {
+        "Japanese": "\u5b89\u5168",
+        "English": "Safety "
+    },
+    "124": {
+        "Japanese": "\u4e0b\u3055",
+        "English": "Lowerness "
+    },
+    "125": {
+        "Japanese": "\u697d\u3057",
+        "English": "Enjoyment "
+    },
+    "126": {
+        "Japanese": "\u6bba\u4eba",
+        "English": "Murder "
+    },
+    "127": {
+        "Japanese": "\u4e0b",
+        "English": "Under "
+    },
+    "128": {
+        "Japanese": "\u4e07",
+        "English": "Ten thousand "
+    },
+    "129": {
+        "Japanese": "\u53cb\u9054",
+        "English": "Friend "
+    },
+    "130": {
+        "Japanese": "\u7d04\u675f",
+        "English": "Promise "
+    },
+    "131": {
+        "Japanese": "\u4e8c",
+        "English": "Two "
+    },
+    "132": {
+        "Japanese": "\u7d50\u5a5a",
+        "English": "Marriage "
+    },
+    "133": {
+        "Japanese": "\u7121\u7406",
+        "English": "Impossible "
+    },
+    "134": {
+        "Japanese": "\u611f\u3058",
+        "English": "Feeling "
+    },
+    "135": {
+        "Japanese": "\u5f97",
+        "English": "Gain "
+    },
+    "136": {
+        "Japanese": "\u6700\u9ad8",
+        "English": "Best "
+    },
+    "137": {
+        "Japanese": "\u9001",
+        "English": "Sending "
+    },
+    "138": {
+        "Japanese": "\u8a08\u753b",
+        "English": "Plan "
+    },
+    "139": {
+        "Japanese": "\u4ef2\u9593",
+        "English": "Friend "
+    },
+    "140": {
+        "Japanese": "\u5148",
+        "English": "Previous "
+    },
+    "141": {
+        "Japanese": "\u53ef\u80fd",
+        "English": "Possible "
+    },
+    "142": {
+        "Japanese": "\u3042\u3044\u3064",
+        "English": "That person "
+    },
+    "143": {
+        "Japanese": "\u3042\u3068",
+        "English": "After "
+    },
+    "144": {
+        "Japanese": "\u660e\u65e5",
+        "English": "Tomorrow "
+    },
+    "145": {
+        "Japanese": "\u5909\u308f",
+        "English": "Change "
+    },
+    "146": {
+        "Japanese": "\u805e\u3053\u3048",
+        "English": "Hearing "
+    },
+    "147": {
+        "Japanese": "\u78ba\u8a8d",
+        "English": "Verification "
+    },
+    "148": {
+        "Japanese": "\u547d",
+        "English": "Life "
+    },
+    "149": {
+        "Japanese": "\u7740",
+        "English": "Arrival "
+    },
+    "150": {
+        "Japanese": "\u4e0e\u3048",
+        "English": "Giving "
+    },
+    "151": {
+        "Japanese": "\u5168\u54e1",
+        "English": "Whole member "
+    },
+    "152": {
+        "Japanese": "\u52d5",
+        "English": "Motion "
+    },
+    "153": {
+        "Japanese": "\u7406\u89e3",
+        "English": "Understanding "
+    },
+    "154": {
+        "Japanese": "\u4e8c\u4eba",
+        "English": "Two persons "
+    },
+    "155": {
+        "Japanese": "\u958b\u3051",
+        "English": "Open "
+    },
+    "156": {
+        "Japanese": "\u53cb\u4eba",
+        "English": "Friend "
+    },
+    "157": {
+        "Japanese": "\u6a5f",
+        "English": "Machine "
+    },
+    "158": {
+        "Japanese": "\u4e0d",
+        "English": "Disgusting "
+    },
+    "159": {
+        "Japanese": "\u3042\u3052",
+        "English": "Raising "
+    },
+    "160": {
+        "Japanese": "\u96e2\u308c",
+        "English": "Leaving "
+    },
+    "161": {
+        "Japanese": "\u6226",
+        "English": "War "
+    },
+    "162": {
+        "Japanese": "\u5148\u751f",
+        "English": "Teacher "
+    },
+    "163": {
+        "Japanese": "\u8a00\u3048",
+        "English": "Say "
+    },
+    "164": {
+        "Japanese": "\u8cea\u554f",
+        "English": "Question "
+    },
+    "165": {
+        "Japanese": "\u7f6e",
+        "English": "Placement "
+    },
+    "166": {
+        "Japanese": "\u72af\u4eba",
+        "English": "Criminal "
+    },
+    "167": {
+        "Japanese": "\u53d7\u3051",
+        "English": "Received "
+    },
+    "168": {
+        "Japanese": "\u611f",
+        "English": "Sense "
+    },
+    "169": {
+        "Japanese": "\u7b2c",
+        "English": "Second "
+    },
+    "170": {
+        "Japanese": "\u3042\u3041",
+        "English": "Ahh "
+    },
+    "171": {
+        "Japanese": "\u4f1d\u3048",
+        "English": "Convey "
+    },
+    "172": {
+        "Japanese": "\u7d20\u6674\u3089\u3057",
+        "English": "Wonderful "
+    },
+    "173": {
+        "Japanese": "\u30c9\u30a2",
+        "English": "Door "
+    },
+    "174": {
+        "Japanese": "\u672c",
+        "English": "Book "
+    },
+    "175": {
+        "Japanese": "\u4e57",
+        "English": "Ride "
+    },
+    "176": {
+        "Japanese": "\u7528",
+        "English": "For "
+    },
+    "177": {
+        "Japanese": "\u611f\u8b1d",
+        "English": "Gratitude "
+    },
+    "178": {
+        "Japanese": "\u6b63\u3057",
+        "English": "Correct "
+    },
+    "179": {
+        "Japanese": "\u8a00\u8449",
+        "English": "Word "
+    },
+    "180": {
+        "Japanese": "\u5927",
+        "English": "Big "
+    },
+    "181": {
+        "Japanese": "\u7acb",
+        "English": "Standing "
+    },
+    "182": {
+        "Japanese": "\u5199\u771f",
+        "English": "Photo "
+    },
+    "183": {
+        "Japanese": "\uff12\u4eba",
+        "English": "Two "
+    },
+    "184": {
+        "Japanese": "\u8aac\u660e",
+        "English": "Description "
+    },
+    "185": {
+        "Japanese": "\u535a\u58eb",
+        "English": "Doctor "
+    },
+    "186": {
+        "Japanese": "\u5f37",
+        "English": "Strength "
+    },
+    "187": {
+        "Japanese": "\u7d76\u5bfe",
+        "English": "Absolutely "
+    },
+    "188": {
+        "Japanese": "\u5ea7",
+        "English": "Seat "
+    },
+    "189": {
+        "Japanese": "\u56fd",
+        "English": "Country "
+    },
+    "190": {
+        "Japanese": "\u5411\u304b",
+        "English": "Direction "
+    },
+    "191": {
+        "Japanese": "\u540d",
+        "English": "Name "
+    },
+    "192": {
+        "Japanese": "\u3042\u308b",
+        "English": "Is there "
+    },
+    "193": {
+        "Japanese": "\u91ce\u90ce",
+        "English": "Guy "
+    },
+    "194": {
+        "Japanese": "\u756a",
+        "English": "Number "
+    },
+    "195": {
+        "Japanese": "\u4e00\u756a",
+        "English": "Best "
+    },
+    "196": {
+        "Japanese": "\u91cd\u8981",
+        "English": "Important "
+    },
+    "197": {
+        "Japanese": "\u72b6\u6cc1",
+        "English": "Status "
+    },
+    "198": {
+        "Japanese": "\u5143\u6c17",
+        "English": "Energy "
+    },
+    "199": {
+        "Japanese": "\u6c34",
+        "English": "Water "
+    },
+    "200": {
+        "Japanese": "\u5909\u3048",
+        "English": "Change "
+    },
+    "201": {
+        "Japanese": "\u5341\u5206",
+        "English": "Sufficient "
+    },
+    "202": {
+        "Japanese": "\u9031\u9593",
+        "English": "Weekly "
+    },
+    "203": {
+        "Japanese": "\u3084\u3042",
+        "English": "Thorough "
+    },
+    "204": {
+        "Japanese": "\u7236\u89aa",
+        "English": "Father "
+    },
+    "205": {
+        "Japanese": "\u9593\u9055\u3044",
+        "English": "Mistake "
+    },
+    "206": {
+        "Japanese": "\u738b",
+        "English": "King "
+    },
+    "207": {
+        "Japanese": "\u4e86\u89e3",
+        "English": "Roger that "
+    },
+    "208": {
+        "Japanese": "\u76f8\u624b",
+        "English": "Opponent "
+    },
+    "209": {
+        "Japanese": "\u54e1",
+        "English": "Employee "
+    },
+    "210": {
+        "Japanese": "\u58f0",
+        "English": "Voice "
+    },
+    "211": {
+        "Japanese": "\u4f1a\u3048",
+        "English": "Meeting "
+    },
+    "212": {
+        "Japanese": "\u97f3",
+        "English": "Sound "
+    },
+    "213": {
+        "Japanese": "\u591a\u304f",
+        "English": "Many "
+    },
+    "214": {
+        "Japanese": "\u6d88\u3048",
+        "English": "Disappear "
+    },
+    "215": {
+        "Japanese": "\u4f1a\u793e",
+        "English": "The company "
+    },
+    "216": {
+        "Japanese": "\u7c21\u5358",
+        "English": "Simple "
+    },
+    "217": {
+        "Japanese": "\u9078",
+        "English": "Selection "
+    },
+    "218": {
+        "Japanese": "\u6b8b\u5ff5",
+        "English": "Unfortunately "
+    },
+    "219": {
+        "Japanese": "\u81ea\u7531",
+        "English": "Freedom "
+    },
+    "220": {
+        "Japanese": "\u81ea\u8eab",
+        "English": "Oneself "
+    },
+    "221": {
+        "Japanese": "\u7b49",
+        "English": "Etc "
+    },
+    "222": {
+        "Japanese": "\u4e00\u4f53",
+        "English": "Integral "
+    },
+    "223": {
+        "Japanese": "\u4eba\u3005",
+        "English": "People "
+    },
+    "224": {
+        "Japanese": "\u5831\u544a",
+        "English": "Report "
+    },
+    "225": {
+        "Japanese": "\u8aad",
+        "English": "Reading "
+    },
+    "226": {
+        "Japanese": "\u904e\u304e",
+        "English": "Over "
+    },
+    "227": {
+        "Japanese": "\u901a",
+        "English": "Through "
+    },
+    "228": {
+        "Japanese": "\u30a2\u30e1\u30ea\u30ab",
+        "English": "America "
+    },
+    "229": {
+        "Japanese": "\u5143",
+        "English": "Origin "
+    },
+    "230": {
+        "Japanese": "\u547d\u4ee4",
+        "English": "Order "
+    },
+    "231": {
+        "Japanese": "\u9ad8",
+        "English": "High "
+    },
+    "232": {
+        "Japanese": "\u4f53",
+        "English": "Body "
+    },
+    "233": {
+        "Japanese": "\u5927\u7d71\u9818",
+        "English": "President "
+    },
+    "234": {
+        "Japanese": "\u6708",
+        "English": "Month "
+    },
+    "235": {
+        "Japanese": "\u8b66\u5b98",
+        "English": "Policeman "
+    },
+    "236": {
+        "Japanese": "\u8a9e",
+        "English": "Word "
+    },
+    "237": {
+        "Japanese": "\u5b66\u6821",
+        "English": "School "
+    },
+    "238": {
+        "Japanese": "\u5bfe",
+        "English": "Versus "
+    },
+    "239": {
+        "Japanese": "\u6c7a\u3081",
+        "English": "Deciding "
+    },
+    "240": {
+        "Japanese": "\u771f\u5b9f",
+        "English": "Truth "
+    },
+    "241": {
+        "Japanese": "\u521d\u3081\u3066",
+        "English": "For the first time "
+    },
+    "242": {
+        "Japanese": "\u53e3",
+        "English": "Mouth "
+    },
+    "243": {
+        "Japanese": "\u5927\u5909",
+        "English": "Very "
+    },
+    "244": {
+        "Japanese": "\u8981",
+        "English": "Necessity "
+    },
+    "245": {
+        "Japanese": "\u5909",
+        "English": "Strange "
+    },
+    "246": {
+        "Japanese": "\u6226\u4e89",
+        "English": "War "
+    },
+    "247": {
+        "Japanese": "\u5b66",
+        "English": "Science "
+    },
+    "248": {
+        "Japanese": "\u3042\u305d\u3053",
+        "English": "Over there "
+    },
+    "249": {
+        "Japanese": "\u6b66\u5668",
+        "English": "Weapon "
+    },
+    "250": {
+        "Japanese": "\u5e97",
+        "English": "Shop "
+    },
+    "251": {
+        "Japanese": "\u6bcd\u89aa",
+        "English": "Mother "
+    },
+    "252": {
+        "Japanese": "\u5211\u4e8b",
+        "English": "Detective "
+    },
+    "253": {
+        "Japanese": "\u6c17\u6301\u3061",
+        "English": "Feeling "
+    },
+    "254": {
+        "Japanese": "\u9593\u9055",
+        "English": "Error "
+    },
+    "255": {
+        "Japanese": "\u904b",
+        "English": "Luck "
+    },
+    "256": {
+        "Japanese": "\u8a18\u9332",
+        "English": "Record "
+    },
+    "257": {
+        "Japanese": "\u5149",
+        "English": "Light "
+    },
+    "258": {
+        "Japanese": "\u624b\u4f1d",
+        "English": "Help "
+    },
+    "259": {
+        "Japanese": "\u6df1",
+        "English": "Deep "
+    },
+    "260": {
+        "Japanese": "\u843d\u3061\u7740",
+        "English": "Calm "
+    },
+    "261": {
+        "Japanese": "\u5b58\u5728",
+        "English": "Existence "
+    },
+    "262": {
+        "Japanese": "\u5b9f",
+        "English": "Reality "
+    },
+    "263": {
+        "Japanese": "\u5f79",
+        "English": "Role "
+    },
+    "264": {
+        "Japanese": "\u75c5\u9662",
+        "English": "Hospital "
+    },
+    "265": {
+        "Japanese": "\u4f4f",
+        "English": "Residence "
+    },
+    "266": {
+        "Japanese": "\u8cac\u4efb",
+        "English": "Responsibility "
+    },
+    "267": {
+        "Japanese": "\u3042\u3063",
+        "English": "Ah "
+    },
+    "268": {
+        "Japanese": "\u666e\u901a",
+        "English": "Usually "
+    },
+    "269": {
+        "Japanese": "\u884c\u52d5",
+        "English": "Behavior "
+    },
+    "270": {
+        "Japanese": "\u5927\u304d\u306a",
+        "English": "Big "
+    },
+    "271": {
+        "Japanese": "\u76e3\u8996",
+        "English": "Surveillance "
+    },
+    "272": {
+        "Japanese": "\u5354\u529b",
+        "English": "Cooperation "
+    },
+    "273": {
+        "Japanese": "\u591a\u5206",
+        "English": "May be "
+    },
+    "274": {
+        "Japanese": "\u5b9f\u969b",
+        "English": "Actual "
+    },
+    "275": {
+        "Japanese": "\u8db3",
+        "English": "Leg "
+    },
+    "276": {
+        "Japanese": "\u5730\u7403",
+        "English": "Earth "
+    },
+    "277": {
+        "Japanese": "\u751f\u6d3b",
+        "English": "Life "
+    },
+    "278": {
+        "Japanese": "\u4efb\u305b",
+        "English": "Leave "
+    },
+    "279": {
+        "Japanese": "\u6c17\u5206",
+        "English": "Feeling "
+    },
+    "280": {
+        "Japanese": "\u89e3\u6c7a",
+        "English": "Resolution "
+    },
+    "281": {
+        "Japanese": "\u7d50\u679c",
+        "English": "Result "
+    },
+    "282": {
+        "Japanese": "\u8abf\u67fb",
+        "English": "Research "
+    },
+    "283": {
+        "Japanese": "\u7814\u7a76",
+        "English": "The study "
+    },
+    "284": {
+        "Japanese": "\u4f55\u51e6",
+        "English": "Where "
+    },
+    "285": {
+        "Japanese": "\u767a\u898b",
+        "English": "Discovery "
+    },
+    "286": {
+        "Japanese": "\u5834",
+        "English": "Place "
+    },
+    "287": {
+        "Japanese": "\u5927\u4e8b",
+        "English": "Important thing "
+    },
+    "288": {
+        "Japanese": "\u6b62\u307e",
+        "English": "Stop "
+    },
+    "289": {
+        "Japanese": "\u8208\u5473",
+        "English": "Interest "
+    },
+    "290": {
+        "Japanese": "\u5927\u304d",
+        "English": "Big "
+    },
+    "291": {
+        "Japanese": "\u751f",
+        "English": "Living "
+    },
+    "292": {
+        "Japanese": "\u306a\u3042",
+        "English": "I "
+    },
+    "293": {
+        "Japanese": "\u904b\u8ee2",
+        "English": "Operation "
+    },
+    "294": {
+        "Japanese": "\u30f6\u6708",
+        "English": "Months "
+    },
+    "295": {
+        "Japanese": "\u591a",
+        "English": "Many "
+    },
+    "296": {
+        "Japanese": "\uff11\u4eba",
+        "English": "One person "
+    },
+    "297": {
+        "Japanese": "\u756a\u53f7",
+        "English": "Number "
+    },
+    "298": {
+        "Japanese": "\u72b6\u614b",
+        "English": "Status "
+    },
+    "299": {
+        "Japanese": "\u6765\u3044",
+        "English": "Coming "
+    },
+    "300": {
+        "Japanese": "\u958b",
+        "English": "Opening "
+    },
+    "301": {
+        "Japanese": "\u4e0a\u624b",
+        "English": "Good "
+    },
+    "302": {
+        "Japanese": "\u6e08",
+        "English": "Already "
+    },
+    "303": {
+        "Japanese": "\u5834\u5408",
+        "English": "Case "
+    },
+    "304": {
+        "Japanese": "\u5211\u52d9",
+        "English": "Jail "
+    },
+    "305": {
+        "Japanese": "\u4eca\u5ea6",
+        "English": "Now "
+    },
+    "306": {
+        "Japanese": "\u4ee5\u5916",
+        "English": "Other than "
+    },
+    "307": {
+        "Japanese": "\u671d",
+        "English": "Morning "
+    },
+    "308": {
+        "Japanese": "\u98db\u884c",
+        "English": "Flight "
+    },
+    "309": {
+        "Japanese": "\u3042\u307e\u308a",
+        "English": "Not really "
+    },
+    "310": {
+        "Japanese": "\u8fd1\u304f",
+        "English": "Near "
+    },
+    "311": {
+        "Japanese": "\u5f8c\u308d",
+        "English": "Back "
+    },
+    "312": {
+        "Japanese": "\u76ee\u7684",
+        "English": "Purpose "
+    },
+    "313": {
+        "Japanese": "\u6b4c",
+        "English": "Song "
+    },
+    "314": {
+        "Japanese": "\u9762\u767d",
+        "English": "Funny "
+    },
+    "315": {
+        "Japanese": "\u5f01\u8b77",
+        "English": "Defense "
+    },
+    "316": {
+        "Japanese": "\u5ba2",
+        "English": "Customers "
+    },
+    "317": {
+        "Japanese": "\u58f2",
+        "English": "Selling "
+    },
+    "318": {
+        "Japanese": "\u7279\u5225",
+        "English": "Special "
+    },
+    "319": {
+        "Japanese": "\u6628\u65e5",
+        "English": "Yesterday "
+    },
+    "320": {
+        "Japanese": "\u5c11\u306a",
+        "English": "Few "
+    },
+    "321": {
+        "Japanese": "\u8a8d\u3081",
+        "English": "Recognition "
+    },
+    "322": {
+        "Japanese": "\u6b7b\u4f53",
+        "English": "Cadaver "
+    },
+    "323": {
+        "Japanese": "\u533b\u8005",
+        "English": "Doctor "
+    },
+    "324": {
+        "Japanese": "\u88c5\u7f6e",
+        "English": "Apparatus "
+    },
+    "325": {
+        "Japanese": "\u5171",
+        "English": "Both "
+    },
+    "326": {
+        "Japanese": "\u552f\u4e00",
+        "English": "Only "
+    },
+    "327": {
+        "Japanese": "\u3042\u3093\u306a",
+        "English": "Such "
+    },
+    "328": {
+        "Japanese": "\u4e0d\u660e",
+        "English": "Unknown "
+    },
+    "329": {
+        "Japanese": "\u9650\u308a",
+        "English": "As long as "
+    },
+    "330": {
+        "Japanese": "\u4fe1\u7528",
+        "English": "Credit "
+    },
+    "331": {
+        "Japanese": "\u7f8e\u3057",
+        "English": "Beautiful "
+    },
+    "332": {
+        "Japanese": "\u7528\u610f",
+        "English": "Preparation "
+    },
+    "333": {
+        "Japanese": "\u8a71\u305b",
+        "English": "Talk "
+    },
+    "334": {
+        "Japanese": "\u79fb\u52d5",
+        "English": "Movement "
+    },
+    "335": {
+        "Japanese": "\u6620\u753b",
+        "English": "Movies "
+    },
+    "336": {
+        "Japanese": "\u7f8e\u54b2",
+        "English": "Misaki "
+    },
+    "337": {
+        "Japanese": "\u53d6\u5f15",
+        "English": "Transaction "
+    },
+    "338": {
+        "Japanese": "\u6700\u8fd1",
+        "English": "Recently "
+    },
+    "339": {
+        "Japanese": "\u73fe\u5834",
+        "English": "Field "
+    },
+    "340": {
+        "Japanese": "\u4e8b\u6545",
+        "English": "Accident "
+    },
+    "341": {
+        "Japanese": "\u9023\u4e2d",
+        "English": "In situ "
+    },
+    "342": {
+        "Japanese": "\u904e\u53bb",
+        "English": "Past "
+    },
+    "343": {
+        "Japanese": "\u5168\u304f",
+        "English": "Totally "
+    },
+    "344": {
+        "Japanese": "\u9078\u629e",
+        "English": "Choice "
+    },
+    "345": {
+        "Japanese": "\u5b8c\u5168",
+        "English": "Perfect "
+    },
+    "346": {
+        "Japanese": "\u4fe1\u3058",
+        "English": "Belief "
+    },
+    "347": {
+        "Japanese": "\u4fe1\u983c",
+        "English": "Trust "
+    },
+    "348": {
+        "Japanese": "\u753a",
+        "English": "Town "
+    },
+    "349": {
+        "Japanese": "\u4f55\u6545",
+        "English": "Why "
+    },
+    "350": {
+        "Japanese": "\u59cb\u307e",
+        "English": "Beginning "
+    },
+    "351": {
+        "Japanese": "\u7cbe\u795e",
+        "English": "Spirit "
+    },
+    "352": {
+        "Japanese": "\u4ed8\u3051",
+        "English": "Attachment "
+    },
+    "353": {
+        "Japanese": "\u3042\u3089",
+        "English": "Oh my goodness "
+    },
+    "354": {
+        "Japanese": "\u5973\u306e\u5b50",
+        "English": "Girl "
+    },
+    "355": {
+        "Japanese": "\u6c17\u3065",
+        "English": "Notice "
+    },
+    "356": {
+        "Japanese": "\u8a18\u61b6",
+        "English": "Memory "
+    },
+    "357": {
+        "Japanese": "\u9811\u5f35",
+        "English": "Hard work "
+    },
+    "358": {
+        "Japanese": "2\u4eba",
+        "English": "Two "
+    },
+    "359": {
+        "Japanese": "\u7d20\u6575",
+        "English": "Wonderful "
+    },
+    "360": {
+        "Japanese": "\u8eab",
+        "English": "Body "
+    },
+    "361": {
+        "Japanese": "\u4fa1\u5024",
+        "English": "Value "
+    },
+    "362": {
+        "Japanese": "\u6709",
+        "English": "Presence "
+    },
+    "363": {
+        "Japanese": "\u975e\u5e38",
+        "English": "Very "
+    },
+    "364": {
+        "Japanese": "\u4e09",
+        "English": "Three "
+    },
+    "365": {
+        "Japanese": "\u6700\u3082",
+        "English": "Most "
+    },
+    "366": {
+        "Japanese": "\u4e21\u89aa",
+        "English": "Parents "
+    },
+    "367": {
+        "Japanese": "\u4eba\u7269",
+        "English": "Person "
+    },
+    "368": {
+        "Japanese": "\u751f\u307e\u308c",
+        "English": "Birth "
+    },
+    "369": {
+        "Japanese": "\u8b66\u5099",
+        "English": "Security "
+    },
+    "370": {
+        "Japanese": "\u4ee5\u524d",
+        "English": "Before "
+    },
+    "371": {
+        "Japanese": "\u7121\u4e8b",
+        "English": "Not "
+    },
+    "372": {
+        "Japanese": "\u805e\u3051",
+        "English": "Hear "
+    },
+    "373": {
+        "Japanese": "\u6c7a\u3057\u3066",
+        "English": "Never "
+    },
+    "374": {
+        "Japanese": "\u9280\u884c",
+        "English": "Bank "
+    },
+    "375": {
+        "Japanese": "\u99ac\u9e7f",
+        "English": "Fool "
+    },
+    "376": {
+        "Japanese": "\u88c1\u5224",
+        "English": "Trial "
+    },
+    "377": {
+        "Japanese": "\u964d\u308a",
+        "English": "Fall "
+    },
+    "378": {
+        "Japanese": "\u5927\u5b66",
+        "English": "University "
+    },
+    "379": {
+        "Japanese": "\u5dde",
+        "English": "State "
+    },
+    "380": {
+        "Japanese": "\u4eca\u56de",
+        "English": "This time "
+    },
+    "381": {
+        "Japanese": "\u7a7a",
+        "English": "Sky "
+    },
+    "382": {
+        "Japanese": "\u7d4c\u9a13",
+        "English": "Experience "
+    },
+    "383": {
+        "Japanese": "\u672c\u7269",
+        "English": "Genuine "
+    },
+    "384": {
+        "Japanese": "\u90e8",
+        "English": "Part "
+    },
+    "385": {
+        "Japanese": "\u5316",
+        "English": "Conversion "
+    },
+    "386": {
+        "Japanese": "\u672a\u6765",
+        "English": "Future "
+    },
+    "387": {
+        "Japanese": "\u6b63\u76f4",
+        "English": "Honest "
+    },
+    "388": {
+        "Japanese": "\u5e74\u9593",
+        "English": "Annual "
+    },
+    "389": {
+        "Japanese": "\u7121\u99c4",
+        "English": "Useless "
+    },
+    "390": {
+        "Japanese": "\u73fe\u308c",
+        "English": "Appear "
+    },
+    "391": {
+        "Japanese": "\u5cf6",
+        "English": "Island "
+    },
+    "392": {
+        "Japanese": "\u75c5\u6c17",
+        "English": "Sick "
+    },
+    "393": {
+        "Japanese": "\u5185",
+        "English": "Inside "
+    },
+    "394": {
+        "Japanese": "\u98a8",
+        "English": "Wind "
+    },
+    "395": {
+        "Japanese": "\u7d50\u69cb",
+        "English": "Very well "
+    },
+    "396": {
+        "Japanese": "\u6cbb\u7642",
+        "English": "Treatment "
+    },
+    "397": {
+        "Japanese": "\u4e88\u5b9a",
+        "English": "Plans "
+    },
+    "398": {
+        "Japanese": "\u70b9",
+        "English": "Point "
+    },
+    "399": {
+        "Japanese": "1\u4eba",
+        "English": "1 person "
+    },
+    "400": {
+        "Japanese": "\u8a31\u53ef",
+        "English": "Permit "
+    },
+    "401": {
+        "Japanese": "\u52c7\u6c17",
+        "English": "Courage "
+    },
+    "402": {
+        "Japanese": "\u6700\u60aa",
+        "English": "Worst "
+    },
+    "403": {
+        "Japanese": "\u672c\u6c17",
+        "English": "Reality "
+    },
+    "404": {
+        "Japanese": "\u5168\u7136",
+        "English": "At all "
+    },
+    "405": {
+        "Japanese": "\u4efb\u52d9",
+        "English": "Mission "
+    },
+    "406": {
+        "Japanese": "\u65e5\u672c",
+        "English": "Japan "
+    },
+    "407": {
+        "Japanese": "\u4f5c\u6226",
+        "English": "Operation "
+    },
+    "408": {
+        "Japanese": "\u6210\u529f",
+        "English": "Success "
+    },
+    "409": {
+        "Japanese": "\u9032",
+        "English": "Advance "
+    },
+    "410": {
+        "Japanese": "\u8fd1\u3065",
+        "English": "Approach "
+    },
+    "411": {
+        "Japanese": "\u54c1",
+        "English": "Goods "
+    },
+    "412": {
+        "Japanese": "\u6d88",
+        "English": "Erection "
+    },
+    "413": {
+        "Japanese": "\u5c0f\u3055\u306a",
+        "English": "Small "
+    },
+    "414": {
+        "Japanese": "\u79d1\u5b66",
+        "English": "Science "
+    },
+    "415": {
+        "Japanese": "\u653e",
+        "English": "Emotion "
+    },
+    "416": {
+        "Japanese": "\u5411\u3053\u3046",
+        "English": "Opposite "
+    },
+    "417": {
+        "Japanese": "\u4e8b\u5b9f",
+        "English": "Fact "
+    },
+    "418": {
+        "Japanese": "\u98df",
+        "English": "Food "
+    },
+    "419": {
+        "Japanese": "\u95a2",
+        "English": "Association "
+    },
+    "420": {
+        "Japanese": "\u6226\u3044",
+        "English": "Fight "
+    },
+    "421": {
+        "Japanese": "\u5c11\u5e74",
+        "English": "Boy "
+    },
+    "422": {
+        "Japanese": "\u7206\u767a",
+        "English": "Explosion "
+    },
+    "423": {
+        "Japanese": "\u73fe\u5b9f",
+        "English": "Reality "
+    },
+    "424": {
+        "Japanese": "\u4fdd\u8b77",
+        "English": "Protection "
+    },
+    "425": {
+        "Japanese": "\u5730\u4e0b",
+        "English": "Underground "
+    },
+    "426": {
+        "Japanese": "\u968a",
+        "English": "Squad "
+    },
+    "427": {
+        "Japanese": "\u5730",
+        "English": "Land "
+    },
+    "428": {
+        "Japanese": "\u5225\u308c",
+        "English": "Farewell "
+    },
+    "429": {
+        "Japanese": "\u6642\u4ee3",
+        "English": "Age "
+    },
+    "430": {
+        "Japanese": "\u4f7f\u3048",
+        "English": "Usability "
+    },
+    "431": {
+        "Japanese": "\u7d44\u7e54",
+        "English": "Organization "
+    },
+    "432": {
+        "Japanese": "\u5f0f",
+        "English": "Formula "
+    },
+    "433": {
+        "Japanese": "\u843d\u3061\u7740\u3051",
+        "English": "Calm "
+    },
+    "434": {
+        "Japanese": "\u52d5\u7269",
+        "English": "Animal "
+    },
+    "435": {
+        "Japanese": "\u7121\u3057",
+        "English": "None "
+    },
+    "436": {
+        "Japanese": "\u4e0b\u304c",
+        "English": "Under "
+    },
+    "437": {
+        "Japanese": "\u6280\u8853",
+        "English": "Technology "
+    },
+    "438": {
+        "Japanese": "\u500b\u4eba",
+        "English": "Individual "
+    },
+    "439": {
+        "Japanese": "\u671f\u5f85",
+        "English": "Expectation "
+    },
+    "440": {
+        "Japanese": "\u8abf\u5b50",
+        "English": "Condition "
+    },
+    "441": {
+        "Japanese": "\u7dda",
+        "English": "Line "
+    },
+    "442": {
+        "Japanese": "\u5c40",
+        "English": "Station "
+    },
+    "443": {
+        "Japanese": "\u5229\u7528",
+        "English": "Use "
+    },
+    "444": {
+        "Japanese": "\u4e3b\u4eba",
+        "English": "Master "
+    },
+    "445": {
+        "Japanese": "\u9928",
+        "English": "Building "
+    },
+    "446": {
+        "Japanese": "\u6bce\u65e5",
+        "English": "Every day "
+    },
+    "447": {
+        "Japanese": "\u4ed8",
+        "English": "With "
+    },
+    "448": {
+        "Japanese": "\u5f53\u7136",
+        "English": "Of course "
+    },
+    "449": {
+        "Japanese": "\u60a3\u8005",
+        "English": "Patient "
+    },
+    "450": {
+        "Japanese": "\u5168",
+        "English": "All "
+    },
+    "451": {
+        "Japanese": "\u4eca\u671d",
+        "English": "This morning "
+    },
+    "452": {
+        "Japanese": "\u904e\u3054",
+        "English": "Over "
+    },
+    "453": {
+        "Japanese": "\u99ac",
+        "English": "Horse "
+    },
+    "454": {
+        "Japanese": "\u3042\u30fc",
+        "English": "Ah ~ "
+    },
+    "455": {
+        "Japanese": "\u3042\u305f\u3057",
+        "English": "I "
+    },
+    "456": {
+        "Japanese": "\u7acb\u3066",
+        "English": "Stand up "
+    },
+    "457": {
+        "Japanese": "\u5730\u7344",
+        "English": "Hell "
+    },
+    "458": {
+        "Japanese": "\uff1a",
+        "English": ": "
+    },
+    "459": {
+        "Japanese": "\u5408",
+        "English": "Fulfillment "
+    },
+    "460": {
+        "Japanese": "\u7d9a",
+        "English": "Continuing "
+    },
+    "461": {
+        "Japanese": "\u965b\u4e0b",
+        "English": "My majesty "
+    },
+    "462": {
+        "Japanese": "\u5c0f\u3055",
+        "English": "Small "
+    },
+    "463": {
+        "Japanese": "\u706b",
+        "English": "Fire "
+    },
+    "464": {
+        "Japanese": "\u5e73\u6c17",
+        "English": "Peace "
+    },
+    "465": {
+        "Japanese": "\u4e16\u8a71",
+        "English": "Care "
+    },
+    "466": {
+        "Japanese": "\u80fd\u529b",
+        "English": "Ability "
+    },
+    "467": {
+        "Japanese": "\u7406\u5b50",
+        "English": "Reason "
+    },
+    "468": {
+        "Japanese": "\u691c\u67fb",
+        "English": "Inspection "
+    },
+    "469": {
+        "Japanese": "\u30a2\u30ec\u30c3\u30af\u30b9",
+        "English": "Alex "
+    },
+    "470": {
+        "Japanese": "\u6728",
+        "English": "Wood "
+    },
+    "471": {
+        "Japanese": "\u53f7",
+        "English": "Issue "
+    },
+    "472": {
+        "Japanese": "\u5c71",
+        "English": "Mountain "
+    },
+    "473": {
+        "Japanese": "\u89e3",
+        "English": "Solution "
+    },
+    "474": {
+        "Japanese": "\u8b66\u90e8",
+        "English": "Police department "
+    },
+    "475": {
+        "Japanese": "\u98df\u4e8b",
+        "English": "Meal "
+    },
+    "476": {
+        "Japanese": "\u5e78\u904b",
+        "English": "Good luck "
+    },
+    "477": {
+        "Japanese": "\u69cb",
+        "English": "Confirmed "
+    },
+    "478": {
+        "Japanese": "\u4fb5\u5165",
+        "English": "Intrusion "
+    },
+    "479": {
+        "Japanese": "\u99c4\u76ee",
+        "English": "Useless "
+    },
+    "480": {
+        "Japanese": "\u7dca\u6025",
+        "English": "Emergency "
+    },
+    "481": {
+        "Japanese": "\u89aa\u7236",
+        "English": "Father "
+    },
+    "482": {
+        "Japanese": "\u6c17\u4ed8",
+        "English": "Care "
+    },
+    "483": {
+        "Japanese": "\u4e3b",
+        "English": "Main "
+    },
+    "484": {
+        "Japanese": "\u901f",
+        "English": "Faster "
+    },
+    "485": {
+        "Japanese": "\u4ee3\u308f\u308a",
+        "English": "Alternative "
+    },
+    "486": {
+        "Japanese": "\u4f11",
+        "English": "Rest "
+    },
+    "487": {
+        "Japanese": "\u539f\u56e0",
+        "English": "Cause "
+    },
+    "488": {
+        "Japanese": "\u8b66\u544a",
+        "English": "Caveat "
+    },
+    "489": {
+        "Japanese": "\u5c71\u91cc",
+        "English": "Mountain village "
+    },
+    "490": {
+        "Japanese": "\u7279\u306b",
+        "English": "In particular "
+    },
+    "491": {
+        "Japanese": "\u90e8\u4e0b",
+        "English": "Subordinate "
+    },
+    "492": {
+        "Japanese": "\u904b\u547d",
+        "English": "Destiny "
+    },
+    "493": {
+        "Japanese": "\u5230\u7740",
+        "English": "Arrival "
+    },
+    "494": {
+        "Japanese": "\u81ea\u6bba",
+        "English": "Suicide "
+    },
+    "495": {
+        "Japanese": "\u5c4b",
+        "English": "Shop "
+    },
+    "496": {
+        "Japanese": "\u73fe\u5728",
+        "English": "The current "
+    },
+    "497": {
+        "Japanese": "\u4e00\u90e8",
+        "English": "Part "
+    },
+    "498": {
+        "Japanese": "\u884c\u70ba",
+        "English": "Action "
+    },
+    "499": {
+        "Japanese": "\u907a\u4f53",
+        "English": "Body "
+    },
+    "500": {
+        "Japanese": "\u5927\u5207",
+        "English": "Important "
+    },
+    "501": {
+        "Japanese": "\u95a2\u308f",
+        "English": "Concern "
+    },
+    "502": {
+        "Japanese": "\u5e38",
+        "English": "Always "
+    },
+    "503": {
+        "Japanese": "\u611f\u60c5",
+        "English": "Emotion "
+    },
+    "504": {
+        "Japanese": "\u5915\u98df",
+        "English": "Dinner "
+    },
+    "505": {
+        "Japanese": "\u661f",
+        "English": "Star "
+    },
+    "506": {
+        "Japanese": "\u9054\u4e5f",
+        "English": "Tuya "
+    },
+    "507": {
+        "Japanese": "\u624b\u7d19",
+        "English": "Letter "
+    },
+    "508": {
+        "Japanese": "\u6df7\u4e71",
+        "English": "Confusion "
+    },
+    "509": {
+        "Japanese": "\u652f\u914d",
+        "English": "Rule "
+    },
+    "510": {
+        "Japanese": "\u5f71\u97ff",
+        "English": "Impact "
+    },
+    "511": {
+        "Japanese": "\u53d7\u3051\u5165\u308c",
+        "English": "Receiving "
+    },
+    "512": {
+        "Japanese": "\u77e5\u308c",
+        "English": "News "
+    },
+    "513": {
+        "Japanese": "\u884c\u65b9",
+        "English": "Lord "
+    },
+    "514": {
+        "Japanese": "\u5c11\u5973",
+        "English": "Girl "
+    },
+    "515": {
+        "Japanese": "\u4f4d",
+        "English": "Place "
+    },
+    "516": {
+        "Japanese": "\u534a\u5206",
+        "English": "Half "
+    },
+    "517": {
+        "Japanese": "\u8a95\u751f",
+        "English": "Birth "
+    },
+    "518": {
+        "Japanese": "\u8d85",
+        "English": "Super "
+    },
+    "519": {
+        "Japanese": "\u65bd\u8a2d",
+        "English": "Facility "
+    },
+    "520": {
+        "Japanese": "\u6bba\u305b",
+        "English": "Killing "
+    },
+    "521": {
+        "Japanese": "\u5411\u3051",
+        "English": "For "
+    },
+    "522": {
+        "Japanese": "\u6a5f\u4f1a",
+        "English": "Opportunity "
+    },
+    "523": {
+        "Japanese": "\u4eba\u985e",
+        "English": "Human race "
+    },
+    "524": {
+        "Japanese": "\u6b63\u78ba",
+        "English": "Correct "
+    },
+    "525": {
+        "Japanese": "\u8272\u3005",
+        "English": "Various "
+    },
+    "526": {
+        "Japanese": "\u6d3b\u52d5",
+        "English": "Activity "
+    },
+    "527": {
+        "Japanese": "\u6599\u7406",
+        "English": "Cuisine "
+    },
+    "528": {
+        "Japanese": "\u8981\u6c42",
+        "English": "Request "
+    },
+    "529": {
+        "Japanese": "\u518d",
+        "English": "Again "
+    },
+    "530": {
+        "Japanese": "\u6307\u793a",
+        "English": "Instruction "
+    },
+    "531": {
+        "Japanese": "\u90e8\u968a",
+        "English": "Unit "
+    },
+    "532": {
+        "Japanese": "\u4f55\u8005",
+        "English": "Wherever "
+    },
+    "533": {
+        "Japanese": "\u97f3\u697d",
+        "English": "Musics "
+    },
+    "534": {
+        "Japanese": "\u4e0a\u3052",
+        "English": "Raising "
+    },
+    "535": {
+        "Japanese": "\u7ba1\u7406",
+        "English": "Management "
+    },
+    "536": {
+        "Japanese": "\u6620\u50cf",
+        "English": "Picture "
+    },
+    "537": {
+        "Japanese": "\u958b\u59cb",
+        "English": "Start "
+    },
+    "538": {
+        "Japanese": "\u8b70\u54e1",
+        "English": "Lawmaker "
+    },
+    "539": {
+        "Japanese": "\u53cd\u5bfe",
+        "English": "Opposite "
+    },
+    "540": {
+        "Japanese": "\u52dd\u624b",
+        "English": "Selfish "
+    },
+    "541": {
+        "Japanese": "\u5668",
+        "English": "Vessel "
+    },
+    "542": {
+        "Japanese": "\u53cd\u5fdc",
+        "English": "Reaction "
+    },
+    "543": {
+        "Japanese": "\u53ef\u611b",
+        "English": "Cute "
+    },
+    "544": {
+        "Japanese": "\u6a29\u5229",
+        "English": "Right "
+    },
+    "545": {
+        "Japanese": "\u5973\u738b",
+        "English": "Queen "
+    },
+    "546": {
+        "Japanese": "\u5e2b",
+        "English": "Murderer "
+    },
+    "547": {
+        "Japanese": "\u5927\u597d\u304d",
+        "English": "I love you "
+    },
+    "548": {
+        "Japanese": "\u9762\u5012",
+        "English": "Troublesome "
+    },
+    "549": {
+        "Japanese": "\u51fa\u767a",
+        "English": "Departure "
+    },
+    "550": {
+        "Japanese": "\u5f15",
+        "English": "Pull "
+    },
+    "551": {
+        "Japanese": "\u4fdd\u5b89",
+        "English": "Security "
+    },
+    "552": {
+        "Japanese": "\u4e0a\u304c",
+        "English": "Above "
+    },
+    "553": {
+        "Japanese": "\u6c7a\u307e",
+        "English": "Decision "
+    },
+    "554": {
+        "Japanese": "\u697d\u3057\u307f",
+        "English": "Pleasure "
+    },
+    "555": {
+        "Japanese": "\u884c\u304d",
+        "English": "Returning "
+    },
+    "556": {
+        "Japanese": "\u5c06\u8ecd",
+        "English": "Generals "
+    },
+    "557": {
+        "Japanese": "\u62c5\u5f53",
+        "English": "In charge "
+    },
+    "558": {
+        "Japanese": "\u4e8b\u614b",
+        "English": "Situation "
+    },
+    "559": {
+        "Japanese": "\u4e00\u676f",
+        "English": "A cup of "
+    },
+    "560": {
+        "Japanese": "\u8fd1",
+        "English": "Close "
+    },
+    "561": {
+        "Japanese": "\u767a",
+        "English": "Origin "
+    },
+    "562": {
+        "Japanese": "\u53d6\u308a\u623b",
+        "English": "Recovery "
+    },
+    "563": {
+        "Japanese": "\u5049\u5927",
+        "English": "Great "
+    },
+    "564": {
+        "Japanese": "\u7d50\u5c40",
+        "English": "Eventually "
+    },
+    "565": {
+        "Japanese": "\u30ed\u30b7\u30a2",
+        "English": "Russia "
+    },
+    "566": {
+        "Japanese": "\u53f8\u4ee4",
+        "English": "Command "
+    },
+    "567": {
+        "Japanese": "\u5e73\u548c",
+        "English": "Peace "
+    },
+    "568": {
+        "Japanese": "\u89e3\u653e",
+        "English": "Release "
+    },
+    "569": {
+        "Japanese": "\u76f4",
+        "English": "Straight "
+    },
+    "570": {
+        "Japanese": "\u4e8b\u52d9",
+        "English": "Office work "
+    },
+    "571": {
+        "Japanese": "\u77ac\u9593",
+        "English": "Moment "
+    },
+    "572": {
+        "Japanese": "\u6559\u6388",
+        "English": "Professor "
+    },
+    "573": {
+        "Japanese": "\u793a",
+        "English": "Illustration "
+    },
+    "574": {
+        "Japanese": "\u6559\u4f1a",
+        "English": "Church "
+    },
+    "575": {
+        "Japanese": "\u512a\u3057",
+        "English": "Superiority "
+    },
+    "576": {
+        "Japanese": "\u4f4d\u7f6e",
+        "English": "Position "
+    },
+    "577": {
+        "Japanese": "\u4ee5\u6765",
+        "English": "Since "
+    },
+    "578": {
+        "Japanese": "\u7a81\u7136",
+        "English": "Suddenly "
+    },
+    "579": {
+        "Japanese": "\u4ed8\u304d\u5408",
+        "English": "Association "
+    },
+    "580": {
+        "Japanese": "\u96c6\u4e2d",
+        "English": "Concentration "
+    },
+    "581": {
+        "Japanese": "\u901a\u4fe1",
+        "English": "Communication "
+    },
+    "582": {
+        "Japanese": "\u3042\u3063\u3061",
+        "English": "Thoroughly "
+    },
+    "583": {
+        "Japanese": "\u5951\u7d04",
+        "English": "Agreement "
+    },
+    "584": {
+        "Japanese": "\u7570\u5e38",
+        "English": "Abnormality "
+    },
+    "585": {
+        "Japanese": "\u6bba\u3057",
+        "English": "Killing "
+    },
+    "586": {
+        "Japanese": "\u90e8\u5206",
+        "English": "Part "
+    },
+    "587": {
+        "Japanese": "\u69d8\u5b50",
+        "English": "State "
+    },
+    "588": {
+        "Japanese": "\u6ca2\u5c71",
+        "English": "Lot "
+    },
+    "589": {
+        "Japanese": "\u4f4f\u6240",
+        "English": "Street address "
+    },
+    "590": {
+        "Japanese": "\u53c2\u52a0",
+        "English": "Participation "
+    },
+    "591": {
+        "Japanese": "\u65c5",
+        "English": "Journey "
+    },
+    "592": {
+        "Japanese": "\u793e",
+        "English": "Company "
+    },
+    "593": {
+        "Japanese": "\u91cd",
+        "English": "Heavy "
+    },
+    "594": {
+        "Japanese": "\u81ea\u7136",
+        "English": "Nature "
+    },
+    "595": {
+        "Japanese": "\u6bba\u5bb3",
+        "English": "Killing "
+    },
+    "596": {
+        "Japanese": "\u5712",
+        "English": "Garden "
+    },
+    "597": {
+        "Japanese": "\u901f\u4eba",
+        "English": "Fast man "
+    },
+    "598": {
+        "Japanese": "\u9014\u4e2d",
+        "English": "On the way "
+    },
+    "599": {
+        "Japanese": "\u8a3c\u8a00",
+        "English": "Testimony "
+    },
+    "600": {
+        "Japanese": "\u590f\u7f8e",
+        "English": "Summer beauty "
+    },
+    "601": {
+        "Japanese": "\u53d6\u308c",
+        "English": "Take "
+    },
+    "602": {
+        "Japanese": "\u524d\u56de",
+        "English": "Last time "
+    },
+    "603": {
+        "Japanese": "\u624b\u8853",
+        "English": "Surgery "
+    },
+    "604": {
+        "Japanese": "\u5f37\u76d7",
+        "English": "Robbery "
+    },
+    "605": {
+        "Japanese": "\u7a2e",
+        "English": "Seed "
+    },
+    "606": {
+        "Japanese": "\u9b54\u5973",
+        "English": "Witch "
+    },
+    "607": {
+        "Japanese": "\u4fe1\u53f7",
+        "English": "Signal "
+    },
+    "608": {
+        "Japanese": "\u5c02\u9580",
+        "English": "Professional "
+    },
+    "609": {
+        "Japanese": "\u95a3\u4e0b",
+        "English": "Your honor "
+    },
+    "610": {
+        "Japanese": "\u4f1a\u8b70",
+        "English": "Conference "
+    },
+    "611": {
+        "Japanese": "\u7f8e\u6708",
+        "English": "Beautiful moon "
+    },
+    "612": {
+        "Japanese": "\u63d0\u4f9b",
+        "English": "Offer "
+    },
+    "613": {
+        "Japanese": "\u96e2",
+        "English": "Release "
+    },
+    "614": {
+        "Japanese": "\u8377\u7269",
+        "English": "Baggage "
+    },
+    "615": {
+        "Japanese": "\u5b89\u5fc3",
+        "English": "Relief "
+    },
+    "616": {
+        "Japanese": "\u57fa\u5730",
+        "English": "Base "
+    },
+    "617": {
+        "Japanese": "\u76ee\u6483",
+        "English": "Witness "
+    },
+    "618": {
+        "Japanese": "\u52d5\u304d",
+        "English": "Motion "
+    },
+    "619": {
+        "Japanese": "\u6307",
+        "English": "Finger "
+    },
+    "620": {
+        "Japanese": "\u301c",
+        "English": "~ "
+    },
+    "621": {
+        "Japanese": "\u6642\u3005",
+        "English": "Sometimes "
+    },
+    "622": {
+        "Japanese": "\u602a\u7269",
+        "English": "Monster "
+    },
+    "623": {
+        "Japanese": "\u4f1a\u8a71",
+        "English": "Conversation "
+    },
+    "624": {
+        "Japanese": "\u53d7\u3051\u53d6",
+        "English": "Receipt "
+    },
+    "625": {
+        "Japanese": "\u4e00\u81f4",
+        "English": "Match "
+    },
+    "626": {
+        "Japanese": "\u5168\u4f53",
+        "English": "Overall "
+    },
+    "627": {
+        "Japanese": "\u5fb3\u4e95",
+        "English": "Virtue "
+    },
+    "628": {
+        "Japanese": "\u30a2\u30f3\u30bf",
+        "English": "Anter "
+    },
+    "629": {
+        "Japanese": "\u89aa",
+        "English": "Parent "
+    },
+    "630": {
+        "Japanese": "\u5929\u4f7f",
+        "English": "Angel "
+    },
+    "631": {
+        "Japanese": "\u52dd\u5229",
+        "English": "Victory "
+    },
+    "632": {
+        "Japanese": "\u4e3b\u7fa9",
+        "English": "Principle "
+    },
+    "633": {
+        "Japanese": "\u65c5\u884c",
+        "English": "Travel "
+    },
+    "634": {
+        "Japanese": "\u6b7b\u4ea1",
+        "English": "Death "
+    },
+    "635": {
+        "Japanese": "\u592b\u4eba",
+        "English": "Mrs "
+    },
+    "636": {
+        "Japanese": "\u76ee\u6a19",
+        "English": "The goal "
+    },
+    "637": {
+        "Japanese": "\u500b",
+        "English": "Individual "
+    },
+    "638": {
+        "Japanese": "\u4e2d\u56fd",
+        "English": "China "
+    },
+    "639": {
+        "Japanese": "\u751f\u5f92",
+        "English": "Student "
+    },
+    "640": {
+        "Japanese": "\u5efa\u7269",
+        "English": "Building "
+    },
+    "641": {
+        "Japanese": "\u78ba\u4fe1",
+        "English": "Conviction "
+    },
+    "642": {
+        "Japanese": "\u51fa\u4f1a",
+        "English": "Encounter "
+    },
+    "643": {
+        "Japanese": "\u4f7f\u7528",
+        "English": "Use "
+    },
+    "644": {
+        "Japanese": "\u53f0",
+        "English": "Platform "
+    },
+    "645": {
+        "Japanese": "\u793e\u4f1a",
+        "English": "Society "
+    },
+    "646": {
+        "Japanese": "\u5468\u308a",
+        "English": "Surroundings "
+    },
+    "647": {
+        "Japanese": "\u5e02\u6c11",
+        "English": "Citizen "
+    },
+    "648": {
+        "Japanese": "\u8272",
+        "English": "Color "
+    },
+    "649": {
+        "Japanese": "\u505c\u6b62",
+        "English": "Stop "
+    },
+    "650": {
+        "Japanese": "\u66f2",
+        "English": "Song "
+    },
+    "651": {
+        "Japanese": "\u5b9f\u9a13",
+        "English": "Experiment "
+    },
+    "652": {
+        "Japanese": "\u76f4\u63a5",
+        "English": "Direct "
+    },
+    "653": {
+        "Japanese": "\u5ddd",
+        "English": "River "
+    },
+    "654": {
+        "Japanese": "\u3042\u308a\u304c\u3068",
+        "English": "Thankful "
+    },
+    "655": {
+        "Japanese": "\u5b9f\u884c",
+        "English": "Execution "
+    },
+    "656": {
+        "Japanese": "\u534a",
+        "English": "Half "
+    },
+    "657": {
+        "Japanese": "\u4e57\u305b",
+        "English": "Putting on "
+    },
+    "658": {
+        "Japanese": "\u5f8c\u6094",
+        "English": "Regret "
+    },
+    "659": {
+        "Japanese": "\u6848\u5185",
+        "English": "Guide "
+    },
+    "660": {
+        "Japanese": "\u7981\u6b62",
+        "English": "Ban "
+    },
+    "661": {
+        "Japanese": "\u8ddd\u96e2",
+        "English": "Distance "
+    },
+    "662": {
+        "Japanese": "\u6b21\u7b2c",
+        "English": "Dependent "
+    },
+    "663": {
+        "Japanese": "\u611f\u67d3",
+        "English": "Infection "
+    },
+    "664": {
+        "Japanese": "\u5236\u5fa1",
+        "English": "Control "
+    },
+    "665": {
+        "Japanese": "\u6709\u540d",
+        "English": "Famous "
+    },
+    "666": {
+        "Japanese": "\u6226\u95d8",
+        "English": "Combat "
+    },
+    "667": {
+        "Japanese": "\u4ee5\u5185",
+        "English": "Within "
+    },
+    "668": {
+        "Japanese": "\u66f8\u985e",
+        "English": "Documents "
+    },
+    "669": {
+        "Japanese": "\u5076\u7136",
+        "English": "By chance "
+    },
+    "670": {
+        "Japanese": "\u6a5f\u68b0",
+        "English": "Machine "
+    },
+    "671": {
+        "Japanese": "\u6700\u7d42",
+        "English": "Final "
+    },
+    "672": {
+        "Japanese": "\u7121\u8996",
+        "English": "Ignore "
+    },
+    "673": {
+        "Japanese": "\u300f",
+        "English": "\" "
+    },
+    "674": {
+        "Japanese": "\u738b\u5b50",
+        "English": "Prince "
+    },
+    "675": {
+        "Japanese": "\u547c\u5438",
+        "English": "Breathing "
+    },
+    "676": {
+        "Japanese": "\u5de8\u4eba",
+        "English": "Giant "
+    },
+    "677": {
+        "Japanese": "\u8ecd\u968a",
+        "English": "Army "
+    },
+    "678": {
+        "Japanese": "\u652f\u63f4",
+        "English": "Support "
+    },
+    "679": {
+        "Japanese": "\u5927\u4eba",
+        "English": "Grown up "
+    },
+    "680": {
+        "Japanese": "\u540c\u610f",
+        "English": "Consent "
+    },
+    "681": {
+        "Japanese": "\u604b\u4eba",
+        "English": "Lover "
+    },
+    "682": {
+        "Japanese": "\u77e5\u308a\u5408\u3044",
+        "English": "Acquaintance "
+    },
+    "683": {
+        "Japanese": "\u52aa\u529b",
+        "English": "Effort "
+    },
+    "684": {
+        "Japanese": "\u767d",
+        "English": "White "
+    },
+    "685": {
+        "Japanese": "\u8db3\u308a",
+        "English": "Lack "
+    },
+    "686": {
+        "Japanese": "\u9032\u3081",
+        "English": "Advance "
+    },
+    "687": {
+        "Japanese": "\u60d1\u661f",
+        "English": "Planet "
+    },
+    "688": {
+        "Japanese": "\u5473\u65b9",
+        "English": "Ally "
+    },
+    "689": {
+        "Japanese": "\u56de\u5fa9",
+        "English": "Recovery "
+    },
+    "690": {
+        "Japanese": "\u65b0\u805e",
+        "English": "Newspaper "
+    },
+    "691": {
+        "Japanese": "\u300e",
+        "English": "\" "
+    },
+    "692": {
+        "Japanese": "\u8a71\u3057",
+        "English": "Story "
+    },
+    "693": {
+        "Japanese": "\u30a2\u30d1\u30fc\u30c8",
+        "English": "Apartment "
+    },
+    "694": {
+        "Japanese": "\u7d44",
+        "English": "Set "
+    },
+    "695": {
+        "Japanese": "\u30a2\u30a2",
+        "English": "Ana "
+    },
+    "696": {
+        "Japanese": "\u751f\u304d\u6b8b",
+        "English": "Survival "
+    },
+    "697": {
+        "Japanese": "\u4e00\u751f",
+        "English": "Lifetime "
+    },
+    "698": {
+        "Japanese": "\u51e6\u7406",
+        "English": "Processing "
+    },
+    "699": {
+        "Japanese": "\u5175\u5668",
+        "English": "Weapons "
+    },
+    "700": {
+        "Japanese": "\u65b9\u5411",
+        "English": "Direction "
+    },
+    "701": {
+        "Japanese": "\u6c7a\u5b9a",
+        "English": "Decision "
+    },
+    "702": {
+        "Japanese": "\u5f53\u305f",
+        "English": "Duplicate "
+    },
+    "703": {
+        "Japanese": "\u30a2\u30af\u30bb\u30b9",
+        "English": "Access "
+    },
+    "704": {
+        "Japanese": "\u6e80\u8db3",
+        "English": "Satisfaction "
+    },
+    "705": {
+        "Japanese": "\u30af\u30ec\u30a2",
+        "English": "Claire "
+    },
+    "706": {
+        "Japanese": "\u795e\u7d4c",
+        "English": "Nerve "
+    },
+    "707": {
+        "Japanese": "\u75c7",
+        "English": "Sympathy "
+    },
+    "708": {
+        "Japanese": "\u89aa\u53cb",
+        "English": "Close friend "
+    },
+    "709": {
+        "Japanese": "\u6d41",
+        "English": "Flow "
+    },
+    "710": {
+        "Japanese": "\u5206\u6790",
+        "English": "Analysis "
+    },
+    "711": {
+        "Japanese": "\u4e0d\u601d\u8b70",
+        "English": "Strange "
+    },
+    "712": {
+        "Japanese": "\u9650",
+        "English": "Limit "
+    },
+    "713": {
+        "Japanese": "\u534a\u7530",
+        "English": "Solder "
+    },
+    "714": {
+        "Japanese": "\u7269\u8a9e",
+        "English": "Story "
+    },
+    "715": {
+        "Japanese": "\u30a2",
+        "English": "A "
+    },
+    "716": {
+        "Japanese": "\u7df4\u7fd2",
+        "English": "Practice "
+    },
+    "717": {
+        "Japanese": "\u4e45\u3057",
+        "English": "Long time "
+    },
+    "718": {
+        "Japanese": "\u4ed6\u4eba",
+        "English": "Others "
+    },
+    "719": {
+        "Japanese": "\u4e21\u65b9",
+        "English": "Both "
+    },
+    "720": {
+        "Japanese": "\u5357",
+        "English": "South "
+    },
+    "721": {
+        "Japanese": "\u6210\u9577",
+        "English": "Growth "
+    },
+    "722": {
+        "Japanese": "\uff5e",
+        "English": "~ "
+    },
+    "723": {
+        "Japanese": "\u518d\u3073",
+        "English": "Again "
+    },
+    "724": {
+        "Japanese": "\u533b",
+        "English": "Doctor "
+    },
+    "725": {
+        "Japanese": "\u6307\u63ee",
+        "English": "Command "
+    },
+    "726": {
+        "Japanese": "\u6700\u5927",
+        "English": "Maximum "
+    },
+    "727": {
+        "Japanese": "\u75c5",
+        "English": "Disease "
+    },
+    "728": {
+        "Japanese": "\u8a18\u4e8b",
+        "English": "Article "
+    },
+    "729": {
+        "Japanese": "\u6642\u8a08",
+        "English": "Clock "
+    },
+    "730": {
+        "Japanese": "\u30a2\u30e9\u30f3",
+        "English": "Alan "
+    },
+    "731": {
+        "Japanese": "\u624b\u6bb5",
+        "English": "Means "
+    },
+    "732": {
+        "Japanese": "\u9ad8\u6821",
+        "English": "High school "
+    },
+    "733": {
+        "Japanese": "\u592a\u967d",
+        "English": "Sun "
+    },
+    "734": {
+        "Japanese": "\u5177\u5408",
+        "English": "Condition "
+    },
+    "735": {
+        "Japanese": "\u9752",
+        "English": "Blue "
+    },
+    "736": {
+        "Japanese": "\u5411",
+        "English": "Direction "
+    },
+    "737": {
+        "Japanese": "\u624d\u80fd",
+        "English": "Talent "
+    },
+    "738": {
+        "Japanese": "\u4ea4\u63db",
+        "English": "Exchange "
+    },
+    "739": {
+        "Japanese": "\u6240\u6709",
+        "English": "Own "
+    },
+    "740": {
+        "Japanese": "\u6700\u4f4e",
+        "English": "Lowest "
+    },
+    "741": {
+        "Japanese": "\u6551\u6025",
+        "English": "Emergency "
+    },
+    "742": {
+        "Japanese": "\u9b45\u529b",
+        "English": "Charm "
+    },
+    "743": {
+        "Japanese": "\u697d",
+        "English": "Easy "
+    },
+    "744": {
+        "Japanese": "\u5fdc\u7b54",
+        "English": "Response "
+    },
+    "745": {
+        "Japanese": "\u6700",
+        "English": "Most "
+    },
+    "746": {
+        "Japanese": "\u4fee\u7406",
+        "English": "Repair "
+    },
+    "747": {
+        "Japanese": "\u52c9\u5f37",
+        "English": "Study "
+    },
+    "748": {
+        "Japanese": "\u63d0\u6848",
+        "English": "Proposal "
+    },
+    "749": {
+        "Japanese": "\u8cc7\u91d1",
+        "English": "Fund "
+    },
+    "750": {
+        "Japanese": "\u793e\u9577",
+        "English": "President "
+    },
+    "751": {
+        "Japanese": "\u3042\u308a\u3055",
+        "English": "Incident "
+    },
+    "752": {
+        "Japanese": "\u8a66\u5408",
+        "English": "Match "
+    },
+    "753": {
+        "Japanese": "\u6c17\u306e\u6bd2",
+        "English": "Poisonous "
+    },
+    "754": {
+        "Japanese": "\u91d1\u6301\u3061",
+        "English": "Rich man "
+    },
+    "755": {
+        "Japanese": "\u5b89\u5b9a",
+        "English": "Stability "
+    },
+    "756": {
+        "Japanese": "\u6307\u7d0b",
+        "English": "Fingerprint "
+    },
+    "757": {
+        "Japanese": "\u6d41\u308c",
+        "English": "Flow "
+    },
+    "758": {
+        "Japanese": "\u7d4c",
+        "English": "Vein "
+    },
+    "759": {
+        "Japanese": "\u56e3",
+        "English": "Group "
+    },
+    "760": {
+        "Japanese": "\u4ee3",
+        "English": "Fee "
+    },
+    "761": {
+        "Japanese": "\u65e5\u9593",
+        "English": "Day "
+    },
+    "762": {
+        "Japanese": "\u5348\u5f8c",
+        "English": "Afternoon "
+    },
+    "763": {
+        "Japanese": "\u653f\u6cbb",
+        "English": "Politics "
+    },
+    "764": {
+        "Japanese": "\u6b63\u4f53",
+        "English": "True character "
+    },
+    "765": {
+        "Japanese": "\u78ba\u4fdd",
+        "English": "Securing "
+    },
+    "766": {
+        "Japanese": "\u6a5f\u80fd",
+        "English": "Function "
+    },
+    "767": {
+        "Japanese": "\u512a\u79c0",
+        "English": "Excellence "
+    },
+    "768": {
+        "Japanese": "\u52d5\u304b",
+        "English": "Move "
+    },
+    "769": {
+        "Japanese": "\u767a\u751f",
+        "English": "Occurrence "
+    },
+    "770": {
+        "Japanese": "\u82f1\u96c4",
+        "English": "Hero "
+    },
+    "771": {
+        "Japanese": "\u7acb\u5834",
+        "English": "Position "
+    },
+    "772": {
+        "Japanese": "\u96fb\u6c17",
+        "English": "Electricity "
+    },
+    "773": {
+        "Japanese": "\u5e3d\u5b50",
+        "English": "Hat "
+    },
+    "774": {
+        "Japanese": "\u52b9\u679c",
+        "English": "Effect "
+    },
+    "775": {
+        "Japanese": "\u30a2\u30f3\u30ca",
+        "English": "Anna "
+    },
+    "776": {
+        "Japanese": "\u6761\u4ef6",
+        "English": "Conditions "
+    },
+    "777": {
+        "Japanese": "\u78ba\u5b9f",
+        "English": "Sure "
+    },
+    "778": {
+        "Japanese": "\u9023\u90a6",
+        "English": "Federation "
+    },
+    "779": {
+        "Japanese": "\u898f\u5247",
+        "English": "Rule "
+    },
+    "780": {
+        "Japanese": "\u571f\u5730",
+        "English": "Land "
+    },
+    "781": {
+        "Japanese": "\u76f4\u3050",
+        "English": "Immediately "
+    },
+    "782": {
+        "Japanese": "\u5352\u696d",
+        "English": "Graduate "
+    },
+    "783": {
+        "Japanese": "\u624b\u304c\u304b\u308a",
+        "English": "Clue "
+    },
+    "784": {
+        "Japanese": "\u81ea\u5df1",
+        "English": "Self "
+    },
+    "785": {
+        "Japanese": "\u5217\u8eca",
+        "English": "Train "
+    },
+    "786": {
+        "Japanese": "\u52a0\u6e1b",
+        "English": "Duration "
+    },
+    "787": {
+        "Japanese": "\u66b4\u529b",
+        "English": "Violence "
+    },
+    "788": {
+        "Japanese": "\u7acb\u6d3e",
+        "English": "Fine "
+    },
+    "789": {
+        "Japanese": "\u77f3",
+        "English": "Stone "
+    },
+    "790": {
+        "Japanese": "\u540c\u69d8",
+        "English": "Same "
+    },
+    "791": {
+        "Japanese": "\u4e0d\u5b89",
+        "English": "Anxiety "
+    },
+    "792": {
+        "Japanese": "\u8eab\u4f53",
+        "English": "Body "
+    },
+    "793": {
+        "Japanese": "\u30e9\u30a4\u30a2\u30f3",
+        "English": "Ryan "
+    },
+    "794": {
+        "Japanese": "\u7121\u7dda",
+        "English": "Wireless "
+    },
+    "795": {
+        "Japanese": "\u5bfe\u51e6",
+        "English": "Copying "
+    },
+    "796": {
+        "Japanese": "\u6a29",
+        "English": "Right "
+    },
+    "797": {
+        "Japanese": "\u8d77\u52d5",
+        "English": "Start up "
+    },
+    "798": {
+        "Japanese": "\u8aa4\u89e3",
+        "English": "Misunderstanding "
+    },
+    "799": {
+        "Japanese": "\u6cbb",
+        "English": "Cure "
+    },
+    "800": {
+        "Japanese": "\u96c4\u57fa",
+        "English": "Male group "
+    },
+    "801": {
+        "Japanese": "\u63a5\u89e6",
+        "English": "Contact "
+    },
+    "802": {
+        "Japanese": "\u540d\u8a89",
+        "English": "Honor "
+    },
+    "803": {
+        "Japanese": "\u8aac\u5f97",
+        "English": "Persuasion "
+    },
+    "804": {
+        "Japanese": "\u7279\u5b9a",
+        "English": "Specific "
+    },
+    "805": {
+        "Japanese": "\u6a19\u7684",
+        "English": "Target "
+    },
+    "806": {
+        "Japanese": "\u6b63\u7fa9",
+        "English": "Justice "
+    },
+    "807": {
+        "Japanese": "\u898b\u5f35",
+        "English": "Sewage "
+    },
+    "808": {
+        "Japanese": "\u5c0e",
+        "English": "Guidance "
+    },
+    "809": {
+        "Japanese": "\u7121\u5b9f",
+        "English": "Innocent "
+    },
+    "810": {
+        "Japanese": "\u30a2\u30a4\u30c4",
+        "English": "Fast "
+    },
+    "811": {
+        "Japanese": "\u8208\u596e",
+        "English": "Excitement "
+    },
+    "812": {
+        "Japanese": "\u627f\u77e5",
+        "English": "Understanding "
+    },
+    "813": {
+        "Japanese": "\u7d0d\u5f97",
+        "English": "Consummation "
+    },
+    "814": {
+        "Japanese": "\u5149\u6804",
+        "English": "Honor "
+    },
+    "815": {
+        "Japanese": "\u672c\u90e8",
+        "English": "Headquarters "
+    },
+    "816": {
+        "Japanese": "\u5909\u66f4",
+        "English": "Change "
+    },
+    "817": {
+        "Japanese": "\u5927\u4f50",
+        "English": "Colonel "
+    },
+    "818": {
+        "Japanese": "\u7a7a\u6c17",
+        "English": "Air "
+    },
+    "819": {
+        "Japanese": "\u652f\u6255",
+        "English": "Payment "
+    },
+    "820": {
+        "Japanese": "\u3042\u3089\u3086\u308b",
+        "English": "Every "
+    },
+    "821": {
+        "Japanese": "\u8868",
+        "English": "Table "
+    },
+    "822": {
+        "Japanese": "\u7247\u4ed8\u3051",
+        "English": "Cleaning up "
+    },
+    "823": {
+        "Japanese": "\u30a2\u30c0\u30e0",
+        "English": "Adam "
+    },
+    "824": {
+        "Japanese": "\u5730\u56f3",
+        "English": "Map "
+    },
+    "825": {
+        "Japanese": "\u6cd5\u5f8b",
+        "English": "Law "
+    },
+    "826": {
+        "Japanese": "\u533b\u7642",
+        "English": "Medical care "
+    },
+    "827": {
+        "Japanese": "\u53f0\u7121\u3057",
+        "English": "Ruin "
+    },
+    "828": {
+        "Japanese": "\u975e",
+        "English": "Non- "
+    },
+    "829": {
+        "Japanese": "\u8cb4\u69d8",
+        "English": "You "
+    },
+    "830": {
+        "Japanese": "\u5f62",
+        "English": "Form "
+    },
+    "831": {
+        "Japanese": "\u8a55\u4fa1",
+        "English": "Evaluation "
+    },
+    "832": {
+        "Japanese": "\u90fd\u5e02",
+        "English": "City "
+    },
+    "833": {
+        "Japanese": "\u51fa\u8eab",
+        "English": "Origin "
+    },
+    "834": {
+        "Japanese": "\u91c8\u653e",
+        "English": "Release "
+    },
+    "835": {
+        "Japanese": "\u5927\u3057\u305f",
+        "English": "Great "
+    },
+    "836": {
+        "Japanese": "\u4fdd\u8a3c",
+        "English": "Warranty "
+    },
+    "837": {
+        "Japanese": "\u4e88\u60f3",
+        "English": "Expectation "
+    },
+    "838": {
+        "Japanese": "\u7701",
+        "English": "Province "
+    },
+    "839": {
+        "Japanese": "\u7591\u554f",
+        "English": "Doubt "
+    },
+    "840": {
+        "Japanese": "\u540c\u50da",
+        "English": "Colleague "
+    },
+    "841": {
+        "Japanese": "\u5909\u5316",
+        "English": "Change "
+    },
+    "842": {
+        "Japanese": "\u4ea4\u6e09",
+        "English": "Negotiation "
+    },
+    "843": {
+        "Japanese": "\u5408\u308f\u305b",
+        "English": "Combining "
+    },
+    "844": {
+        "Japanese": "\u751f\u547d",
+        "English": "Life "
+    },
+    "845": {
+        "Japanese": "\u6751",
+        "English": "Village "
+    },
+    "846": {
+        "Japanese": "\u4f5c\u696d",
+        "English": "Work "
+    },
+    "847": {
+        "Japanese": "\u5c06\u6765",
+        "English": "Future "
+    },
+    "848": {
+        "Japanese": "\u9762",
+        "English": "Surface "
+    },
+    "849": {
+        "Japanese": "\u60a0\u91cc\u5b50",
+        "English": "Ruto "
+    },
+    "850": {
+        "Japanese": "\u7a7a\u6e2f",
+        "English": "Airport "
+    },
+    "851": {
+        "Japanese": "\u6307\u8f2a",
+        "English": "Ring "
+    },
+    "852": {
+        "Japanese": "\u5de8\u5927",
+        "English": "Huge "
+    },
+    "853": {
+        "Japanese": "\u897f",
+        "English": "West "
+    },
+    "854": {
+        "Japanese": "\u624b\u914d",
+        "English": "Arrangement "
+    },
+    "855": {
+        "Japanese": "\u5de5\u5834",
+        "English": "Factory "
+    },
+    "856": {
+        "Japanese": "\u57ce",
+        "English": "Castle "
+    },
+    "857": {
+        "Japanese": "\u53d6\u308a",
+        "English": "Take "
+    },
+    "858": {
+        "Japanese": "\u8a71\u3057\u5408",
+        "English": "Talk "
+    },
+    "859": {
+        "Japanese": "\u6771",
+        "English": "East "
+    },
+    "860": {
+        "Japanese": "\u3042\u308b\u3044\u306f",
+        "English": "Or "
+    },
+    "861": {
+        "Japanese": "\u76ee\u899a\u3081",
+        "English": "Wake up "
+    },
+    "862": {
+        "Japanese": "\u91d1\u5eab",
+        "English": "Safe "
+    },
+    "863": {
+        "Japanese": "\u9593\u9055\u3048",
+        "English": "Mistake "
+    },
+    "864": {
+        "Japanese": "\u99ac\u5834",
+        "English": "Baba "
+    },
+    "865": {
+        "Japanese": "\u5185\u90e8",
+        "English": "Internal "
+    },
+    "866": {
+        "Japanese": "\u8266\u968a",
+        "English": "Fleet "
+    },
+    "867": {
+        "Japanese": "\u98df\u6599",
+        "English": "Food "
+    },
+    "868": {
+        "Japanese": "\u3042\u308a",
+        "English": "There "
+    },
+    "869": {
+        "Japanese": "\u4fdd\u967a",
+        "English": "Insurance "
+    },
+    "870": {
+        "Japanese": "\u5f97\u610f",
+        "English": "Goodness "
+    },
+    "871": {
+        "Japanese": "\u533b\u5e2b",
+        "English": "Doctor "
+    },
+    "872": {
+        "Japanese": "\u82f1\u8a9e",
+        "English": "English language "
+    },
+    "873": {
+        "Japanese": "\u96e2\u5a5a",
+        "English": "Divorce "
+    },
+    "874": {
+        "Japanese": "\u5b50\u3069\u3082",
+        "English": "Child "
+    },
+    "875": {
+        "Japanese": "\u9055\u53cd",
+        "English": "Violation "
+    },
+    "876": {
+        "Japanese": "\u516c",
+        "English": "Public "
+    },
+    "877": {
+        "Japanese": "\u7dad\u6301",
+        "English": "Maintenance "
+    },
+    "878": {
+        "Japanese": "\u7537\u306e\u5b50",
+        "English": "Boy "
+    },
+    "879": {
+        "Japanese": "\u653f\u5b50",
+        "English": "Politics "
+    },
+    "880": {
+        "Japanese": "\u5473",
+        "English": "Taste "
+    },
+    "881": {
+        "Japanese": "\u53e3\u5ea7",
+        "English": "Account "
+    },
+    "882": {
+        "Japanese": "\u5927\u52e2",
+        "English": "Large number "
+    },
+    "883": {
+        "Japanese": "\u9244",
+        "English": "Iron "
+    },
+    "884": {
+        "Japanese": "\u89aa\u5207",
+        "English": "Kind "
+    },
+    "885": {
+        "Japanese": "\u4ed5\u696d",
+        "English": "Work "
+    },
+    "886": {
+        "Japanese": "\u8d08\u308a\u7269",
+        "English": "Gift "
+    },
+    "887": {
+        "Japanese": "\u5f85\u6a5f",
+        "English": "Waiting "
+    },
+    "888": {
+        "Japanese": "\u6226\u58eb",
+        "English": "Warrior "
+    },
+    "889": {
+        "Japanese": "\u77e5\u3089\u305b",
+        "English": "Announcement "
+    },
+    "890": {
+        "Japanese": "\u5c0b\u554f",
+        "English": "Interrogation "
+    },
+    "891": {
+        "Japanese": "\u767a\u5c04",
+        "English": "Firing "
+    },
+    "892": {
+        "Japanese": "\u98df\u3079\u7269",
+        "English": "Food "
+    },
+    "893": {
+        "Japanese": "\u7cfb",
+        "English": "System "
+    },
+    "894": {
+        "Japanese": "\u99c5",
+        "English": "Station "
+    },
+    "895": {
+        "Japanese": "\u958b\u767a",
+        "English": "Development of "
+    },
+    "896": {
+        "Japanese": "\u4e8b\u60c5",
+        "English": "Circumstance "
+    },
+    "897": {
+        "Japanese": "\u80b2\u3066",
+        "English": "Raising "
+    },
+    "898": {
+        "Japanese": "\u4e0a\u53f8",
+        "English": "Boss "
+    },
+    "899": {
+        "Japanese": "\u56fd\u5bb6",
+        "English": "State "
+    },
+    "900": {
+        "Japanese": "\u5927\u4f7f",
+        "English": "Ambassador "
+    },
+    "901": {
+        "Japanese": "\u6a5f\u95a2",
+        "English": "Organ "
+    },
+    "902": {
+        "Japanese": "\u751f\u7269",
+        "English": "Organism "
+    },
+    "903": {
+        "Japanese": "\u8d85\u3048",
+        "English": "Exceeding "
+    },
+    "904": {
+        "Japanese": "\u5929\u624d",
+        "English": "Genius "
+    },
+    "905": {
+        "Japanese": "\u91cf",
+        "English": "Amount "
+    },
+    "906": {
+        "Japanese": "\u6a2a",
+        "English": "Side "
+    },
+    "907": {
+        "Japanese": "\u89b3",
+        "English": "View "
+    },
+    "908": {
+        "Japanese": "\u5165\u308a",
+        "English": "Enter "
+    },
+    "909": {
+        "Japanese": "\u6b63\u6c17",
+        "English": "Sanity "
+    },
+    "910": {
+        "Japanese": "\u4eba\u8cea",
+        "English": "Hostage "
+    },
+    "911": {
+        "Japanese": "\u6709\u7f6a",
+        "English": "Guilty "
+    },
+    "912": {
+        "Japanese": "\u7d04",
+        "English": "About "
+    },
+    "913": {
+        "Japanese": "\u4e2d\u6b62",
+        "English": "Abort "
+    },
+    "914": {
+        "Japanese": "\u767a\u8868",
+        "English": "Announcement "
+    },
+    "915": {
+        "Japanese": "\u73fe\u91d1",
+        "English": "Cash "
+    },
+    "916": {
+        "Japanese": "\u59cb\u672b",
+        "English": "Beginning "
+    },
+    "917": {
+        "Japanese": "\u64ae\u5f71",
+        "English": "Photograph "
+    },
+    "918": {
+        "Japanese": "\u885b\u661f",
+        "English": "Satellite "
+    },
+    "919": {
+        "Japanese": "\u90fd\u5408",
+        "English": "Convenience "
+    },
+    "920": {
+        "Japanese": "\u95a2\u9023",
+        "English": "Relation "
+    },
+    "921": {
+        "Japanese": "\u9593\u306b\u5408",
+        "English": "Inhabitment "
+    },
+    "922": {
+        "Japanese": "\u5c0f\u5c4b",
+        "English": "Hut "
+    },
+    "923": {
+        "Japanese": "\u516c\u5712",
+        "English": "Park "
+    },
+    "924": {
+        "Japanese": "\u5358\u7d14",
+        "English": "Simple "
+    },
+    "925": {
+        "Japanese": "\u738b\u56fd",
+        "English": "Kingdom "
+    },
+    "926": {
+        "Japanese": "\u5b58\u77e5",
+        "English": "Knowledge "
+    },
+    "927": {
+        "Japanese": "\u52a0\u3048",
+        "English": "Addition "
+    },
+    "928": {
+        "Japanese": "\u9053\u8def",
+        "English": "Road "
+    },
+    "929": {
+        "Japanese": "\u80b2",
+        "English": "Raising "
+    },
+    "930": {
+        "Japanese": "\u795e\u7236",
+        "English": "Father "
+    },
+    "931": {
+        "Japanese": "\u614e\u91cd",
+        "English": "Careful "
+    },
+    "932": {
+        "Japanese": "\u751f\u5b58",
+        "English": "Surviving "
+    },
+    "933": {
+        "Japanese": "\u6ce8\u6587",
+        "English": "Order "
+    },
+    "934": {
+        "Japanese": "\u7269\u8cea",
+        "English": "Material "
+    },
+    "935": {
+        "Japanese": "\u95a2\u5fc3",
+        "English": "Interest "
+    },
+    "936": {
+        "Japanese": "\u6642\u671f",
+        "English": "Season "
+    },
+    "937": {
+        "Japanese": "\u99d0\u8eca",
+        "English": "Parking "
+    },
+    "938": {
+        "Japanese": "\u4e57\u308c",
+        "English": "Ride "
+    },
+    "939": {
+        "Japanese": "\u907a\u4f1d",
+        "English": "Genetic "
+    },
+    "940": {
+        "Japanese": "\u8fd4\u4e8b",
+        "English": "Reply "
+    },
+    "941": {
+        "Japanese": "\u30a8\u30a4\u30ea\u30a2\u30f3",
+        "English": "Alien "
+    },
+    "942": {
+        "Japanese": "\u5316\u5b66",
+        "English": "Chemistry "
+    },
+    "943": {
+        "Japanese": "\u6570\u3048",
+        "English": "Numerous "
+    },
+    "944": {
+        "Japanese": "\u7dca\u5f35",
+        "English": "Tension "
+    },
+    "945": {
+        "Japanese": "\u512a\u5148",
+        "English": "Priority "
+    },
+    "946": {
+        "Japanese": "\u7c73\u56fd",
+        "English": "Usa "
+    },
+    "947": {
+        "Japanese": "\u5f53\u3066",
+        "English": "Against "
+    },
+    "948": {
+        "Japanese": "\u51fa\u6765\u4e8b",
+        "English": "Event "
+    },
+    "949": {
+        "Japanese": "\u8a2d\u8a08",
+        "English": "Design "
+    },
+    "950": {
+        "Japanese": "\u5927\u91cf",
+        "English": "Large quantity "
+    },
+    "951": {
+        "Japanese": "\u6295\u3052",
+        "English": "Throw "
+    },
+    "952": {
+        "Japanese": "\u5185\u5bb9",
+        "English": "Content "
+    },
+    "953": {
+        "Japanese": "\u6a5f\u5bc6",
+        "English": "Confidentiality "
+    },
+    "954": {
+        "Japanese": "\u6388\u696d",
+        "English": "Class "
+    },
+    "955": {
+        "Japanese": "\u7fa9\u52d9",
+        "English": "Duty "
+    },
+    "956": {
+        "Japanese": "\u7a81\u304d\u6b62\u3081",
+        "English": "Retreat "
+    },
+    "957": {
+        "Japanese": "\u5e83",
+        "English": "Broad "
+    },
+    "958": {
+        "Japanese": "\u901a\u5831",
+        "English": "Report "
+    },
+    "959": {
+        "Japanese": "\u6587\u5b57",
+        "English": "Letter "
+    },
+    "960": {
+        "Japanese": "\u30a2\u30c3\u30d7",
+        "English": "Up "
+    },
+    "961": {
+        "Japanese": "\u5b66\u751f",
+        "English": "Student "
+    },
+    "962": {
+        "Japanese": "\u30aa\u30ea\u30d3\u30a2",
+        "English": "Olivia "
+    },
+    "963": {
+        "Japanese": "\u6697\u6bba",
+        "English": "Assassination "
+    },
+    "964": {
+        "Japanese": "\u6ce8\u76ee",
+        "English": "Attention "
+    },
+    "965": {
+        "Japanese": "\u6697\u53f7",
+        "English": "Cipher "
+    },
+    "966": {
+        "Japanese": "\u80cc\u4e2d",
+        "English": "Back "
+    },
+    "967": {
+        "Japanese": "\u56da\u4eba",
+        "English": "Prisoner "
+    },
+    "968": {
+        "Japanese": "\u5b8c\u6210",
+        "English": "Complete "
+    },
+    "969": {
+        "Japanese": "\u4f11\u307f",
+        "English": "Rest "
+    },
+    "970": {
+        "Japanese": "\u5b64\u72ec",
+        "English": "Loneliness "
+    },
+    "971": {
+        "Japanese": "\u30a2\u30a4\u30c7\u30a2",
+        "English": "Idea "
+    },
+    "972": {
+        "Japanese": "\u6b66\u88c5",
+        "English": "Armed "
+    },
+    "973": {
+        "Japanese": "\u679c\u305f",
+        "English": "Fruit "
+    },
+    "974": {
+        "Japanese": "\u5730\u57df",
+        "English": "Area "
+    },
+    "975": {
+        "Japanese": "\u59cb\u307e\u308a",
+        "English": "Beginning "
+    },
+    "976": {
+        "Japanese": "\u898b\u4e8b",
+        "English": "Vision "
+    },
+    "977": {
+        "Japanese": "\u9632\u885b",
+        "English": "Defense "
+    },
+    "978": {
+        "Japanese": "\u4eba\u5f62",
+        "English": "Doll "
+    },
+    "979": {
+        "Japanese": "\u30ab\u30ea\u30d5\u30a9\u30eb\u30cb\u30a2",
+        "English": "California "
+    },
+    "980": {
+        "Japanese": "\u7740\u9678",
+        "English": "Landing "
+    },
+    "981": {
+        "Japanese": "\u6587\u53e5",
+        "English": "Complaint "
+    },
+    "982": {
+        "Japanese": "\u59d4\u54e1",
+        "English": "Committee "
+    },
+    "983": {
+        "Japanese": "\u5730\u5143",
+        "English": "Local "
+    },
+    "984": {
+        "Japanese": "\u81ea\u4fe1",
+        "English": "Confidence "
+    },
+    "985": {
+        "Japanese": "\u8cb4\u5973",
+        "English": "You "
+    },
+    "986": {
+        "Japanese": "\u77e5\u8b58",
+        "English": "Knowledge "
+    },
+    "987": {
+        "Japanese": "\u4e88\u7d04",
+        "English": "Reservation "
+    },
+    "988": {
+        "Japanese": "\u30e1\u30a2\u30ea\u30fc",
+        "English": "Mary "
+    },
+    "989": {
+        "Japanese": "\u6905\u5b50",
+        "English": "Chair "
+    }
+}
