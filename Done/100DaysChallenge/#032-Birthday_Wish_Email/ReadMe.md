@@ -3,7 +3,7 @@
 Sends automaticaly emails with best wishes to people on their birthdate.
 
 ## Level:
-    Intermediate
+    Intermediate+
 
 ## Built with
 * Python
