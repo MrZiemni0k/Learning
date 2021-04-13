@@ -9,7 +9,7 @@ After 10 questions being answered program will be locked.
 App stores score of an user.
 
 ## Level:
-    Intermediate
+    Intermediate+
 
 ## Built with
 * Python
