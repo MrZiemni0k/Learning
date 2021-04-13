@@ -3,7 +3,7 @@
 Sends email notifying about ISS being visible at user location within evening or night hours.
 
 ## Level:
-    Intermediate
+    Intermediate+
 
 ## Built with
 * Python
