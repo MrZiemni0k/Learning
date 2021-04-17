@@ -25,4 +25,4 @@ SMS message.
 
 ### Visualisation
 
-![](Weather.gif)
+![](weather.gif)
