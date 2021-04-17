@@ -11,8 +11,6 @@ C_SPACE = 25
 
 # ----------------------------- 💡💻 GET DATA 💻💡 -----------------------------
 # SQL most often repetitive keys in my DB.
-with open('./keys.json', encoding='utf8') as file:
-    json_data = json.load(file)
 try:
     with open('./keys.json', encoding='utf8') as file:
         JSON_DATA = json.load(file)
@@ -169,8 +167,8 @@ def make_keys(db_dict: dict) -> str:
         replaced_text = 0  # Placeholder for string template
 
         # To reduce typing I provided some string templates for often used keys
-        if key["name"] in list(json_data.keys()) and not key["primary"]:
-            replaced_text = json_data[key['name']].replace(
+        if key["name"] in list(JSON_DATA.keys()) and not key["primary"]:
+            replaced_text = JSON_DATA[key['name']].replace(
                     '[TABELA]', table_name)
             split_text = replaced_text.splitlines()
             check_length = len(split_text[2])
@@ -186,7 +184,7 @@ def make_keys(db_dict: dict) -> str:
 
         if key['primary']:
             output += f'note:\n\'🔑 - Identyfikator\n\']\n'
-        elif key['name'] in list(json_data.keys()):
+        elif key['name'] in list(JSON_DATA.keys()):
             output += 'note:\n\'' + replaced_text + '\n\']\n'
         else:
             output += f'note:\n\'⚿ - Identyfikator\n\n 1️⃣ ---> ♾️ '
