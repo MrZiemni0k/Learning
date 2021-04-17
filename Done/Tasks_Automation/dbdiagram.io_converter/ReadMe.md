@@ -1,30 +1,26 @@
-# Stock News Alert SMS
+# dbdiagram.io Converter
 
-Sends sms messeges with 3 newest news articles to an user if intraday 
-exchange of stock of his choice was down or up for more than 5%.
+Converts SQL-Server's script Create Table to dbdiagram.io styled code.
 
 ## Details:
 
-Using AlphaAdvantage API checks % change of stock price. 
-Using NewsApi module gets 3 news articles about the stock.
-If intraday change % was more than 5% then user will get news articles via 
-sms message using Twilio Client. 
-
-## Level:
-    Intermediate+
+Database I have to get to known is huge so I am trying to document it 
+for future needs. dbdiagram.io platform is visually appealing but it misses 
+some crucial points like expand table or sort by keys etc. If a table has 
+over 100 columns it's unreadable so I decided to sort it somehow. 
+Because I am lazy I made a script that will make basic layout so I don't 
+have to retype it or use basic dbdiagram.io converter. On this layout I can 
+futher process the documentation. 
 
 ## Built with
 * Python
     - Module
-        - [requests](https://pypi.org/project/requests/)
-        - [os](https://docs.python.org/3/library/os.html)
-        - [dotenv](https://pypi.org/project/python-dotenv/)
-        - [twilio.rest](https://www.twilio.com/docs/usage/api)
-        - [newsapi](https://newsapi.org/docs/client-libraries/python)
-* API
-    - [Twilio](https://www.twilio.com/docs/api)
-    - [NewsApi](https://newsapi.org/docs/)
+        - [tkinter](https://docs.python.org/3/library/tkinter.html)
+        - [pyperclip](https://pypi.org/project/pyperclip/)
+        - [json](https://docs.python.org/3/library/json.html)
+* SQL-Server
+* JSON
 
 ### Visualisation
 
-![](Stock.gif)
+![](visualisation.gif)
